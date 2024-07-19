@@ -6,10 +6,22 @@ namespace Runtime.Managers
     public class InputManager : SingletonMonoBehaviour<InputManager>
     {
         private Vector2 _movementInput;
+        private float _mouseScrollInput;
 
         private void Update()
         {
             SetVector2Input();
+            SetMouseScrollInput();
+        }
+
+        private void SetMouseScrollInput()
+        {
+            Input.GetAxis("Mouse ScrollWheel");
+        }
+        
+        public float GetMouseScrollInput()
+        {
+            return _mouseScrollInput;
         }
 
         private void SetVector2Input()
@@ -22,5 +34,6 @@ namespace Runtime.Managers
         {
             return _movementInput;
         }
+        
     }
 }

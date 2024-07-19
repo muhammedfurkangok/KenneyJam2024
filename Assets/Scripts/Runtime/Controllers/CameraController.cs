@@ -27,7 +27,7 @@ namespace Runtime.Controllers
 
         private void SetCameraZoom()
         {
-            float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+            float scrollInput = InputManager.Instance.GetMouseScrollInput();
             if (scrollInput != 0.0f)
             {
                 _freeLookCamera.m_Lens.FieldOfView -= scrollInput * zoomSpeed;
