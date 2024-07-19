@@ -16,7 +16,7 @@ namespace Runtime.Managers
 
         private void SetMouseScrollInput()
         {
-            Input.GetAxis("Mouse ScrollWheel");
+            _mouseScrollInput = Input.GetAxis("Mouse ScrollWheel");
         }
         
         public float GetMouseScrollInput()
