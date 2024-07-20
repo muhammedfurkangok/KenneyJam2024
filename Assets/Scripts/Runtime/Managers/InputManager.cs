@@ -12,13 +12,14 @@ namespace Runtime.Managers
         {
             SetVector2Input();
             SetMouseScrollInput();
+            HandleObjectInput();
         }
 
         private void SetMouseScrollInput()
         {
             _mouseScrollInput = Input.GetAxis("Mouse ScrollWheel");
         }
-        
+
         public float GetMouseScrollInput()
         {
             return _mouseScrollInput;
@@ -34,6 +35,13 @@ namespace Runtime.Managers
         {
             return _movementInput;
         }
-        
+
+        private void HandleObjectInput()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) && UIManager.Instance.IsUIActive())
+            {
+                UIManager.Instance.HideUI();
+            }
+        }
     }
 }
