@@ -10,10 +10,11 @@ namespace Runtime.Controllers
         [SerializeField] private CinemachineFreeLook freeLookCamera;
 
         [Header("Parameters")]
-        [SerializeField] private float moveSpeed = 10f;
-        [SerializeField] private float zoomSpeed = 10f;
-        [SerializeField] private float minZoom = 10f;
-        [SerializeField] private float maxZoom = 60f;
+        [SerializeField] private float moveSpeed;
+        [SerializeField] private float rotationSpeed;
+        [SerializeField] private float zoomSpeed;
+        [SerializeField] private float minZoom;
+        [SerializeField] private float maxZoom;
 
         private void Update()
         {
@@ -23,7 +24,7 @@ namespace Runtime.Controllers
 
         private void SetCameraMovement()
         {
-            var movementInput = InputManager.Instance.GetMovementInput();
+            var movementInput = InputManager.Instance.GetCameraMovementInput();
             var direction = new Vector3(movementInput.x, 0, movementInput.y) * (moveSpeed * Time.deltaTime);
             freeLookCamera.transform.position += direction;
         }

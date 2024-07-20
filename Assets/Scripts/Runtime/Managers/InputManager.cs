@@ -5,15 +5,16 @@ namespace Runtime.Managers
 {
     public class InputManager : SingletonMonoBehaviour<InputManager>
     {
-        private Vector2 movementInput;
-        private float mouseScrollInput;
+        [Header("Info - No Touch")]
+        [SerializeField] private Vector2 cameraMovementInput;
+        [SerializeField] private float mouseScrollInput;
 
+        public Vector2 GetCameraMovementInput() => cameraMovementInput;
         public float GetMouseScrollInput() => mouseScrollInput;
-        public Vector2 GetMovementInput() => movementInput;
 
         private void Update()
         {
-            SetVector2Input();
+            SetCameraMovementInput();
             SetMouseScrollInput();
         }
 
@@ -22,10 +23,10 @@ namespace Runtime.Managers
             mouseScrollInput = Input.GetAxis("Mouse ScrollWheel");
         }
 
-        private void SetVector2Input()
+        private void SetCameraMovementInput()
         {
-            movementInput.x = Input.GetAxis("Horizontal");
-            movementInput.y = Input.GetAxis("Vertical");
+            cameraMovementInput.x = Input.GetAxis("Horizontal");
+            cameraMovementInput.y = Input.GetAxis("Vertical");
         }
     }
 }
