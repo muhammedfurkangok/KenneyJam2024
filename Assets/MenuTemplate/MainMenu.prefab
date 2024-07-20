@@ -1038,6 +1038,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VideoButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5498273826100860104, guid: bc470d7c27001d44aa4a1fb2fbc8df3f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5633170993894318301, guid: bc470d7c27001d44aa4a1fb2fbc8df3f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1603,7 +1608,7 @@ PrefabInstance:
     - target: {fileID: 5633170993894318301, guid: bc470d7c27001d44aa4a1fb2fbc8df3f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 5633170993894318301, guid: bc470d7c27001d44aa4a1fb2fbc8df3f,
         type: 3}
@@ -3374,7 +3379,7 @@ PrefabInstance:
     - target: {fileID: 5633170993894318301, guid: bc470d7c27001d44aa4a1fb2fbc8df3f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5633170993894318301, guid: bc470d7c27001d44aa4a1fb2fbc8df3f,
         type: 3}
@@ -4144,7 +4149,7 @@ PrefabInstance:
     - target: {fileID: 5633170993894318301, guid: bc470d7c27001d44aa4a1fb2fbc8df3f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5633170993894318301, guid: bc470d7c27001d44aa4a1fb2fbc8df3f,
         type: 3}
