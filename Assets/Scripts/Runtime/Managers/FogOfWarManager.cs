@@ -2,62 +2,73 @@ using UnityEngine;
 
 public class FogOfWarManager : MonoBehaviour
 {
-    public Texture2D fogTexture;
-    public float revealRadius = 5.0f;
-    public LayerMask fogLayer;
+    public int textureSize = 256;
+    public float worldSize = 50.0f;
+    public Color fogColor = Color.black;
+    public Color revealColor = Color.white;
 
+    private Texture2D fogTexture;
     private Color[] fogColors;
-    private int textureWidth;
-    private int textureHeight;
-    private Vector3 mapSize;
+    private MeshRenderer fogRenderer;
 
-    void Start()
+    private void Start()
     {
-        InitializeFog();
+        fogRenderer = GetComponent<MeshRenderer>();
+        InitializeFogTexture();
     }
 
-    void InitializeFog()
+    private void InitializeFogTexture()
     {
-        textureWidth = fogTexture.width;
-        textureHeight = fogTexture.height;
-        fogColors = new Color[textureWidth * textureHeight];
-
+        fogTexture = new Texture2D(textureSize, textureSize);
+        fogColors = new Color[textureSize * textureSize];
         for (int i = 0; i < fogColors.Length; i++)
         {
-            fogColors[i] = Color.black; 
+            fogColors[i] = fogColor;
         }
-
         fogTexture.SetPixels(fogColors);
         fogTexture.Apply();
+        fogRenderer.material.mainTexture = fogTexture;
     }
 
     public void RevealArea(Vector3 position, float range)
     {
-        Vector3 relativePos = position - transform.position;
-        int centerX = Mathf.FloorToInt(relativePos.x / mapSize.x * textureWidth);
-        int centerY = Mathf.FloorToInt(relativePos.z / mapSize.z * textureHeight);
-        int revealRadius = Mathf.FloorToInt(range / mapSize.x * textureWidth);
+        Vector2 textureCoord = WorldToTextureCoord(position);
+        int revealRange = Mathf.FloorToInt(range / worldSize * textureSize);
 
-        for (int x = -revealRadius; x <= revealRadius; x++)
+        for (int x = -revealRange; x <= revealRange; x++)
         {
-            for (int y = -revealRadius; y <= revealRadius; y++)
+            for (int y = -revealRange; y <= revealRange; y++)
             {
-                int px = centerX + x;
-                int py = centerY + y;
+                int texX = Mathf.FloorToInt(textureCoord.x) + x;
+                int texY = Mathf.FloorToInt(textureCoord.y) + y;
 
-                if (px >= 0 && px < textureWidth && py >= 0 && py < textureHeight)
+                if (texX >= 0 && texX < textureSize && texY >= 0 && texY < textureSize)
                 {
-                    float distance = Mathf.Sqrt(x * x + y * y);
-                    if (distance <= revealRadius)
+                    float distance = Vector2.Distance(textureCoord, new Vector2(texX, texY));
+                    if (distance <= revealRange)
                     {
-                        int index = px + py * textureWidth;
-                        fogColors[index] = Color.clear;
+                        fogColors[texY * textureSize + texX] = revealColor; // Sisli alanı aç
                     }
                 }
             }
         }
-
         fogTexture.SetPixels(fogColors);
         fogTexture.Apply();
+
+        // Mesh'in görünürlük durumunu kontrol et
+        if (fogRenderer != null)
+        {
+            // Mesh'in görünürlük durumunu değiştirme
+            fogRenderer.enabled = true;
+        }
+    }
+
+    private Vector2 WorldToTextureCoord(Vector3 worldPos)
+    {
+        float relativeX = (worldPos.x / worldSize) + 0.5f;
+        float relativeZ = (worldPos.z / worldSize) + 0.5f;
+        int texX = Mathf.FloorToInt(relativeX * textureSize);
+        int texY = Mathf.FloorToInt(relativeZ * textureSize);
+        return new Vector2(texX, texY);
     }
 }
