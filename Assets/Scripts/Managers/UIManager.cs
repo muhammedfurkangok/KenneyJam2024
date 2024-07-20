@@ -1,10 +1,10 @@
-using UnityEngine;
 using DG.Tweening;
 using Runtime.Extensions;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace Runtime.Managers
+namespace Managers
 {
     public class UIManager : SingletonMonoBehaviour<UIManager>
     {
@@ -87,26 +87,26 @@ namespace Runtime.Managers
 
         private void PauseGame()
         {
-            TimerManager.Instance.PauseGame();
+            TimeManager.Instance.PauseGame();
             pauseResumeButtonText.text = "Resume";
         }
 
         private void ResumeGame()
         {
-            TimerManager.Instance.ResumeGame();
+            TimeManager.Instance.ResumeGame();
             pauseResumeButtonText.text = "Pause";
         }
 
         private void IncreaseTimeScale()
         {
-            TimerManager.Instance.IncreaseTimeScale();
-            if (TimerManager.Instance.GetIsPaused()) ResumeGame();
+            TimeManager.Instance.IncreaseTimeScale();
+            if (TimeManager.Instance.GetIsPaused()) ResumeGame();
         }
 
         private void DecreaseTimeScale()
         {
-            TimerManager.Instance.DecreaseTimeScale();
-            if (TimerManager.Instance.GetIsPaused()) ResumeGame();
+            TimeManager.Instance.DecreaseTimeScale();
+            if (TimeManager.Instance.GetIsPaused()) ResumeGame();
         }
     }
 }

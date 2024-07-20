@@ -1,7 +1,7 @@
 using Runtime.Extensions;
 using UnityEngine;
 
-namespace Runtime.Managers
+namespace Managers
 {
     public class InputManager : SingletonMonoBehaviour<InputManager>
     {

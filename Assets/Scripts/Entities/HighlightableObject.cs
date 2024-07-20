@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
+using Managers;
 using Runtime.Data;
-using Runtime.Managers;
 
 namespace Runtime.Entities
 {

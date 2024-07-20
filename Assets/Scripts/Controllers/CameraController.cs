@@ -1,6 +1,6 @@
 using Cinemachine;
+using Managers;
 using UnityEngine;
-using Runtime.Managers;
 
 namespace Runtime.Controllers
 {

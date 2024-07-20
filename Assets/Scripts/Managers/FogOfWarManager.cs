@@ -1,74 +1,77 @@
 using UnityEngine;
 
-public class FogOfWarManager : MonoBehaviour
+namespace Managers
 {
-    public int textureSize = 256;
-    public float worldSize = 50.0f;
-    public Color fogColor = Color.black;
-    public Color revealColor = Color.white;
-
-    private Texture2D fogTexture;
-    private Color[] fogColors;
-    private MeshRenderer fogRenderer;
-
-    private void Start()
+    public class FogOfWarManager : MonoBehaviour
     {
-        fogRenderer = GetComponent<MeshRenderer>();
-        InitializeFogTexture();
-    }
+        public int textureSize = 256;
+        public float worldSize = 50.0f;
+        public Color fogColor = Color.black;
+        public Color revealColor = Color.white;
 
-    private void InitializeFogTexture()
-    {
-        fogTexture = new Texture2D(textureSize, textureSize);
-        fogColors = new Color[textureSize * textureSize];
-        for (int i = 0; i < fogColors.Length; i++)
+        private Texture2D fogTexture;
+        private Color[] fogColors;
+        private MeshRenderer fogRenderer;
+
+        private void Start()
         {
-            fogColors[i] = fogColor;
+            fogRenderer = GetComponent<MeshRenderer>();
+            InitializeFogTexture();
         }
-        fogTexture.SetPixels(fogColors);
-        fogTexture.Apply();
-        fogRenderer.material.mainTexture = fogTexture;
-    }
 
-    public void RevealArea(Vector3 position, float range)
-    {
-        Vector2 textureCoord = WorldToTextureCoord(position);
-        int revealRange = Mathf.FloorToInt(range / worldSize * textureSize);
-
-        for (int x = -revealRange; x <= revealRange; x++)
+        private void InitializeFogTexture()
         {
-            for (int y = -revealRange; y <= revealRange; y++)
+            fogTexture = new Texture2D(textureSize, textureSize);
+            fogColors = new Color[textureSize * textureSize];
+            for (int i = 0; i < fogColors.Length; i++)
             {
-                int texX = Mathf.FloorToInt(textureCoord.x) + x;
-                int texY = Mathf.FloorToInt(textureCoord.y) + y;
+                fogColors[i] = fogColor;
+            }
+            fogTexture.SetPixels(fogColors);
+            fogTexture.Apply();
+            fogRenderer.material.mainTexture = fogTexture;
+        }
 
-                if (texX >= 0 && texX < textureSize && texY >= 0 && texY < textureSize)
+        public void RevealArea(Vector3 position, float range)
+        {
+            Vector2 textureCoord = WorldToTextureCoord(position);
+            int revealRange = Mathf.FloorToInt(range / worldSize * textureSize);
+
+            for (int x = -revealRange; x <= revealRange; x++)
+            {
+                for (int y = -revealRange; y <= revealRange; y++)
                 {
-                    float distance = Vector2.Distance(textureCoord, new Vector2(texX, texY));
-                    if (distance <= revealRange)
+                    int texX = Mathf.FloorToInt(textureCoord.x) + x;
+                    int texY = Mathf.FloorToInt(textureCoord.y) + y;
+
+                    if (texX >= 0 && texX < textureSize && texY >= 0 && texY < textureSize)
                     {
-                        fogColors[texY * textureSize + texX] = revealColor; // Sisli alanı aç
+                        float distance = Vector2.Distance(textureCoord, new Vector2(texX, texY));
+                        if (distance <= revealRange)
+                        {
+                            fogColors[texY * textureSize + texX] = revealColor; // Sisli alanı aç
+                        }
                     }
                 }
             }
-        }
-        fogTexture.SetPixels(fogColors);
-        fogTexture.Apply();
+            fogTexture.SetPixels(fogColors);
+            fogTexture.Apply();
 
-        // Mesh'in görünürlük durumunu kontrol et
-        if (fogRenderer != null)
+            // Mesh'in görünürlük durumunu kontrol et
+            if (fogRenderer != null)
+            {
+                // Mesh'in görünürlük durumunu değiştirme
+                fogRenderer.enabled = true;
+            }
+        }
+
+        private Vector2 WorldToTextureCoord(Vector3 worldPos)
         {
-            // Mesh'in görünürlük durumunu değiştirme
-            fogRenderer.enabled = true;
+            float relativeX = (worldPos.x / worldSize) + 0.5f;
+            float relativeZ = (worldPos.z / worldSize) + 0.5f;
+            int texX = Mathf.FloorToInt(relativeX * textureSize);
+            int texY = Mathf.FloorToInt(relativeZ * textureSize);
+            return new Vector2(texX, texY);
         }
-    }
-
-    private Vector2 WorldToTextureCoord(Vector3 worldPos)
-    {
-        float relativeX = (worldPos.x / worldSize) + 0.5f;
-        float relativeZ = (worldPos.z / worldSize) + 0.5f;
-        int texX = Mathf.FloorToInt(relativeX * textureSize);
-        int texY = Mathf.FloorToInt(relativeZ * textureSize);
-        return new Vector2(texX, texY);
     }
 }
