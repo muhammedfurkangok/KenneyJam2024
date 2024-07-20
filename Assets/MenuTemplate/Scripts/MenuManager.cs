@@ -83,7 +83,7 @@ namespace MenuTemplate.Scripts
             musicVolumeAmountText.text = ((int)musicVolumeSlider.value).ToString();
             sfxVolumeSlider.value = PlayerPrefs.GetInt(SFXVolume, 100);
             sfxVolumeAmountText.text = ((int)sfxVolumeSlider.value).ToString();
-            sensitivitySlider.value = PlayerPrefs.GetInt(Sensitivity, 100);
+            sensitivitySlider.value = PlayerPrefs.GetInt(Sensitivity, 50);
             sensitivityAmountText.text = ((int)sensitivitySlider.value).ToString();
 
             //Set initial audio mixer values
