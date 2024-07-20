@@ -15,6 +15,8 @@ namespace Managers
         public float GetCameraHorizontalRotateInput() => cameraHorizontalRotateInput;
         public float GetCameraVerticalRotateInput() => cameraVerticalRotateInput;
         public float GetMouseScrollInput() => mouseScrollInput;
+        
+        public Vector3 GetMousePosition() => Input.mousePosition;
 
         private void Update()
         {
