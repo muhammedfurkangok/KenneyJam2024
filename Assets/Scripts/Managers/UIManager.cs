@@ -13,11 +13,12 @@ namespace Managers
         [SerializeField] private Button objectCloseButton; 
         [SerializeField] private float scaleDuration = 0.3f;
 
-        [Header("Timer UI Settings")]
+        [Header("Time UI Settings")]
         [SerializeField] private Button pauseResumeButton;
-        [SerializeField] private TextMeshProUGUI pauseResumeButtonText;
         [SerializeField] private Button increaseSpeedButton;
         [SerializeField] private Button decreaseSpeedButton;
+        [SerializeField] private TextMeshProUGUI pauseResumeButtonText;
+        [SerializeField] private TextMeshProUGUI currentTimeScaleText;
 
         private bool isUIActive;
 
@@ -25,31 +26,12 @@ namespace Managers
         {
             base.Awake();
 
-            if (objectUIPanel != null)
-            {
-                objectUIPanel.transform.localScale = Vector3.zero;
-                objectUIPanel.SetActive(false);
-            }
+            objectUIPanel.SetActive(false);
 
-            if (objectCloseButton != null)
-            {
-                objectCloseButton.onClick.AddListener(HideUI);
-            }
-
-            if (pauseResumeButton != null)
-            {
-                pauseResumeButton.onClick.AddListener(TogglePauseResume);
-            }
-
-            if (increaseSpeedButton != null)
-            {
-                increaseSpeedButton.onClick.AddListener(IncreaseTimeScale);
-            }
-
-            if (decreaseSpeedButton != null)
-            {
-                decreaseSpeedButton.onClick.AddListener(DecreaseTimeScale);
-            }
+            //Time UI
+            pauseResumeButton.onClick.AddListener(OnPauseResumeButton);
+            increaseSpeedButton.onClick.AddListener(OnIncreaseTimeScaleButton);
+            decreaseSpeedButton.onClick.AddListener(OnDecreaseTimeScaleButton);
         }
 
         public void OpenUI()
@@ -79,7 +61,7 @@ namespace Managers
             return isUIActive;
         }
 
-        private void TogglePauseResume()
+        private void OnPauseResumeButton()
         {
             if (Time.timeScale == 0) ResumeGame();
             else PauseGame();
@@ -97,16 +79,16 @@ namespace Managers
             pauseResumeButtonText.text = "Pause";
         }
 
-        private void IncreaseTimeScale()
+        private void OnIncreaseTimeScaleButton()
         {
             TimeManager.Instance.IncreaseTimeScale();
-            if (TimeManager.Instance.GetIsPaused()) ResumeGame();
+            currentTimeScaleText.text = Time.timeScale.ToString("0.0");
         }
 
-        private void DecreaseTimeScale()
+        private void OnDecreaseTimeScaleButton()
         {
             TimeManager.Instance.DecreaseTimeScale();
-            if (TimeManager.Instance.GetIsPaused()) ResumeGame();
+            currentTimeScaleText.text = Time.timeScale.ToString("0.0");
         }
     }
 }
