@@ -242,21 +242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82acaec06c76a5445a63d4ee10e7327f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textureSize: 256
-  worldSize: 50
-  fogColor:
-    r: 0
-    g: 0
-    b: 0
-    a: 1
-  revealColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
-  fogTexture: {fileID: 0}
-  fogColors: []
-  fogRenderer: {fileID: 0}
 --- !u!114 &793424543
 MonoBehaviour:
   m_ObjectHideFlags: 0
