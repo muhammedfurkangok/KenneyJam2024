@@ -331,10 +331,10 @@ MonoBehaviour:
   cinemachineCamera: {fileID: 1551643799611944473}
   cameraRotateTransform: {fileID: 3525826404119311342}
   moveSpeed: 10
-  rotationSpeed: 5
-  zoomSpeed: 10
-  minZoom: 10
-  maxZoom: 60
+  rotationSpeed: 200
+  zoomSpeed: 2000
+  minZoom: 20
+  maxZoom: 40
   maxVerticalRotation: 50
   minVerticalRotation: 30
 --- !u!114 &6327499552012395778

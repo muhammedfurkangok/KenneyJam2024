@@ -36,7 +36,7 @@ namespace Controllers
             direction.y = 0.0f;
             direction.Normalize();
 
-            var positionChangeAmount = direction * (effectiveMoveSpeed * Time.deltaTime);
+            var positionChangeAmount = direction * (effectiveMoveSpeed * Time.unscaledDeltaTime);
             cinemachineCamera.transform.position += positionChangeAmount;
             cameraRotateTransform.position += positionChangeAmount;
         }
@@ -46,7 +46,8 @@ namespace Controllers
             var rotateInput = InputManager.Instance.GetCameraHorizontalRotateInput();
             if (rotateInput == 0.0f) return;
 
-            cinemachineCamera.transform.RotateAround(cameraRotateTransform.position, Vector3.up, rotateInput * rotationSpeed);
+            var angle = rotateInput * rotationSpeed * Time.unscaledDeltaTime;
+            cinemachineCamera.transform.RotateAround(cameraRotateTransform.position, Vector3.up, angle);
         }
 
         private void SetCameraVerticalRotation()
@@ -55,7 +56,8 @@ namespace Controllers
             if (rotateInput == 0.0f) return;
 
             var currentEulerX = cinemachineCamera.transform.eulerAngles.x;
-            var newEulerX = Mathf.Clamp(currentEulerX - rotateInput * rotationSpeed, minVerticalRotation, maxVerticalRotation);
+            var newEulerX = currentEulerX - rotateInput * rotationSpeed * Time.unscaledDeltaTime;
+            newEulerX = Mathf.Clamp(newEulerX, minVerticalRotation, maxVerticalRotation);
 
             var euler = cinemachineCamera.transform.eulerAngles;
             euler.x = newEulerX;
@@ -67,7 +69,7 @@ namespace Controllers
             var scrollInput = InputManager.Instance.GetMouseScrollInput();
             if (scrollInput == 0.0f) return;
 
-            cinemachineCamera.m_Lens.FieldOfView -= scrollInput * zoomSpeed;
+            cinemachineCamera.m_Lens.FieldOfView -= scrollInput * zoomSpeed * Time.unscaledDeltaTime;
             cinemachineCamera.m_Lens.FieldOfView = Mathf.Clamp(cinemachineCamera.m_Lens.FieldOfView, minZoom, maxZoom);
         }
     }
