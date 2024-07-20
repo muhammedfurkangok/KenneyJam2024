@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using Runtime.Extensions;
+using TMPro;
 using UnityEngine.UI;
 
 namespace Runtime.Managers
@@ -13,8 +14,8 @@ namespace Runtime.Managers
         [SerializeField] private float scaleDuration = 0.3f;
 
         [Header("Timer UI Settings")]
-        [SerializeField] private Button pauseButton;
-        [SerializeField] private Button resumeButton;
+        [SerializeField] private Button pauseResumeButton;
+        [SerializeField] private TextMeshProUGUI pauseResumeButtonText;
         [SerializeField] private Button increaseSpeedButton;
         [SerializeField] private Button decreaseSpeedButton;
 
@@ -36,14 +37,9 @@ namespace Runtime.Managers
                 objectCloseButton.onClick.AddListener(HideUI);
             }
 
-            if (pauseButton != null)
+            if (pauseResumeButton != null)
             {
-                pauseButton.onClick.AddListener(PauseGame);
-            }
-
-            if (resumeButton != null)
-            {
-                resumeButton.onClick.AddListener(ResumeGame);
+                pauseResumeButton.onClick.AddListener(TogglePauseResume);
             }
 
             if (increaseSpeedButton != null)
@@ -84,14 +80,36 @@ namespace Runtime.Managers
             return isUIActive;
         }
 
+        private void TogglePauseResume()
+        {
+            if (Time.timeScale == 0)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+
         private void PauseGame()
         {
             timerManager.PauseGame();
+            if (pauseResumeButtonText != null)
+            {
+                //ikon olarak değiştirilsin
+                pauseResumeButtonText.text = "Resume";
+            }
         }
 
         private void ResumeGame()
         {
             timerManager.ResumeGame();
+            if (pauseResumeButtonText != null)
+            {
+                //ikon olarak değiştirilsin
+                pauseResumeButtonText.text = "Pause";
+            }
         }
 
         private void IncreaseTimeScale()
@@ -99,7 +117,7 @@ namespace Runtime.Managers
             timerManager.IncreaseTimeScale();
             if (timerManager.isPaused)
             {
-                timerManager.ResumeGame();
+                ResumeGame();
             }
         }
 
@@ -108,7 +126,7 @@ namespace Runtime.Managers
             timerManager.DecreaseTimeScale();
             if (timerManager.isPaused)
             {
-                timerManager.ResumeGame();
+                ResumeGame();
             }
         }
     }
