@@ -16,9 +16,7 @@ namespace Managers
         public float GetCameraVerticalRotateInput() => cameraVerticalRotateInput;
         public float GetMouseScrollInput() => mouseScrollInput;
         public bool GetInputShift() => Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-        
         public bool GetInputMouseLeftClick() => Input.GetMouseButtonDown(0);
-        
         public Vector3 GetMousePosition() => Input.mousePosition;
 
         private void Update()
@@ -26,7 +24,6 @@ namespace Managers
             SetCameraMovementInput();
             SetCameraRotateInput();
             SetMouseScrollInput();
-            
         }
 
         private void SetMouseScrollInput()
@@ -44,6 +41,26 @@ namespace Managers
         {
             cameraMovementInput.x = Input.GetAxisRaw("Horizontal");
             cameraMovementInput.y = Input.GetAxisRaw("Vertical");
+        }
+
+        public Vector3 GetSelectedMapPosition(LayerMask placementLayerMask)
+        {
+            Vector3 mousepos = Input.mousePosition;
+            mousepos.z = Camera.main.nearClipPlane;
+            Ray ray = Camera.main.ScreenPointToRay(mousepos);
+            
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity,placementLayerMask))
+            {
+                return hit.point;
+            }
+
+            return Vector3.zero;
+        }
+
+        public float GetSensitivity02()
+        {
+            var sensitivity = PlayerPrefs.GetInt(PlayerPrefsStringHolder.SensitivityInt, 50);
+            return sensitivity / 50f;
         }
     }
 }

@@ -2,7 +2,7 @@ using Cinemachine;
 using Managers;
 using UnityEngine;
 
-namespace Runtime.Controllers
+namespace Controllers
 {
     public class CameraController : MonoBehaviour
     {
@@ -30,14 +30,13 @@ namespace Runtime.Controllers
         private void SetCameraMovement()
         {
             var movementInput = InputManager.Instance.GetCameraMovementInput();
-            
-            float effectiveMoveSpeed = InputManager.Instance.GetInputShift() ? moveSpeed * 2 : moveSpeed;
+            var effectiveMoveSpeed = InputManager.Instance.GetInputShift() ? moveSpeed * 2 : moveSpeed;
 
             var direction = cinemachineCamera.transform.forward * movementInput.y + cinemachineCamera.transform.right * movementInput.x;
             direction.y = 0.0f;
             direction.Normalize();
 
-            var positionChangeAmount = direction * (effectiveMoveSpeed * Time.deltaTime);
+            var positionChangeAmount = direction * (effectiveMoveSpeed * Time.unscaledDeltaTime);
             cinemachineCamera.transform.position += positionChangeAmount;
             cameraRotateTransform.position += positionChangeAmount;
         }
@@ -47,7 +46,8 @@ namespace Runtime.Controllers
             var rotateInput = InputManager.Instance.GetCameraHorizontalRotateInput();
             if (rotateInput == 0.0f) return;
 
-            cinemachineCamera.transform.RotateAround(cameraRotateTransform.position, Vector3.up, rotateInput * rotationSpeed);
+            var angle = rotateInput * rotationSpeed * Time.unscaledDeltaTime * InputManager.Instance.GetSensitivity02();
+            cinemachineCamera.transform.RotateAround(cameraRotateTransform.position, Vector3.up, angle);
         }
 
         private void SetCameraVerticalRotation()
@@ -56,7 +56,8 @@ namespace Runtime.Controllers
             if (rotateInput == 0.0f) return;
 
             var currentEulerX = cinemachineCamera.transform.eulerAngles.x;
-            var newEulerX = Mathf.Clamp(currentEulerX - rotateInput * rotationSpeed, minVerticalRotation, maxVerticalRotation);
+            var newEulerX = currentEulerX - rotateInput * rotationSpeed * Time.unscaledDeltaTime * InputManager.Instance.GetSensitivity02();
+            newEulerX = Mathf.Clamp(newEulerX, minVerticalRotation, maxVerticalRotation);
 
             var euler = cinemachineCamera.transform.eulerAngles;
             euler.x = newEulerX;
@@ -68,7 +69,7 @@ namespace Runtime.Controllers
             var scrollInput = InputManager.Instance.GetMouseScrollInput();
             if (scrollInput == 0.0f) return;
 
-            cinemachineCamera.m_Lens.FieldOfView -= scrollInput * zoomSpeed;
+            cinemachineCamera.m_Lens.FieldOfView -= scrollInput * zoomSpeed * Time.unscaledDeltaTime * InputManager.Instance.GetSensitivity02();
             cinemachineCamera.m_Lens.FieldOfView = Mathf.Clamp(cinemachineCamera.m_Lens.FieldOfView, minZoom, maxZoom);
         }
     }

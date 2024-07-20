@@ -7,7 +7,7 @@ namespace Managers
     public class TimeManager : SingletonMonoBehaviour<TimeManager>
     {
         [Header("Time Settings")]
-        [SerializeField] private float unitTime = 10f;
+        [SerializeField] private float cycleDuration = 10f;
         [SerializeField] private float maxTimeScale = 2f;
         [SerializeField] private float minTimeScale = 0.5f;
 
@@ -18,6 +18,8 @@ namespace Managers
 
         public event Action OnTimeCycleCompleted;
 
+        public float GetCurrentTimeScale() => currentTimeScale;
+
         private void Start()
         {
             currentTimeScale = 1f;
@@ -26,7 +28,7 @@ namespace Managers
         private void Update()
         {
             currentTime += Time.deltaTime;
-            if (currentTime >= unitTime)
+            if (currentTime >= cycleDuration)
             {
                 currentTime = 0f;
                 OnTimeCycleCompleted?.Invoke();
