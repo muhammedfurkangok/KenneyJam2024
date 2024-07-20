@@ -1,4 +1,5 @@
 using System;
+using Managers;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -151,7 +152,7 @@ namespace MenuTemplate.Scripts
         private void ContinueGame()
         {
             canvas.SetActive(false);
-            Time.timeScale = 1;
+            Time.timeScale = TimeManager.Instance.GetCurrentTimeScale();
 
             ResetMenu();
 
