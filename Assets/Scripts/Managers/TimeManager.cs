@@ -1,3 +1,4 @@
+using System;
 using Runtime.Extensions;
 using UnityEngine;
 
@@ -6,18 +7,30 @@ namespace Managers
     public class TimeManager : SingletonMonoBehaviour<TimeManager>
     {
         [Header("Time Settings")]
+        [SerializeField] private float unitTime = 10f;
         [SerializeField] private float maxTimeScale = 2f;
         [SerializeField] private float minTimeScale = 0.5f;
 
         [Header("Info - No Touch")]
+        [SerializeField] private float currentTime;
         [SerializeField] private float currentTimeScale;
         [SerializeField] private bool isPaused;
 
-        public bool GetIsPaused() => isPaused;
+        public event Action OnTimeCycleCompleted;
 
         private void Start()
         {
             currentTimeScale = 1f;
+        }
+
+        private void Update()
+        {
+            currentTime += Time.deltaTime;
+            if (currentTime >= unitTime)
+            {
+                currentTime = 0f;
+                OnTimeCycleCompleted?.Invoke();
+            }
         }
 
         public void IncreaseTimeScale()
