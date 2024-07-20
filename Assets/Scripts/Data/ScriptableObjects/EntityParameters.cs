@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Runtime.Data
+namespace Data.ScriptableObjects
 {
     //[CreateAssetMenu(fileName = "EntityParameters", menuName = "EntityParameters", order = 0)]
     public class EntityParameters : ScriptableObject
