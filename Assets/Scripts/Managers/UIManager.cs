@@ -62,26 +62,39 @@ namespace Managers
             else PauseGame();
         }
 
+        private void CommonButtonAction()
+        {
+            SoundManager.Instance.PlaySound(SoundType.ButtonClick);
+        }
+
         private void PauseGame()
         {
+            CommonButtonAction();
+
             TimeManager.Instance.PauseGame();
             pauseResumeButtonText.text = "Paused";
         }
 
         private void ResumeGame()
         {
+            CommonButtonAction();
+
             TimeManager.Instance.ResumeGame();
             pauseResumeButtonText.text = "Speed: " + Time.timeScale.ToString("0.0");
         }
 
         private void OnIncreaseTimeScaleButton()
         {
+            CommonButtonAction();
+
             TimeManager.Instance.IncreaseTimeScale();
             pauseResumeButtonText.text = "Speed: " + Time.timeScale.ToString("0.0");
         }
 
         private void OnDecreaseTimeScaleButton()
         {
+            CommonButtonAction();
+
             TimeManager.Instance.DecreaseTimeScale();
             pauseResumeButtonText.text = "Speed: " + Time.timeScale.ToString("0.0");
         }
