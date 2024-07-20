@@ -14,6 +14,15 @@ namespace Managers
         [SerializeField] private Button decreaseSpeedButton;
         [SerializeField] private TextMeshProUGUI pauseResumeButtonText;
 
+        [Header("Resource UI References")]
+        [SerializeField] private TextMeshProUGUI populationText;
+        [SerializeField] private TextMeshProUGUI energyText;
+        [SerializeField] private TextMeshProUGUI foodText;
+        [SerializeField] private TextMeshProUGUI moneyText;
+        [SerializeField] private TextMeshProUGUI metalText;
+        [SerializeField] private TextMeshProUGUI metalPremiumText;
+        [SerializeField] private TextMeshProUGUI gemText;
+
         [Header("Object UI References")]
         [SerializeField] private GameObject objectUIPanel;
         [SerializeField] private Button objectCloseButton;
@@ -24,14 +33,21 @@ namespace Managers
 
         public bool GetIsUIActive() => isUIActive;
 
-        protected override void Awake()
+        private void Start()
         {
-            base.Awake();
-
             //Time UI
             pauseResumeButton.onClick.AddListener(OnPauseResumeButton);
             increaseSpeedButton.onClick.AddListener(OnIncreaseTimeScaleButton);
             decreaseSpeedButton.onClick.AddListener(OnDecreaseTimeScaleButton);
+
+            //Resource UI
+            UpdatePopulationText(0);
+            UpdateEnergyText(0);
+            UpdateFoodText(0);
+            UpdateMoneyText(0);
+            UpdateMetalText(0);
+            UpdateMetalPremiumText(0);
+            UpdateGemText(0);
         }
 
         public void OpenUI()
@@ -55,6 +71,47 @@ namespace Managers
                 isUIActive = false;
             }
         }
+
+#region Resource UI Methods
+
+        public void UpdatePopulationText(int value)
+        {
+            populationText.text = value.ToString();
+        }
+
+        public void UpdateEnergyText(int value)
+        {
+            energyText.text = value.ToString();
+        }
+
+        public void UpdateFoodText(int value)
+        {
+            foodText.text = value.ToString();
+        }
+
+        public void UpdateMoneyText(int value)
+        {
+            moneyText.text = value.ToString();
+        }
+
+        public void UpdateMetalText(int value)
+        {
+            metalText.text = value.ToString();
+        }
+
+        public void UpdateMetalPremiumText(int value)
+        {
+            metalPremiumText.text = value.ToString();
+        }
+
+        public void UpdateGemText(int value)
+        {
+            gemText.text = value.ToString();
+        }
+
+#endregion
+
+#region Time UI Methods
 
         private void OnPauseResumeButton()
         {
@@ -98,5 +155,8 @@ namespace Managers
             TimeManager.Instance.DecreaseTimeScale();
             pauseResumeButtonText.text = "Speed: " + Time.timeScale.ToString("0.0");
         }
+
+#endregion
+
     }
 }

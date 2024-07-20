@@ -244,8 +244,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textureSize: 256
   worldSize: 50
-  fogColor: {r: 0, g: 0, b: 0, a: 1}
-  revealColor: {r: 1, g: 1, b: 1, a: 1}
+  fogColor:
+    r: 0
+    g: 0
+    b: 0
+    a: 1
+  revealColor:
+    r: 1
+    g: 1
+    b: 1
+    a: 1
+  fogTexture: {fileID: 0}
+  fogColors: []
+  fogRenderer: {fileID: 0}
 --- !u!114 &793424543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,7 +324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0465b4d148d2547955dc21520479bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  revealRange: 5
 --- !u!65 &1237541865
 BoxCollider:
   m_ObjectHideFlags: 0
