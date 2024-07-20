@@ -30,8 +30,7 @@ namespace Controllers
         private void SetCameraMovement()
         {
             var movementInput = InputManager.Instance.GetCameraMovementInput();
-            
-            float effectiveMoveSpeed = InputManager.Instance.GetInputShift() ? moveSpeed * 2 : moveSpeed;
+            var effectiveMoveSpeed = InputManager.Instance.GetInputShift() ? moveSpeed * 2 : moveSpeed;
 
             var direction = cinemachineCamera.transform.forward * movementInput.y + cinemachineCamera.transform.right * movementInput.x;
             direction.y = 0.0f;
