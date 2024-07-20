@@ -1,21 +1,18 @@
 using UnityEngine;
 using DG.Tweening;
 using Runtime.Extensions;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Runtime.Managers
 {
     public class UIManager : SingletonMonoBehaviour<UIManager>
     {
-        
-        
-        [Header("Object Uı Settings")]
+        [Header("Object UI Settings")]
         [SerializeField] private GameObject objectUIPanel;
         [SerializeField] private Button objectCloseButton; 
         [SerializeField] private float scaleDuration = 0.3f;
 
-        private bool isUIActive = false;
+        private bool isUIActive;
 
         private void Awake()
         {

@@ -7,26 +7,37 @@ namespace Runtime.Managers
     {
         [Header("Info - No Touch")]
         [SerializeField] private Vector2 cameraMovementInput;
+        [SerializeField] private float cameraHorizontalRotateInput;
+        [SerializeField] private float cameraVerticalRotateInput;
         [SerializeField] private float mouseScrollInput;
 
         public Vector2 GetCameraMovementInput() => cameraMovementInput;
+        public float GetCameraHorizontalRotateInput() => cameraHorizontalRotateInput;
+        public float GetCameraVerticalRotateInput() => cameraVerticalRotateInput;
         public float GetMouseScrollInput() => mouseScrollInput;
 
         private void Update()
         {
             SetCameraMovementInput();
+            SetCameraRotateInput();
             SetMouseScrollInput();
         }
 
         private void SetMouseScrollInput()
         {
-            mouseScrollInput = Input.GetAxis("Mouse ScrollWheel");
+            mouseScrollInput = Input.GetAxisRaw("Mouse ScrollWheel");
+        }
+
+        private void SetCameraRotateInput()
+        {
+            cameraHorizontalRotateInput = Input.GetMouseButton(1) ? Input.GetAxisRaw("Mouse X") : 0.0f;
+            cameraVerticalRotateInput = Input.GetMouseButton(1) ? Input.GetAxisRaw("Mouse Y") : 0.0f;
         }
 
         private void SetCameraMovementInput()
         {
-            cameraMovementInput.x = Input.GetAxis("Horizontal");
-            cameraMovementInput.y = Input.GetAxis("Vertical");
+            cameraMovementInput.x = Input.GetAxisRaw("Horizontal");
+            cameraMovementInput.y = Input.GetAxisRaw("Vertical");
         }
     }
 }

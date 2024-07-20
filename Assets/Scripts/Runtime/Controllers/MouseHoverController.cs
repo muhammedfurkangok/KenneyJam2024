@@ -6,7 +6,6 @@ namespace Runtime.Controllers
 {
     public class MouseHoverController : MonoBehaviour
     {
-        [SerializeField] private CinemachineFreeLook freeLookCamera;
         private Camera mainCamera;
         private HighlightableObject highlightedObject;
 
