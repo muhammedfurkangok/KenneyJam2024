@@ -45,5 +45,19 @@ namespace Managers
             cameraMovementInput.x = Input.GetAxisRaw("Horizontal");
             cameraMovementInput.y = Input.GetAxisRaw("Vertical");
         }
+
+        public Vector3 GetSelectedMapPosition(LayerMask placementLayerMask)
+        {
+            Vector3 mousepos = Input.mousePosition;
+            mousepos.z = Camera.main.nearClipPlane;
+            Ray ray = Camera.main.ScreenPointToRay(mousepos);
+            
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity,placementLayerMask))
+            {
+                return hit.point;
+            }
+
+            return Vector3.zero;
+        }
     }
 }
