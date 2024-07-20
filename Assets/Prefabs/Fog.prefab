@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2288665661402048229}
   - component: {fileID: 8715575338191175700}
   - component: {fileID: 2206290976006372481}
+  - component: {fileID: 7842522621085022745}
+  - component: {fileID: 275647890172009740}
   m_Layer: 0
   m_Name: Fog
   m_TagString: Fog
@@ -47,6 +49,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &2206290976006372481
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3082406585850204611}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7842522621085022745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3082406585850204611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 756b2d16b5d18f1408123fd76a148f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &275647890172009740
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29913,7 +29948,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 39
+  m_VersionIndex: 42
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
