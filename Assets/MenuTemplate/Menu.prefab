@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 4588027255763408283}
   - component: {fileID: 3223671471071610454}
   m_Layer: 0
-  m_Name: MainMenu
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555fe2a377fcfbd4384eb497dd8c8320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMainMenu: 1
+  isMainMenu: 0
   audioMixer: {fileID: 24100000, guid: d805fa17c10c5d44d85aa63444a4e55c, type: 2}
   audioSource: {fileID: 3223671471071610454}
   buttonClickSound: {fileID: 8300000, guid: 9715dfa6e5cc34047bc55568439a604e, type: 3}
@@ -4111,21 +4111,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5633170993894318301, guid: bc470d7c27001d44aa4a1fb2fbc8df3f,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5633170993894318301, guid: bc470d7c27001d44aa4a1fb2fbc8df3f,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5633170993894318301, guid: bc470d7c27001d44aa4a1fb2fbc8df3f,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5633170993894318301, guid: bc470d7c27001d44aa4a1fb2fbc8df3f,
         type: 3}
