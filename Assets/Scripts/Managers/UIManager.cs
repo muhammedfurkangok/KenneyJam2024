@@ -72,7 +72,12 @@ namespace Managers
             }
         }
 
-#region Resource UI Methods
+        private void CommonButtonAction()
+        {
+            SoundManager.Instance.PlaySound(SoundType.ButtonClick);
+        }
+
+#region ResourceUIMethods
 
         public void UpdatePopulationText(int value)
         {
@@ -111,17 +116,14 @@ namespace Managers
 
 #endregion
 
-#region Time UI Methods
+#region TimeUIMethods
 
         private void OnPauseResumeButton()
         {
+            CommonButtonAction();
+
             if (Time.timeScale == 0) ResumeGame();
             else PauseGame();
-        }
-
-        private void CommonButtonAction()
-        {
-            SoundManager.Instance.PlaySound(SoundType.ButtonClick);
         }
 
         private void PauseGame()

@@ -5,12 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Sandbox's/FurkanSandbox.unity
-    guid: fdd7db0eedf37d04ebf1aebe93e1a1cd
+    path: Assets/Scenes/StartScene.unity
+    guid: 8631bb40e10dfef418517c204513581c
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 566e7e7cb5461ec41a124ba76221151f
