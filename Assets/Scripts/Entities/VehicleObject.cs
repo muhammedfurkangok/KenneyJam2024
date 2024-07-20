@@ -1,15 +1,12 @@
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
-using UnityEngine.Serialization;
 
 namespace Entities
 {
     [RequireComponent(typeof(NavMeshAgent))]
     public class VehicleObject : MonoBehaviour
     {
-        
         [Header("References")]
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private LayerMask vehicleLayer;
@@ -24,6 +21,8 @@ namespace Entities
         private Sequence jumpSequence;
         private bool isSelected = false;
 
+        private static VehicleObject selectedVehicle; 
+
         private void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
@@ -36,8 +35,8 @@ namespace Entities
             if (Input.GetMouseButtonDown(0))
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                
-                if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, groundLayer))
+
+                if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, vehicleLayer))
                 {
                     if (hit.transform == transform)
                     {
@@ -45,9 +44,13 @@ namespace Entities
                     }
                     else if (isSelected)
                     {
-                        SetAgentDestination(hit);
                         DeselectObject();
                     }
+                }
+                else if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer) && isSelected)
+                {
+                    navMeshAgent.SetDestination(hit.point);
+                    DeselectObject();
                 }
             }
         }
@@ -60,7 +63,12 @@ namespace Entities
             }
             else
             {
+                if (selectedVehicle != null)
+                {
+                    selectedVehicle.DeselectObject();
+                }
                 SelectObject();
+                selectedVehicle = this;
             }
         }
 
@@ -75,13 +83,9 @@ namespace Entities
         {
             isSelected = false;
             RemoveHighlight();
-        }
-
-        private void SetAgentDestination(RaycastHit hit)
-        {
-            if (isSelected)
+            if (selectedVehicle == this)
             {
-                navMeshAgent.SetDestination(hit.point);
+                selectedVehicle = null;
             }
         }
 
