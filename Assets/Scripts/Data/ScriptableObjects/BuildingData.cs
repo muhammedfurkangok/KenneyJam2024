@@ -12,6 +12,7 @@ namespace Data.ScriptableObjects
         public int tier;
         public BuildingBuildCost buildBuildCost;
         public BuildingMaintainCost maintainCost;
+        public BuildingYield yield;
     }
 
     [Serializable]
@@ -24,6 +25,13 @@ namespace Data.ScriptableObjects
 
     [Serializable]
     public struct BuildingMaintainCost
+    {
+        public ResourceType[] resources;
+        public int[] amounts;
+    }
+
+    [Serializable]
+    public struct BuildingYield
     {
         public ResourceType[] resources;
         public int[] amounts;
@@ -59,6 +67,19 @@ namespace Data.ScriptableObjects
             }
 
             return new BuildingMaintainCost();
+        }
+
+        public BuildingYield GetYield(BuildingType buildingType, int buildingTier)
+        {
+            foreach (var buildingCostData in buildingCostDatas)
+            {
+                if (buildingCostData.type == buildingType && buildingCostData.tier == buildingTier)
+                {
+                    return buildingCostData.yield;
+                }
+            }
+
+            return new BuildingYield();
         }
     }
 }

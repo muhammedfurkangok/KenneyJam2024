@@ -1,4 +1,5 @@
 using System;
+using Runtime.Extensions;
 using UnityEngine;
 
 namespace Managers
@@ -21,7 +22,7 @@ namespace Managers
         public int amount;
     }
 
-    public class ResourceManager : MonoBehaviour
+    public class ResourceManager : SingletonMonoBehaviour<ResourceManager>
     {
         [Header("Info - No Touch")]
         [SerializeField] private Resource[] resources;
