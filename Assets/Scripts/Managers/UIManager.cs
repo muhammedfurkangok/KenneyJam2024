@@ -20,11 +20,10 @@ namespace Runtime.Managers
         [SerializeField] private Button decreaseSpeedButton;
 
         private bool isUIActive;
-        private TimerManager timerManager;
 
-        private void Awake()
+        protected override void Awake()
         {
-            timerManager = TimerManager.Instance;
+            base.Awake();
 
             if (objectUIPanel != null)
             {
@@ -82,52 +81,32 @@ namespace Runtime.Managers
 
         private void TogglePauseResume()
         {
-            if (Time.timeScale == 0)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
+            if (Time.timeScale == 0) ResumeGame();
+            else PauseGame();
         }
 
         private void PauseGame()
         {
-            timerManager.PauseGame();
-            if (pauseResumeButtonText != null)
-            {
-                //ikon olarak değiştirilsin
-                pauseResumeButtonText.text = "Resume";
-            }
+            TimerManager.Instance.PauseGame();
+            pauseResumeButtonText.text = "Resume";
         }
 
         private void ResumeGame()
         {
-            timerManager.ResumeGame();
-            if (pauseResumeButtonText != null)
-            {
-                //ikon olarak değiştirilsin
-                pauseResumeButtonText.text = "Pause";
-            }
+            TimerManager.Instance.ResumeGame();
+            pauseResumeButtonText.text = "Pause";
         }
 
         private void IncreaseTimeScale()
         {
-            timerManager.IncreaseTimeScale();
-            if (timerManager.isPaused)
-            {
-                ResumeGame();
-            }
+            TimerManager.Instance.IncreaseTimeScale();
+            if (TimerManager.Instance.GetIsPaused()) ResumeGame();
         }
 
         private void DecreaseTimeScale()
         {
-            timerManager.DecreaseTimeScale();
-            if (timerManager.isPaused)
-            {
-                ResumeGame();
-            }
+            TimerManager.Instance.DecreaseTimeScale();
+            if (TimerManager.Instance.GetIsPaused()) ResumeGame();
         }
     }
 }
