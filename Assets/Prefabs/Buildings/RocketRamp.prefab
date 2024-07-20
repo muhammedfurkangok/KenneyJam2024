@@ -690,7 +690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4241667365464783508}
   m_Layer: 0
-  m_Name: Rocket Ramp
+  m_Name: RocketRamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
