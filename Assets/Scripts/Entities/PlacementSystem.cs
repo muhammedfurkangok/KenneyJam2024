@@ -11,6 +11,8 @@ public class PlacementSystem : MonoBehaviour
 
    [SerializeField] private Grid grid;
 
+   [SerializeField] private GameObject gridVisualization;
+
 
    private void Update()
    {

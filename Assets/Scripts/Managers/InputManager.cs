@@ -1,5 +1,6 @@
 using Runtime.Extensions;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Managers
 {
@@ -19,7 +20,8 @@ namespace Managers
         
         public bool GetInputMouseLeftClick() => Input.GetMouseButtonDown(0);
         
-        public Vector3 GetMousePosition() => Input.mousePosition;
+        public bool IsPoınterOverUI() => EventSystem.current.IsPointerOverGameObject();
+        
 
         private void Update()
         {
