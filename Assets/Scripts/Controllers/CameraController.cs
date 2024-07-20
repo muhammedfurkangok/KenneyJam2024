@@ -2,7 +2,7 @@ using Cinemachine;
 using Managers;
 using UnityEngine;
 
-namespace Runtime.Controllers
+namespace Controllers
 {
     public class CameraController : MonoBehaviour
     {
