@@ -15,6 +15,9 @@ namespace Managers
         public float GetCameraHorizontalRotateInput() => cameraHorizontalRotateInput;
         public float GetCameraVerticalRotateInput() => cameraVerticalRotateInput;
         public float GetMouseScrollInput() => mouseScrollInput;
+        public bool GetInputShift() => Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        
+        public bool GetInputMouseLeftClick() => Input.GetMouseButtonDown(0);
         
         public Vector3 GetMousePosition() => Input.mousePosition;
 
@@ -23,6 +26,7 @@ namespace Managers
             SetCameraMovementInput();
             SetCameraRotateInput();
             SetMouseScrollInput();
+            
         }
 
         private void SetMouseScrollInput()
