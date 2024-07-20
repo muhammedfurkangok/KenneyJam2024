@@ -1,33 +1,34 @@
 using UnityEngine;
 using DG.Tweening;
+using Runtime.Data;
 using Runtime.Managers;
 
 namespace Runtime.Entities
 {
     public class HighlightableObject : MonoBehaviour
     {
-        private Renderer _renderer;
-        private Color _originalColor;
-        [SerializeField] private Color highlightColor = Color.yellow;
+        [Header("References")]
+        [SerializeField] private EntityParameters paramData;
+        [SerializeField] private Renderer renderer;
 
-        [Header("Jump Settings")]
-        [SerializeField] private float jumpHeight = 0.3f;
-        [SerializeField] private float jumpDuration = 0.2f;
+        private Color originalColor;
+        private Vector3 originalPosition;
+        private Sequence jumpSequence;
 
         private void Awake()
         {
-            _renderer = GetComponent<Renderer>();
-            _originalColor = _renderer.material.color;
+            originalColor = renderer.material.color;
+            originalPosition = transform.position;
         }
 
         public void Highlight()
         {
-            _renderer.material.color = highlightColor;
+            renderer.material.color = paramData.highlightColor;
         }
 
         public void RemoveHighlight()
         {
-            _renderer.material.color = _originalColor;
+            renderer.material.color = originalColor;
         }
 
         private void OnMouseDown()
@@ -36,6 +37,7 @@ namespace Runtime.Entities
             {
                 UIManager.Instance.HideUI();
             }
+
             else
             {
                 Jump();
@@ -45,11 +47,10 @@ namespace Runtime.Entities
 
         private void Jump()
         {
-            Vector3 originalPosition = transform.position;
-            transform.DOMoveY(originalPosition.y + jumpHeight, jumpDuration / 2).SetEase(Ease.OutQuad).OnComplete(() =>
-            {
-                transform.DOMoveY(originalPosition.y, jumpDuration / 2).SetEase(Ease.InQuad);
-            });
+            jumpSequence?.Kill();
+            jumpSequence = DOTween.Sequence();
+            jumpSequence.Append(transform.DOMoveY(originalPosition.y + paramData.jumpHeight, paramData.jumpDuration / 2).SetEase(Ease.OutQuad));
+            jumpSequence.Append(transform.DOMoveY(originalPosition.y, paramData.jumpDuration / 2).SetEase(Ease.InQuad));
         }
     }
 }

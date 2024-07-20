@@ -6,13 +6,13 @@ namespace Runtime.Controllers
 {
     public class MouseHoverController : MonoBehaviour
     {
-        [SerializeField] private CinemachineFreeLook _freeLookCamera;
-        private Camera _mainCamera;
-        private HighlightableObject _highlightedObject;
+        [SerializeField] private CinemachineFreeLook freeLookCamera;
+        private Camera mainCamera;
+        private HighlightableObject highlightedObject;
 
         private void Start()
         {
-            _mainCamera = Camera.main;
+            mainCamera = Camera.main;
         }
 
         private void Update()
@@ -22,44 +22,35 @@ namespace Runtime.Controllers
 
         private void CheckForHighlight()
         {
-            if (_mainCamera == null) return;
+            var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
-           
-            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-
-           
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out var hit))
             {
-               
-                HighlightableObject highlightableObject = hit.collider.GetComponent<HighlightableObject>();
+                var highlightableObject = hit.collider.GetComponent<HighlightableObject>();
 
                 if (highlightableObject != null)
                 {
-                    if (_highlightedObject != highlightableObject)
+                    if (highlightedObject != highlightableObject)
                     {
                         RemoveHighlight();
-                        _highlightedObject = highlightableObject;
-                        _highlightedObject.Highlight();
+
+                        highlightedObject = highlightableObject;
+                        highlightedObject.Highlight();
                     }
                 }
-                else
-                {
-                    RemoveHighlight();
-                }
+
+                else RemoveHighlight();
             }
-            else
-            {
-                RemoveHighlight();
-            }
+
+            else RemoveHighlight();
         }
 
         private void RemoveHighlight()
         {
-            if (_highlightedObject != null)
-            {
-                _highlightedObject.RemoveHighlight();
-                _highlightedObject = null;
-            }
+            if (highlightedObject == null) return;
+
+            highlightedObject.RemoveHighlight();
+            highlightedObject = null;
         }
     }
 }
