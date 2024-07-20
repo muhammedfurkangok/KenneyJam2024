@@ -33,7 +33,7 @@ namespace Runtime.Entities
 
         private void OnMouseDown()
         {
-            if (UIManager.Instance.IsUIActive())
+            if (UIManager.Instance.GetIsUIActive())
             {
                 UIManager.Instance.HideUI();
             }
