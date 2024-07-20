@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
+using Managers;
 
 namespace Entities
 {
@@ -32,7 +33,7 @@ namespace Entities
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (InputManager.Instance.GetInputMouseLeftClick())
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
