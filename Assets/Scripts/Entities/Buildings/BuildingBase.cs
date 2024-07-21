@@ -18,7 +18,8 @@ namespace Entities.Buildings
         [SerializeField] private BuildingResourceInfo[] yield;
 
         public BuildingType GetBuildingType() => type;
-
+        public BuildingResourceInfo[] GetMaintainCost() => maintainCost;
+        public BuildingResourceInfo[] GetYield() => yield;
         public override void Upgrade()
         {
             base.Upgrade();
@@ -67,7 +68,6 @@ namespace Entities.Buildings
                 ResourceManager.Instance.DecreaseResource(resource.resource, resource.amount);
             }
         }
-        public BuildingResourceInfo[] GetMaintainCost() => maintainCost;
-        public BuildingResourceInfo[] GetYield() => yield;
+        
     }
 }
