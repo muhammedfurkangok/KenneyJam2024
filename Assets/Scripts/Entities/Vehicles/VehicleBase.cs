@@ -7,17 +7,24 @@ namespace Entities.Vehicles
     public abstract class VehicleBase : Upgradeable
     {
         [Header("Vehicle Base - References")]
-        [SerializeField] private VehicleData vehicleData;
-        [SerializeField] private NavMeshAgent navMeshAgent;
+        [SerializeField] protected VehicleData vehicleData;
+        [SerializeField] protected NavMeshAgent navMeshAgent;
 
         [Header("Vehicle Base - Parameters")]
         [SerializeField] private VehicleType vehicleType;
 
         [Header("Vehicle Base - Info - No Touch")]
-        [SerializeField] private bool isSelected;
+        [SerializeField] protected bool isSelected;
 
         public VehicleType GetVehicleType() => vehicleType;
         public bool IsVehicleMoving() => navMeshAgent.velocity.magnitude > 0.1f;
+
+        public override void Upgrade()
+        {
+            base.Upgrade();
+
+            SetSpeeds();
+        }
 
         protected virtual void Start()
         {
@@ -58,13 +65,6 @@ namespace Entities.Vehicles
         public virtual void StopInstantly()
         {
             navMeshAgent.SetDestination(transform.position);
-        }
-
-        public override void Upgrade()
-        {
-            base.Upgrade();
-
-            SetSpeeds();
         }
     }
 }

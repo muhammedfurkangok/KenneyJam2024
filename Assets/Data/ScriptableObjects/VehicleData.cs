@@ -8,6 +8,7 @@ namespace Data.ScriptableObjects
     {
         [Header("Vehicle Speeds")]
         [SerializeField] private VehicleSpeedData[] vehicleSpeedDatas;
+        [SerializeField] private int[] minerMiningAmounts;
 
         public SpeedInfo GetSpeeds(VehicleType vehicleType, int tier)
         {
@@ -20,6 +21,11 @@ namespace Data.ScriptableObjects
             }
 
             throw new Exception("Vehicle speed not found for: " + vehicleType + " " + tier);
+        }
+
+        public int GetMinerMiningAmount(int tier)
+        {
+            return minerMiningAmounts[tier];
         }
     }
 }

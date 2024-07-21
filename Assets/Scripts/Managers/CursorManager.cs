@@ -16,6 +16,8 @@ namespace Managers
         [Header("Info - No Touch")]
         [SerializeField] private CursorType currentCursorType;
 
+        public CursorType GetCurrentCursorType() => currentCursorType;
+
         private Camera mainCamera;
 
         private void Start()
