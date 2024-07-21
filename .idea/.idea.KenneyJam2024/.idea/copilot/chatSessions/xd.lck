@@ -1,4 +1,4 @@
-Private property of Exodus: 43596@Furkan
+Private property of Exodus: 21688@Furkan
 
 jetbrains.exodus.io.LockingManager.lock(LockingManager.kt:88)
 jetbrains.exodus.io.LockingManager.lock(LockingManager.kt:39)
@@ -33,7 +33,7 @@ com.intellij.util.messages.impl.MessageBusImplKt.deliverMessage(MessageBusImpl.k
 com.intellij.util.messages.impl.MessageBusImplKt.pumpWaiting(MessageBusImpl.kt:402)
 com.intellij.util.messages.impl.MessageBusImplKt.access$pumpWaiting(MessageBusImpl.kt:1)
 com.intellij.util.messages.impl.MessagePublisher.invoke(MessageBusImpl.kt:461)
-jdk.proxy4/jdk.proxy4.$Proxy145.onCopilotStatus(Unknown Source)
+jdk.proxy4/jdk.proxy4.$Proxy123.onCopilotStatus(Unknown Source)
 com.github.copilot.status.CopilotStatusService.notifyApplication(CopilotStatusService.java:76)
 com.github.copilot.status.CopilotStatusService.notifyApplication(CopilotStatusService.java:64)
 com.github.copilot.github.GitHubAuthStartupActivity.handleAuthNotifications(GitHubAuthStartupActivity.java:54)
@@ -60,9 +60,6 @@ kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:
 kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
 com.intellij.ide.startup.impl.StartupManagerImpl$runPostStartupActivities$3.invokeSuspend(StartupManagerImpl.kt:191)
 kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
-kotlinx.coroutines.UndispatchedCoroutine.afterResume(CoroutineContext.kt:270)
-kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:102)
-kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
 kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
 kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
 kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
