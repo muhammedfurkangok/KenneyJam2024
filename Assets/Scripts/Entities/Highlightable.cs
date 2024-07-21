@@ -1,5 +1,4 @@
 using Data.ScriptableObjects;
-using DG.Tweening;
 using UnityEngine;
 
 namespace Entities
@@ -15,19 +14,17 @@ namespace Entities
         private void Start()
         {
             originalColors = new Color[renderersAndMaterialIndices.Length];
-            for (var i = 0; i < renderersAndMaterialIndices.Length; i++)
-            {
-                originalColors[i] = renderersAndMaterialIndices[i].renderer.materials[renderersAndMaterialIndices[i].materialIndex].color;
-            }
         }
 
         public void Highlight()
         {
             for (var i = 0; i < renderersAndMaterialIndices.Length; i++)
             {
-                var materials = renderersAndMaterialIndices[i].renderer.materials;
-                materials[renderersAndMaterialIndices[i].materialIndex].DOColor(entityParameters.highlightColor, entityParameters.colorChangeDuration);
-                renderersAndMaterialIndices[i].renderer.materials = materials;
+                var renderer = renderersAndMaterialIndices[i].renderer;
+                var materialIndex = renderersAndMaterialIndices[i].materialIndex;
+
+                originalColors[i] = renderer.materials[materialIndex].color;
+                renderer.materials[materialIndex].color = entityParameters.highlightColor;
             }
         }
 
@@ -35,9 +32,10 @@ namespace Entities
         {
             for (var i = 0; i < renderersAndMaterialIndices.Length; i++)
             {
-                var materials = renderersAndMaterialIndices[i].renderer.materials;
-                materials[renderersAndMaterialIndices[i].materialIndex].DOColor(originalColors[i], entityParameters.colorChangeDuration);
-                renderersAndMaterialIndices[i].renderer.materials = materials;
+                var renderer = renderersAndMaterialIndices[i].renderer;
+                var materialIndex = renderersAndMaterialIndices[i].materialIndex;
+
+                renderer.materials[materialIndex].color = originalColors[i];
             }
         }
     }

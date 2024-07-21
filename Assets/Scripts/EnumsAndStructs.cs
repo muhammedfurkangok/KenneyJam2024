@@ -23,6 +23,12 @@ public enum BuildingType
     RocketSite
 }
 
+public enum VehicleType
+{
+    Miner,
+    Scout,
+}
+
 public enum SoundType
 {
     ButtonClick,
@@ -58,10 +64,40 @@ public struct BuildingResourceInfo
 }
 
 [Serializable]
+public struct RendererMaterialIndexAndColorArray
+{
+    public RendererMaterialIndexAndColor[] rendererMaterialIndicesAndColors;
+}
+
+[Serializable]
+public struct RendererMaterialIndexAndColor
+{
+    public Renderer renderer;
+    public int materialIndex;
+    public Color color;
+}
+
+[Serializable]
 public struct RendererAndMaterialIndex
 {
     public Renderer renderer;
     public int materialIndex;
+}
+
+[Serializable]
+public struct VehicleSpeedData
+{
+    public VehicleType type;
+    public int tier;
+    public SpeedInfo speedInfo;
+}
+
+[Serializable]
+public struct SpeedInfo
+{
+    public float speed;
+    public float angularSpeed;
+    public float acceleration;
 }
 
 #endregion

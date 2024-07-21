@@ -4,17 +4,15 @@ using UnityEngine;
 
 namespace Entities.Buildings
 {
-    public abstract class BuildingBase : MonoBehaviour
+    public abstract class BuildingBase : Upgradeable
     {
         [Header("Building Base - References")]
         [SerializeField] private BuildingData buildingData;
+
+        [Header("Building Base - Parameters")]
         [SerializeField] private BuildingType type;
-        [SerializeField] private Renderer[] renderers;
-        [SerializeField] private Material[] tier2Materials;
-        [SerializeField] private Material[] tier3Materials;
 
         [Header("Building Base - Info - No Touch")]
-        [SerializeField] private int tier = 1;
         [SerializeField] private BuildingResourceInfo[] maintainCost;
         [SerializeField] private BuildingResourceInfo[] yield;
 
@@ -44,18 +42,12 @@ namespace Entities.Buildings
             }
         }
 
-        public virtual void UpgradeBuilding()
+        public override void Upgrade()
         {
-            tier++;
+            base.Upgrade();
 
             maintainCost = buildingData.GetMaintainCost(type, tier);
             yield = buildingData.GetYield(type, tier);
-
-            foreach (var renderer in renderers)
-            {
-                if (tier == 2) renderer.materials = tier2Materials;
-                else if (tier == 3) renderer.materials = tier3Materials;
-            }
         }
     }
 }

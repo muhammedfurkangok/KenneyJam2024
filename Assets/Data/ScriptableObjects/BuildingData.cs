@@ -19,7 +19,7 @@ namespace Data.ScriptableObjects
                 }
             }
 
-            throw new Exception("Building cost not found");
+            throw new Exception("Building cost not found for: " + buildingType + " " + buildingTier);
         }
 
         public BuildingResourceInfo[] GetMaintainCost(BuildingType buildingType, int buildingTier)
@@ -32,7 +32,7 @@ namespace Data.ScriptableObjects
                 }
             }
 
-            throw new Exception("Building maintain cost not found");
+            throw new Exception("Building maintain cost not found for: " + buildingType + " " + buildingTier);
         }
 
         public BuildingResourceInfo[] GetYield(BuildingType buildingType, int buildingTier)
@@ -45,7 +45,7 @@ namespace Data.ScriptableObjects
                 }
             }
 
-            throw new Exception("Building yield not found");
+            throw new Exception("Building yield not found for: " + buildingType + " " + buildingTier);
         }
 
         public BuildingResourceInfo[] GetSingleTimeYield(BuildingType buildingType, int buildingTier)
@@ -58,7 +58,7 @@ namespace Data.ScriptableObjects
                 }
             }
 
-            throw new Exception("Building single time yield not found");
+            throw new Exception("Building single time yield not found for: " + buildingType + " " + buildingTier);
         }
     }
 }
