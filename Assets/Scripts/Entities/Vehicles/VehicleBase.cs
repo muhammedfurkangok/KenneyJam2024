@@ -16,8 +16,10 @@ namespace Entities.Vehicles
 
         [Header("Vehicle Base - Info - No Touch")]
         [SerializeField] protected bool isSelected;
-        
+
+        [SerializeField] private GameObject selectionCircle;
         private Tween jumpTween;
+        private Tween selectionCircleTween;
 
         public VehicleType GetVehicleType() => vehicleType;
         public bool IsVehicleMoving() => navMeshAgent.velocity.magnitude > 0.1f;
@@ -25,7 +27,6 @@ namespace Entities.Vehicles
         public override void Upgrade()
         {
             base.Upgrade();
-
             SetSpeeds();
         }
 
@@ -45,10 +46,11 @@ namespace Entities.Vehicles
         public virtual void Select()
         {
             isSelected = true;
+            SelectionCircleAnimation(true);
             JumpAnimation();
         }
 
-        private void JumpAnimation()
+        public void JumpAnimation()
         {
             if (jumpTween != null) jumpTween.Kill();
             var originalPos = transform.position;
@@ -59,7 +61,7 @@ namespace Entities.Vehicles
         public virtual void Deselect()
         {
             isSelected = false;
-
+            SelectionCircleAnimation(false);
             if (IsVehicleMoving()) StopWithDistance();
             else StopInstantly();
         }
@@ -78,5 +80,31 @@ namespace Entities.Vehicles
         {
             navMeshAgent.SetDestination(transform.position);
         }
+
+        public void SelectionCircleAnimation(bool show)
+        {
+            if (show)
+            {
+                if (!selectionCircle.activeSelf) 
+                    selectionCircle.SetActive(true);
+                
+                selectionCircle.transform.position = transform.position + Vector3.up * 0.1f;
+
+                if (selectionCircleTween != null) selectionCircleTween.Kill();
+
+                selectionCircleTween = selectionCircle.transform.DORotate(new Vector3(0, 0, -360), 1f, RotateMode.LocalAxisAdd)
+                    .SetLoops(-1, LoopType.Incremental);
+                selectionCircleTween.Play();
+            }
+            else
+            {
+                if (selectionCircle.activeSelf)
+                    selectionCircle.SetActive(false);
+
+                if (selectionCircleTween != null)
+                    selectionCircleTween.Kill();
+            }
+        }
+        
     }
 }
