@@ -1,3 +1,5 @@
+using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Entities
@@ -20,14 +22,24 @@ namespace Entities
             if (resourceAmount <= 0) PlayDestroyAnimation();
         }
 
+        [Button]
         private void PlayMineAnimation()
         {
-            // Play animation
+            //Sound
+            
+            transform.DOPunchScale(Vector3.one * 0.2f, 0.3f, 10, 1).SetEase(Ease.OutBounce);
+            
+            //Particle istersek
         }
 
+        [Button]
         private void PlayDestroyAnimation()
         {
-            // Play animation
+            //Sound
+            
+            transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBack).OnComplete(() => Destroy(gameObject));
+            
+            //Particle istersek
         }
     }
 }
