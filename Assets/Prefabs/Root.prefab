@@ -615,6 +615,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5163680133592521809, guid: ca5b1e82f5fc0634f932d89d92ad16d5,
+        type: 3}
+      propertyPath: buildingDefaultPanel
+      value: 
+      objectReference: {fileID: 1521296927820542178}
+    - target: {fileID: 5163680133592521809, guid: ca5b1e82f5fc0634f932d89d92ad16d5,
+        type: 3}
+      propertyPath: buildingUpgradePanel
+      value: 
+      objectReference: {fileID: 8361145607459724717}
     - target: {fileID: 8603093508266581842, guid: ca5b1e82f5fc0634f932d89d92ad16d5,
         type: 3}
       propertyPath: m_Name
@@ -625,9 +635,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca5b1e82f5fc0634f932d89d92ad16d5, type: 3}
+--- !u!1 &1521296927820542178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7102990175499437359, guid: ca5b1e82f5fc0634f932d89d92ad16d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8614920515005003213}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3786704577506454577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4828786034899098108, guid: ca5b1e82f5fc0634f932d89d92ad16d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8614920515005003213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8361145607459724717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 254058869002430560, guid: ca5b1e82f5fc0634f932d89d92ad16d5,
     type: 3}
   m_PrefabInstance: {fileID: 8614920515005003213}
   m_PrefabAsset: {fileID: 0}
