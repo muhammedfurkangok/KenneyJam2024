@@ -880,6 +880,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 686610570120806602, guid: 507ab4d783065814e8978164acd15188,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -50.002487
+      objectReference: {fileID: 0}
+    - target: {fileID: 686610570120806602, guid: 507ab4d783065814e8978164acd15188,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.015999973
+      objectReference: {fileID: 0}
+    - target: {fileID: 686610570120806602, guid: 507ab4d783065814e8978164acd15188,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22.00268
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058281800589422621, guid: 507ab4d783065814e8978164acd15188,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -46.30995
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058281800589422621, guid: 507ab4d783065814e8978164acd15188,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058281800589422621, guid: 507ab4d783065814e8978164acd15188,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.984491
+      objectReference: {fileID: 0}
     - target: {fileID: 7634865024362860840, guid: 507ab4d783065814e8978164acd15188,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -909,6 +939,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 8953670290836016707, guid: 507ab4d783065814e8978164acd15188,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -52.158028
+      objectReference: {fileID: 0}
+    - target: {fileID: 8953670290836016707, guid: 507ab4d783065814e8978164acd15188,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.013999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8953670290836016707, guid: 507ab4d783065814e8978164acd15188,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -24.881607
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

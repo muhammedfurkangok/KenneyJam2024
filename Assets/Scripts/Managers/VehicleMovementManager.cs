@@ -12,10 +12,11 @@ namespace Managers
 
         private Camera mainCamera;
 
+        private const int GroundLayerMask = 1 << 3;
         private const int VehicleLayerMask = 1 << 6;
         private const int BuildingLayerMask = 1 << 7;
-        private const int GroundLayerMask = 1 << 3;
-        private const int VehicleOrBuildingOrGroundLayerMask = VehicleLayerMask | BuildingLayerMask | GroundLayerMask;
+        private const int ResourceLayerMask = 1 << 8;
+        private const int GroundOrVehicleOrBuildingOrResourceLayerMask = GroundLayerMask | VehicleLayerMask | BuildingLayerMask | ResourceLayerMask;
 
         public VehicleType GetSelectedVehicleType() => currentSelectedVehicle.GetVehicleType();
 
@@ -32,7 +33,7 @@ namespace Managers
 
                 if (!hasSelectedVehicle)
                 {
-                    if (Physics.Raycast(ray, out var hit, Mathf.Infinity, VehicleLayerMask))
+                    if (Physics.Raycast(ray, out var hit, 50f, VehicleLayerMask))
                     {
                         currentSelectedVehicle = hit.collider.GetComponent<VehicleBase>();
                         hasSelectedVehicle = true;
@@ -46,7 +47,7 @@ namespace Managers
 
                 else
                 {
-                    if (Physics.Raycast(ray, out var hit, Mathf.Infinity, VehicleOrBuildingOrGroundLayerMask))
+                    if (Physics.Raycast(ray, out var hit, 50f, GroundOrVehicleOrBuildingOrResourceLayerMask))
                     {
                         if (hit.collider.gameObject.layer == 3) currentSelectedVehicle.Move(hit.point);
                     }

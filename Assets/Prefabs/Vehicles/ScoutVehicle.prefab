@@ -53,7 +53,7 @@ MonoBehaviour:
   tier: 1
   vehicleData: {fileID: 11400000, guid: cfff51e33fbe33a41adc7b95379bc645, type: 2}
   navMeshAgent: {fileID: 9140268842948252956}
-  vehicleType: 0
+  vehicleType: 1
   isSelected: 0
 --- !u!114 &8424542807098675219
 MonoBehaviour:
