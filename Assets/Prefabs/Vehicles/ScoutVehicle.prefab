@@ -48,7 +48,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df3a8b33f3c475e80efc4b13cac0ee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderersMaterialIndicesAndColorArrays: []
+  renderersMaterialIndicesAndColorArrays:
+  - rendererMaterialIndicesAndColors:
+    - renderer: {fileID: 7437128164153988304}
+      materialIndex: 2
+      color: {r: 1, g: 0.8156863, b: 0.4862745, a: 0}
+    - renderer: {fileID: 5060510016269869647}
+      materialIndex: 0
+      color: {r: 1, g: 0.8156863, b: 0.4862745, a: 0}
+    - renderer: {fileID: 996690921315637229}
+      materialIndex: 0
+      color: {r: 1, g: 0.8156863, b: 0.4862745, a: 0}
+    - renderer: {fileID: 6764726954107501194}
+      materialIndex: 0
+      color: {r: 1, g: 0.8156863, b: 0.4862745, a: 0}
+  - rendererMaterialIndicesAndColors:
+    - renderer: {fileID: 7437128164153988304}
+      materialIndex: 2
+      color: {r: 1, g: 0.48627448, b: 0.48627448, a: 0}
+    - renderer: {fileID: 5060510016269869647}
+      materialIndex: 0
+      color: {r: 1, g: 0.48627448, b: 0.48627448, a: 0}
+    - renderer: {fileID: 996690921315637229}
+      materialIndex: 0
+      color: {r: 1, g: 0.48627448, b: 0.48627448, a: 0}
+    - renderer: {fileID: 6764726954107501194}
+      materialIndex: 0
+      color: {r: 1, g: 0.48627448, b: 0.48627448, a: 0}
+  - rendererMaterialIndicesAndColors:
+    - renderer: {fileID: 7437128164153988304}
+      materialIndex: 2
+      color: {r: 0.48627448, g: 0.48949257, b: 1, a: 0}
+    - renderer: {fileID: 5060510016269869647}
+      materialIndex: 0
+      color: {r: 0.48627448, g: 0.48949257, b: 1, a: 0}
+    - renderer: {fileID: 996690921315637229}
+      materialIndex: 0
+      color: {r: 0.48627448, g: 0.48949257, b: 1, a: 0}
+    - renderer: {fileID: 6764726954107501194}
+      materialIndex: 0
+      color: {r: 0.48627448, g: 0.48949257, b: 1, a: 0}
   highlightable: {fileID: 8424542807098675219}
   tier: 1
   vehicleData: {fileID: 11400000, guid: cfff51e33fbe33a41adc7b95379bc645, type: 2}
