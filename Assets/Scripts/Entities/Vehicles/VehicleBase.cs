@@ -16,6 +16,8 @@ namespace Entities.Vehicles
         [Header("Vehicle Base - Info - No Touch")]
         [SerializeField] private bool isSelected;
 
+        public bool IsVehicleMoving() => navMeshAgent.velocity.magnitude > 0.1f;
+
         protected virtual void Start()
         {
             SetSpeeds();
@@ -37,7 +39,9 @@ namespace Entities.Vehicles
         public virtual void Deselect()
         {
             isSelected = false;
-            Stop();
+
+            if (IsVehicleMoving()) StopWithDistance();
+            else StopInstantly();
         }
 
         public virtual void Move(Vector3 destination)
@@ -45,9 +49,14 @@ namespace Entities.Vehicles
             navMeshAgent.SetDestination(destination);
         }
 
-        public virtual void Stop()
+        public virtual void StopWithDistance()
         {
             navMeshAgent.SetDestination(transform.position + 1f * transform.forward);
+        }
+
+        public virtual void StopInstantly()
+        {
+            navMeshAgent.SetDestination(transform.position);
         }
 
         public override void Upgrade()
