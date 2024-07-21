@@ -1,13 +1,24 @@
 using DG.Tweening;
 using Extensions;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Managers
 {
     public class UIManager : SingletonMonoBehaviour<UIManager>
     {
+        [Header("Canvas References")]
+        [SerializeField] private Canvas mainCanvas;
+        [SerializeField] private Canvas gameOverCanvas;
+
+        [Header("Game Over References")]
+        [SerializeField] private Image blackScreen;
+        [SerializeField] private TextMeshProUGUI gameOverText;
+        [SerializeField] private Button backToMainMenuButton;
+
         [Header("Time UI References")]
         [SerializeField] private Button pauseResumeButton;
         [SerializeField] private Button increaseSpeedButton;
@@ -23,11 +34,6 @@ namespace Managers
         [SerializeField] private TextMeshProUGUI metalPremiumText;
         [SerializeField] private TextMeshProUGUI gemText;
 
-        [Header("Object UI References")]
-        [SerializeField] private GameObject objectUIPanel;
-        [SerializeField] private Button objectCloseButton;
-        [SerializeField] private float scaleDuration = 0.3f;
-
         [Header("Info - No Touch")]
         private bool isUIActive;
 
@@ -35,38 +41,43 @@ namespace Managers
 
         private void Start()
         {
-            //Time UI
+            //TimeUI
             pauseResumeButton.onClick.AddListener(OnPauseResumeButton);
             increaseSpeedButton.onClick.AddListener(OnIncreaseTimeScaleButton);
             decreaseSpeedButton.onClick.AddListener(OnDecreaseTimeScaleButton);
-        }
 
-        public void OpenUI()
-        {
-            if (objectUIPanel != null)
-            {
-                objectUIPanel.SetActive(true);
-                objectUIPanel.transform.DOScale(Vector3.one, scaleDuration).SetEase(Ease.OutBack);
-                isUIActive = true;
-            }
-        }
-
-        public void HideUI()
-        {
-            if (objectUIPanel != null)
-            {
-                objectUIPanel.transform.DOScale(Vector3.zero, scaleDuration).SetEase(Ease.InBack).OnComplete(() =>
-                {
-                    objectUIPanel.SetActive(false);
-                });
-                isUIActive = false;
-            }
+            //LevelFailUI
+            backToMainMenuButton.onClick.AddListener(OnBackToMainMenuButton);
         }
 
         private void CommonButtonAction()
         {
             SoundManager.Instance.PlaySound(SoundType.ButtonClick);
         }
+
+
+#region LevelFail
+
+        [Button]
+        public async void ShowGameFailUI(string resourceName)
+        {
+            mainCanvas.gameObject.SetActive(false);
+            gameOverCanvas.gameObject.SetActive(true);
+
+            gameOverText.text = "You ran out of " + resourceName + "!";
+            await blackScreen.DOColor(Color.black, 1f).SetUpdate(true).AsyncWaitForCompletion();
+            await gameOverText.DOFade(1, 1f).SetUpdate(true).AsyncWaitForCompletion();
+            await backToMainMenuButton.gameObject.transform.DOScale(1, 1f).SetUpdate(true).AsyncWaitForCompletion();
+        }
+
+        private void OnBackToMainMenuButton()
+        {
+            CommonButtonAction();
+
+            SceneManager.LoadScene(0);
+        }
+
+        #endregion
 
 #region ResourceUIMethods
 

@@ -23,5 +23,11 @@ namespace Managers
             previousGameState = currentGameState;
             currentGameState = state;
         }
+
+        public void FailGame(string resourceName)
+        {
+            Time.timeScale = 0f;
+            UIManager.Instance.ShowGameFailUI(resourceName);
+        }
     }
 }

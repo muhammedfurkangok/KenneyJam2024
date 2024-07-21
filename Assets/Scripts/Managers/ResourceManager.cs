@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Extensions;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Managers
     {
         [Header("Parameters")]
         [SerializeField] private BuildingResourceInfo[] resourceStartAmounts;
+        [SerializeField] private ResourceType[] lethalResources;
 
         [Header("Info - No Touch")]
         [SerializeField] private Resource[] resources;
@@ -61,6 +63,12 @@ namespace Managers
                 {
                     resources[i].amount -= amount;
                     //Debug.Log("Decreased " + type + " by " + amount);
+
+                    if (lethalResources.Contains(resources[i].type) && resources[i].amount <= 0)
+                    {
+                        GameManager.Instance.FailGame(resources[i].type.ToString());
+                    }
+
                     break;
                 }
             }
