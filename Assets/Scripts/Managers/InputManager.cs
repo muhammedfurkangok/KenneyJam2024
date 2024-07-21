@@ -1,5 +1,7 @@
+using System;
 using Runtime.Extensions;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Managers
 {
@@ -18,12 +20,31 @@ namespace Managers
         public bool GetInputShift() => Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         public bool GetInputMouseLeftClick() => Input.GetMouseButtonDown(0);
         public Vector3 GetMousePosition() => Input.mousePosition;
+        
+        public event Action OnGridClick, OnGridExit;
+        
+        public bool IsPointerOverUI() => EventSystem.current.IsPointerOverGameObject();
+            
 
         private void Update()
         {
+            SetGridInput();
             SetCameraMovementInput();
             SetCameraRotateInput();
             SetMouseScrollInput();
+        }
+
+        private void SetGridInput()
+        {
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                OnGridClick?.Invoke();
+            }
+
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                OnGridExit?.Invoke();
+            }
         }
 
         private void SetMouseScrollInput()

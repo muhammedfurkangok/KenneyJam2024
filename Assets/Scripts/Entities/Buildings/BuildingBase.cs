@@ -4,28 +4,19 @@ using UnityEngine;
 
 namespace Entities.Buildings
 {
-    public enum BuildingType
-    {
-        HQ,
-        LivingSpace,
-        MinerBuilding,
-        ScoutBuilding,
-        RocketSite
-    }
-
     public abstract class BuildingBase : MonoBehaviour
     {
         [Header("Building Base - References")]
         [SerializeField] private BuildingData buildingData;
         [SerializeField] private BuildingType type;
-        [SerializeField] private Renderer renderer;
+        [SerializeField] private Renderer[] renderers;
         [SerializeField] private Material[] tier2Materials;
         [SerializeField] private Material[] tier3Materials;
 
         [Header("Building Base - Info - No Touch")]
         [SerializeField] private int tier = 1;
-        [SerializeField] private BuildingMaintainCost maintainCost;
-        [SerializeField] private BuildingYield yield;
+        [SerializeField] private BuildingResourceInfo[] maintainCost;
+        [SerializeField] private BuildingResourceInfo[] yield;
 
         protected virtual void Start()
         {
@@ -42,26 +33,29 @@ namespace Entities.Buildings
 
         protected virtual void OnTimeCycleCompleted()
         {
-            for (var i = 0; i < maintainCost.resources.Length; i++)
+            foreach (var resource in maintainCost)
             {
-                ResourceManager.Instance.DecreaseResource(maintainCost.resources[i], maintainCost.amounts[i]);
+                ResourceManager.Instance.DecreaseResource(resource.resource, resource.amount);
             }
 
-            for (var i = 0; i < yield.resources.Length; i++)
+            foreach (var resource in yield)
             {
-                ResourceManager.Instance.IncreaseResource(yield.resources[i], yield.amounts[i]);
+                ResourceManager.Instance.IncreaseResource(resource.resource, resource.amount);
             }
         }
 
-        public void UpgradeBuilding()
+        public virtual void UpgradeBuilding()
         {
             tier++;
 
             maintainCost = buildingData.GetMaintainCost(type, tier);
             yield = buildingData.GetYield(type, tier);
 
-            if (tier == 2) renderer.materials = tier2Materials;
-            else if (tier == 3) renderer.materials = tier3Materials;
+            foreach (var renderer in renderers)
+            {
+                if (tier == 2) renderer.materials = tier2Materials;
+                else if (tier == 3) renderer.materials = tier3Materials;
+            }
         }
     }
 }
