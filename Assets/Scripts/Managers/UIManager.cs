@@ -34,10 +34,29 @@ namespace Managers
         [SerializeField] private TextMeshProUGUI metalPremiumText;
         [SerializeField] private TextMeshProUGUI gemText;
 
-        [Header("Info - No Touch")]
-        private bool isUIActive;
+        [Header("Building UI Common References")]
+        [SerializeField] private Canvas buildingUICanvas;
+        [SerializeField] private GameObject buildingDefaultPanel;
+        [SerializeField] private GameObject buildingUpgradePanel;
+        [SerializeField] private Button upgradePanelButton;
+        [SerializeField] private Button backFromUpgradePanelButton;
+        [SerializeField] private Button upgradeButton;
+        [SerializeField] private TextMeshProUGUI currentTierText;
+        [SerializeField] private TextMeshProUGUI currentFoodText;
+        [SerializeField] private TextMeshProUGUI currentEnergyText;
+        [SerializeField] private TextMeshProUGUI nextFoodText;
+        [SerializeField] private TextMeshProUGUI nextEnergyText;
+        [SerializeField] private TextMeshProUGUI bPopulationText;
+        [SerializeField] private TextMeshProUGUI bMetalText;
+        [SerializeField] private TextMeshProUGUI bMetalPremiumText;
 
-        public bool GetIsUIActive() => isUIActive;
+        [Header("Building UI HQ References")]
+        [SerializeField] private TextMeshProUGUI hqPopulationCapacityText;
+        [SerializeField] private TextMeshProUGUI hqEnergyRateText;
+        [SerializeField] private TextMeshProUGUI hqFoodRateText;
+
+        private GameObject currentBuildingPanel;
+        private BuildingType currentBuildingType;
 
         private void Start()
         {
@@ -46,8 +65,13 @@ namespace Managers
             increaseSpeedButton.onClick.AddListener(OnIncreaseTimeScaleButton);
             decreaseSpeedButton.onClick.AddListener(OnDecreaseTimeScaleButton);
 
-            //LevelFailUI
+            //GameOverUI
             backToMainMenuButton.onClick.AddListener(OnBackToMainMenuButton);
+
+            //BuildingUI
+            upgradePanelButton.onClick.AddListener(OnUpgradePanelButton);
+            backFromUpgradePanelButton.onClick.AddListener(OnBackFromUpgradePanelButton);
+            upgradeButton.onClick.AddListener(OnUpgradeButton);
         }
 
         private void CommonButtonAction()
@@ -56,10 +80,9 @@ namespace Managers
         }
 
 
-#region LevelFail
+#region GameOverUI
 
-        [Button]
-        public async void ShowGameFailUI(string resourceName)
+        public async void ShowGameOverUI(string resourceName)
         {
             mainCanvas.gameObject.SetActive(false);
             gameOverCanvas.gameObject.SetActive(true);
@@ -134,6 +157,37 @@ namespace Managers
 
             TimeManager.Instance.DecreaseTimeScale();
             pauseResumeButtonText.text = "Speed: " + Time.timeScale.ToString("0.0");
+        }
+
+#endregion
+
+#region BuildingUIMethods
+
+        private void OnUpgradePanelButton()
+        {
+            CommonButtonAction();
+
+            buildingDefaultPanel.SetActive(false);
+            buildingUpgradePanel.SetActive(true);
+
+            currentBuildingPanel = buildingUpgradePanel;
+        }
+
+        private void OnBackFromUpgradePanelButton()
+        {
+            CommonButtonAction();
+
+            buildingDefaultPanel.SetActive(true);
+            buildingUpgradePanel.SetActive(false);
+
+            currentBuildingPanel = buildingDefaultPanel;
+        }
+
+        private void OnUpgradeButton()
+        {
+            CommonButtonAction();
+
+            //upgrade building
         }
 
 #endregion
