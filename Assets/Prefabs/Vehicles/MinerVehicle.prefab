@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2f7ff5315e9fa494a878f84e2849d784, type: 2}
+  - {fileID: 2100000, guid: 290b2b7a260639c41970e11b8e867ce9, type: 2}
   - {fileID: -8896051167825165466, guid: fb93e304c866198499ffccaea2ed09c9, type: 3}
   - {fileID: -6867524174320841699, guid: fb93e304c866198499ffccaea2ed09c9, type: 3}
   m_StaticBatchInfo:
@@ -146,7 +146,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2f7ff5315e9fa494a878f84e2849d784, type: 2}
+  - {fileID: 2100000, guid: 290b2b7a260639c41970e11b8e867ce9, type: 2}
   - {fileID: -8896051167825165466, guid: fb93e304c866198499ffccaea2ed09c9, type: 3}
   - {fileID: -6867524174320841699, guid: fb93e304c866198499ffccaea2ed09c9, type: 3}
   m_StaticBatchInfo:
@@ -218,13 +218,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d44f6b92304d269c306696a899f60e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderersMaterialIndicesAndColorArrays: []
+  renderersMaterialIndicesAndColorArrays:
+  - rendererMaterialIndicesAndColors:
+    - renderer: {fileID: 3231669099344742959}
+      materialIndex: 3
+      color: {r: 1, g: 0.8156863, b: 0.4862745, a: 0}
+    - renderer: {fileID: 8008404404285685759}
+      materialIndex: 0
+      color: {r: 0, g: 0.08235294, b: 1, a: 0}
+    - renderer: {fileID: 2365586128607082482}
+      materialIndex: 0
+      color: {r: 0, g: 0.08235294, b: 1, a: 0}
+  - rendererMaterialIndicesAndColors:
+    - renderer: {fileID: 3231669099344742959}
+      materialIndex: 3
+      color: {r: 1, g: 0.48627448, b: 0.48627448, a: 0}
+    - renderer: {fileID: 8008404404285685759}
+      materialIndex: 0
+      color: {r: 0, g: 0.9938581, b: 1, a: 0}
+    - renderer: {fileID: 2365586128607082482}
+      materialIndex: 0
+      color: {r: 0, g: 0.99414825, b: 1, a: 0}
+  - rendererMaterialIndicesAndColors:
+    - renderer: {fileID: 3231669099344742959}
+      materialIndex: 3
+      color: {r: 0.48627448, g: 0.48949257, b: 1, a: 0}
+    - renderer: {fileID: 8008404404285685759}
+      materialIndex: 0
+      color: {r: 0, g: 1, b: 0.25, a: 0}
+    - renderer: {fileID: 2365586128607082482}
+      materialIndex: 0
+      color: {r: 0, g: 1, b: 0.25, a: 0}
   highlightable: {fileID: 3112204733140695525}
   tier: 1
   vehicleData: {fileID: 11400000, guid: cfff51e33fbe33a41adc7b95379bc645, type: 2}
   navMeshAgent: {fileID: 2062791643144898887}
   vehicleType: 0
   isSelected: 0
+  resource: {fileID: 0}
+  isMining: 0
+  miningAmount: 0
 --- !u!114 &3112204733140695525
 MonoBehaviour:
   m_ObjectHideFlags: 0

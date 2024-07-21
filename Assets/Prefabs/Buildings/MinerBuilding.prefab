@@ -456,7 +456,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d53a9d715c248628f4cc02a6ae6de8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderersMaterialIndicesAndColorArrays: []
+  renderersMaterialIndicesAndColorArrays:
+  - rendererMaterialIndicesAndColors:
+    - renderer: {fileID: 4593934418405768186}
+      materialIndex: 2
+      color: {r: 1, g: 0.8156863, b: 0.4862745, a: 0}
+  - rendererMaterialIndicesAndColors:
+    - renderer: {fileID: 4593934418405768186}
+      materialIndex: 2
+      color: {r: 1, g: 0.4862745, b: 0.4862745, a: 0}
+  - rendererMaterialIndicesAndColors:
+    - renderer: {fileID: 4593934418405768186}
+      materialIndex: 2
+      color: {r: 0.4862745, g: 0.49019608, b: 1, a: 0}
   highlightable: {fileID: 630919107329763966}
   tier: 1
   buildingData: {fileID: 11400000, guid: c804d7186cf8e244fbf9d55a94a06cb1, type: 2}

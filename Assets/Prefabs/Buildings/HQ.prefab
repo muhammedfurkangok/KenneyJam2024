@@ -53,9 +53,11 @@ MonoBehaviour:
     - renderer: {fileID: 8063594591448145316}
       materialIndex: 0
       color: {r: 1, g: 0.81568635, b: 0.48627454, a: 0}
+  - rendererMaterialIndicesAndColors:
     - renderer: {fileID: 8063594591448145316}
       materialIndex: 0
       color: {r: 1, g: 0.48627448, b: 0.48627448, a: 0}
+  - rendererMaterialIndicesAndColors:
     - renderer: {fileID: 8063594591448145316}
       materialIndex: 0
       color: {r: 0.48627448, g: 0.48949257, b: 1, a: 0}
