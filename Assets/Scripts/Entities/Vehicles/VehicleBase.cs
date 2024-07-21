@@ -87,8 +87,6 @@ namespace Entities.Vehicles
             {
                 if (!selectionCircle.activeSelf) 
                     selectionCircle.SetActive(true);
-                
-                selectionCircle.transform.position = transform.position + Vector3.up * 0.1f;
 
                 if (selectionCircleTween != null) selectionCircleTween.Kill();
 
