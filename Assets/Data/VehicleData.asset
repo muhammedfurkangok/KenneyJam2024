@@ -16,6 +16,18 @@ MonoBehaviour:
   - type: 0
     tier: 1
     speedInfo:
+      speed: 2
+      angularSpeed: 360
+      acceleration: 2.5
+  - type: 0
+    tier: 2
+    speedInfo:
+      speed: 4
+      angularSpeed: 360
+      acceleration: 6
+  - type: 0
+    tier: 3
+    speedInfo:
       speed: 6
       angularSpeed: 360
       acceleration: 8
@@ -25,4 +37,16 @@ MonoBehaviour:
       speed: 6
       angularSpeed: 360
       acceleration: 8
-  minerMiningAmounts: 000000000a0000000f0000001e000000
+  - type: 1
+    tier: 2
+    speedInfo:
+      speed: 8
+      angularSpeed: 360
+      acceleration: 10
+  - type: 1
+    tier: 3
+    speedInfo:
+      speed: 10
+      angularSpeed: 360
+      acceleration: 12
+  minerMiningAmounts: 050000000a000000140000001e000000
