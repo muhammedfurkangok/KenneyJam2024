@@ -9,7 +9,7 @@ namespace Entities
         [SerializeField] private Highlightable highlightable;
 
         [Header("Upgradeable - Info - No Touch")]
-        [SerializeField] protected int tier = 1;
+        [SerializeField] protected int tier;
 
         public virtual void Upgrade()
         {
