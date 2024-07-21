@@ -62,6 +62,18 @@ namespace Entities.Vehicles
             }
         }
 
+        public override void StopInstantly()
+        {
+            goAndMineCancellationTokenSource?.Cancel();
+            base.StopInstantly();
+        }
+
+        public override void StopWithDistance()
+        {
+            goAndMineCancellationTokenSource?.Cancel();
+            base.StopWithDistance();
+        }
+
         private async void GoAndMine(CancellationToken cancellationToken)
         {
             Move(resource.transform.position);
