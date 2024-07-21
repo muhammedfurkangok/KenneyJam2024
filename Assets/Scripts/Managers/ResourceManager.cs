@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Runtime.Extensions;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Managers
@@ -22,10 +25,33 @@ namespace Managers
         public int amount;
     }
 
+    [Serializable]
+    public struct ResourceStartAmount
+    {
+        public ResourceType type;
+        public int amount;
+    }
+
     public class ResourceManager : SingletonMonoBehaviour<ResourceManager>
     {
+        [Header("Parameters")]
+        [SerializeField] private ResourceStartAmount[] resourceStartAmounts;
+
         [Header("Info - No Touch")]
         [SerializeField] private Resource[] resources;
+
+        private void Start()
+        {
+            resources = new Resource[Enum.GetNames(typeof(ResourceType)).Length];
+
+            for (var i = 0; i < resources.Length; i++)
+            {
+                resources[i].type = (ResourceType)i;
+                resources[i].amount = resourceStartAmounts[i].amount;
+            }
+
+            UIManager.Instance.RefreshResourceUI();
+        }
 
         public int GetResourceAmount(ResourceType type)
         {

@@ -39,15 +39,6 @@ namespace Managers
             pauseResumeButton.onClick.AddListener(OnPauseResumeButton);
             increaseSpeedButton.onClick.AddListener(OnIncreaseTimeScaleButton);
             decreaseSpeedButton.onClick.AddListener(OnDecreaseTimeScaleButton);
-
-            //Resource UI
-            UpdatePopulationText(0);
-            UpdateEnergyText(0);
-            UpdateFoodText(0);
-            UpdateMoneyText(0);
-            UpdateMetalText(0);
-            UpdateMetalPremiumText(0);
-            UpdateGemText(0);
         }
 
         public void OpenUI()
@@ -78,6 +69,17 @@ namespace Managers
         }
 
 #region ResourceUIMethods
+
+        public void RefreshResourceUI()
+        {
+            UpdatePopulationText(ResourceManager.Instance.GetResourceAmount(ResourceType.Population));
+            UpdateEnergyText(ResourceManager.Instance.GetResourceAmount(ResourceType.Energy));
+            UpdateFoodText(ResourceManager.Instance.GetResourceAmount(ResourceType.Food));
+            UpdateMoneyText(ResourceManager.Instance.GetResourceAmount(ResourceType.Money));
+            UpdateMetalText(ResourceManager.Instance.GetResourceAmount(ResourceType.Metal));
+            UpdateMetalPremiumText(ResourceManager.Instance.GetResourceAmount(ResourceType.MetalPremium));
+            UpdateGemText(ResourceManager.Instance.GetResourceAmount(ResourceType.Gem));
+        }
 
         public void UpdatePopulationText(int value)
         {

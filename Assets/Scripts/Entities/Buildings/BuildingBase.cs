@@ -1,3 +1,4 @@
+using System;
 using Data.ScriptableObjects;
 using Managers;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace Entities.Buildings
         [Header("Building Base - References")]
         [SerializeField] private BuildingData buildingData;
         [SerializeField] private BuildingType type;
-        [SerializeField] private Renderer renderer;
+        [SerializeField] private Renderer[] renderers;
         [SerializeField] private Material[] tier2Materials;
         [SerializeField] private Material[] tier3Materials;
 
@@ -53,15 +54,18 @@ namespace Entities.Buildings
             }
         }
 
-        public void UpgradeBuilding()
+        public virtual void UpgradeBuilding()
         {
             tier++;
 
             maintainCost = buildingData.GetMaintainCost(type, tier);
             yield = buildingData.GetYield(type, tier);
 
-            if (tier == 2) renderer.materials = tier2Materials;
-            else if (tier == 3) renderer.materials = tier3Materials;
+            foreach (var renderer in renderers)
+            {
+                if (tier == 2) renderer.materials = tier2Materials;
+                else if (tier == 3) renderer.materials = tier3Materials;
+            }
         }
     }
 }

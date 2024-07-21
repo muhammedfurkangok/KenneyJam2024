@@ -37,7 +37,7 @@ namespace Data.ScriptableObjects
         public int[] amounts;
     }
 
-    [CreateAssetMenu(fileName = "BuildingData", menuName = "BuildingData", order = 0)]
+    //[CreateAssetMenu(fileName = "BuildingData", menuName = "BuildingData", order = 0)]
     public class BuildingData : ScriptableObject
     {
         [Header("Building Costs")]
