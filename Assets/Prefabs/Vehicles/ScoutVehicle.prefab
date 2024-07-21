@@ -62,8 +62,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityParameters: {fileID: 11400000, guid: 079c72d747089564fb2dfe0a8f589f47, type: 2}
-  renderer: {fileID: 7437128164153988304}
-  highlightedMaterialIndex: 1
+  renderersAndMaterialIndices:
+  - renderer: {fileID: 7437128164153988304}
+    materialIndex: 1
 --- !u!65 &5177516550762064143
 BoxCollider:
   m_ObjectHideFlags: 0

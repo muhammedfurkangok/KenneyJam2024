@@ -8,28 +8,37 @@ namespace Entities
     {
         [Header("References")]
         [SerializeField] private EntityParameters entityParameters;
-        [SerializeField] private Renderer renderer;
-        [SerializeField] private int highlightedMaterialIndex;
+        [SerializeField] private RendererAndMaterialIndex[] renderersAndMaterialIndices;
 
-        private Color originalColor;
+        private Color[] originalColors;
 
-        private void Awake()
+        private void Start()
         {
-            originalColor = renderer.materials[highlightedMaterialIndex].color;
+            originalColors = new Color[renderersAndMaterialIndices.Length];
+            for (var i = 0; i < renderersAndMaterialIndices.Length; i++)
+            {
+                originalColors[i] = renderersAndMaterialIndices[i].renderer.materials[renderersAndMaterialIndices[i].materialIndex].color;
+            }
         }
 
         public void Highlight()
         {
-            var materials = renderer.materials;
-            materials[highlightedMaterialIndex].DOColor(entityParameters.highlightColor, entityParameters.colorChangeDuration);
-            renderer.materials = materials;
+            for (var i = 0; i < renderersAndMaterialIndices.Length; i++)
+            {
+                var materials = renderersAndMaterialIndices[i].renderer.materials;
+                materials[renderersAndMaterialIndices[i].materialIndex].DOColor(entityParameters.highlightColor, entityParameters.colorChangeDuration);
+                renderersAndMaterialIndices[i].renderer.materials = materials;
+            }
         }
 
         public void RemoveHighlight()
         {
-            var materials = renderer.materials;
-            materials[highlightedMaterialIndex].DOColor(originalColor, entityParameters.colorChangeDuration);
-            renderer.materials = materials;
+            for (var i = 0; i < renderersAndMaterialIndices.Length; i++)
+            {
+                var materials = renderersAndMaterialIndices[i].renderer.materials;
+                materials[renderersAndMaterialIndices[i].materialIndex].DOColor(originalColors[i], entityParameters.colorChangeDuration);
+                renderersAndMaterialIndices[i].renderer.materials = materials;
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 #region Enums
 
@@ -54,6 +55,13 @@ public struct BuildingResourceInfo
 {
     public ResourceType resource;
     public int amount;
+}
+
+[Serializable]
+public struct RendererAndMaterialIndex
+{
+    public Renderer renderer;
+    public int materialIndex;
 }
 
 #endregion
