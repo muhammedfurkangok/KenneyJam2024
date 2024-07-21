@@ -1,4 +1,5 @@
 using Data.ScriptableObjects;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,6 +16,8 @@ namespace Entities.Vehicles
 
         [Header("Vehicle Base - Info - No Touch")]
         [SerializeField] protected bool isSelected;
+        
+        private Tween jumpTween;
 
         public VehicleType GetVehicleType() => vehicleType;
         public bool IsVehicleMoving() => navMeshAgent.velocity.magnitude > 0.1f;
@@ -42,6 +45,15 @@ namespace Entities.Vehicles
         public virtual void Select()
         {
             isSelected = true;
+            JumpAnimation();
+        }
+
+        private void JumpAnimation()
+        {
+            if (jumpTween != null) jumpTween.Kill();
+            var originalPos = transform.position;
+
+            jumpTween = transform.DOJump(transform.position, 0.5f, 1, 0.2f).OnComplete(() => transform.position = originalPos);
         }
 
         public virtual void Deselect()
