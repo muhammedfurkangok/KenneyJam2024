@@ -1,6 +1,7 @@
+using Data.ScriptableObjects;
 using DG.Tweening;
+using Entities.Buildings;
 using Extensions;
-using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,8 @@ namespace Managers
 {
     public class UIManager : SingletonMonoBehaviour<UIManager>
     {
+        [Header("Resource Data")] [SerializeField] private ResourceData resourceData;
+
         [Header("Canvas References")]
         [SerializeField] private Canvas mainCanvas;
         [SerializeField] private Canvas gameOverCanvas;
@@ -41,6 +44,7 @@ namespace Managers
         [SerializeField] private Button upgradePanelButton;
         [SerializeField] private Button backFromUpgradePanelButton;
         [SerializeField] private Button upgradeButton;
+        [SerializeField] private Button closeBuildingUIButton;
         [SerializeField] private TextMeshProUGUI currentTierText;
         [SerializeField] private TextMeshProUGUI currentFoodText;
         [SerializeField] private TextMeshProUGUI currentEnergyText;
@@ -51,12 +55,27 @@ namespace Managers
         [SerializeField] private TextMeshProUGUI bMetalPremiumText;
 
         [Header("Building UI HQ References")]
+        [SerializeField] private GameObject hqPanel;
         [SerializeField] private TextMeshProUGUI hqPopulationCapacityText;
         [SerializeField] private TextMeshProUGUI hqEnergyRateText;
         [SerializeField] private TextMeshProUGUI hqFoodRateText;
 
+        [Header("Building UI Living Space References")]
+        [SerializeField] private GameObject livingSpacePanel;
+        [SerializeField] private TextMeshProUGUI livingSpacePopulationText;
+
+        [Header("Building UI Rocket Site References")]
+        [SerializeField] private GameObject rocketSitePanel;
+        [SerializeField] private Button sellMetalButton;
+        [SerializeField] private Button sellMetalPremiumButton;
+        [SerializeField] private Button sellGemButton;
+        [SerializeField] private Button buyPopulationButton;
+        [SerializeField] private Button buyFoodBuFood;
+        [SerializeField] private Button buyEnergyButton;
+
         private GameObject currentBuildingPanel;
         private BuildingType currentBuildingType;
+        private BuildingBase currentBuilding;
 
         private void Start()
         {
@@ -72,6 +91,15 @@ namespace Managers
             upgradePanelButton.onClick.AddListener(OnUpgradePanelButton);
             backFromUpgradePanelButton.onClick.AddListener(OnBackFromUpgradePanelButton);
             upgradeButton.onClick.AddListener(OnUpgradeButton);
+            closeBuildingUIButton.onClick.AddListener(OnCloseBuildingUIButton);
+
+            //BuildingUI - RocketSiteUI
+            sellMetalButton.onClick.AddListener(OnSellMetalButton);
+            sellMetalPremiumButton.onClick.AddListener(OnSellMetalPremiumButton);
+            sellGemButton.onClick.AddListener(OnSellGemButton);
+            buyPopulationButton.onClick.AddListener(OnBuyPopulationButton);
+            buyFoodBuFood.onClick.AddListener(OnBuyFoodButton);
+            buyEnergyButton.onClick.AddListener(OnBuyEnergyButton);
         }
 
         private void CommonButtonAction()
@@ -163,14 +191,30 @@ namespace Managers
 
 #region BuildingUIMethods
 
+        public void OpenBuildingUI(BuildingBase building)
+        {
+            currentBuilding = building;
+            currentBuildingType = currentBuilding.GetBuildingType();
+
+            buildingUICanvas.gameObject.SetActive(true);
+            BuildingTypeToPanel(currentBuildingType).SetActive(true);
+        }
+
+        private GameObject BuildingTypeToPanel(BuildingType buildingType)
+        {
+            if (buildingType == BuildingType.HQ) return hqPanel;
+            else if (buildingType == BuildingType.LivingSpace) return livingSpacePanel;
+            else if (buildingType == BuildingType.RocketSite) return rocketSitePanel;
+            else return buildingDefaultPanel;
+        }
+
         private void OnUpgradePanelButton()
         {
             CommonButtonAction();
 
             buildingDefaultPanel.SetActive(false);
             buildingUpgradePanel.SetActive(true);
-
-            currentBuildingPanel = buildingUpgradePanel;
+            currentBuildingPanel.SetActive(false);
         }
 
         private void OnBackFromUpgradePanelButton()
@@ -179,15 +223,80 @@ namespace Managers
 
             buildingDefaultPanel.SetActive(true);
             buildingUpgradePanel.SetActive(false);
-
-            currentBuildingPanel = buildingDefaultPanel;
+            currentBuildingPanel.SetActive(true);
         }
 
         private void OnUpgradeButton()
         {
             CommonButtonAction();
 
-            //upgrade building
+            currentBuilding.Upgrade();
+        }
+
+        private void OnCloseBuildingUIButton()
+        {
+            CommonButtonAction();
+
+            ResetBuildingUI();
+            buildingUICanvas.gameObject.SetActive(false);
+        }
+
+        private void ResetBuildingUI()
+        {
+            buildingDefaultPanel.SetActive(true);
+
+            buildingUpgradePanel.SetActive(false);
+            hqPanel.SetActive(false);
+            livingSpacePanel.SetActive(false);
+            rocketSitePanel.SetActive(false);
+        }
+
+        private void OnSellMetalButton()
+        {
+            CommonButtonAction();
+
+            ResourceManager.Instance.DecreaseResource(ResourceType.Metal, 1);
+            ResourceManager.Instance.IncreaseResource(ResourceType.Money, resourceData.GetResourceMoneyValue(ResourceType.Metal));
+        }
+
+        private void OnSellMetalPremiumButton()
+        {
+            CommonButtonAction();
+
+            ResourceManager.Instance.DecreaseResource(ResourceType.MetalPremium, 1);
+            ResourceManager.Instance.IncreaseResource(ResourceType.Money, resourceData.GetResourceMoneyValue(ResourceType.MetalPremium));
+        }
+
+        private void OnSellGemButton()
+        {
+            CommonButtonAction();
+
+            ResourceManager.Instance.DecreaseResource(ResourceType.Gem, 1);
+            ResourceManager.Instance.IncreaseResource(ResourceType.Money, resourceData.GetResourceMoneyValue(ResourceType.Gem));
+        }
+
+        private void OnBuyPopulationButton()
+        {
+            CommonButtonAction();
+
+            ResourceManager.Instance.DecreaseResource(ResourceType.Money, resourceData.GetResourceMoneyValue(ResourceType.Population));
+            ResourceManager.Instance.IncreaseResource(ResourceType.Population, 1);
+        }
+
+        private void OnBuyFoodButton()
+        {
+            CommonButtonAction();
+
+            ResourceManager.Instance.DecreaseResource(ResourceType.Money, resourceData.GetResourceMoneyValue(ResourceType.Food));
+            ResourceManager.Instance.IncreaseResource(ResourceType.Food, 1);
+        }
+
+        private void OnBuyEnergyButton()
+        {
+            CommonButtonAction();
+
+            ResourceManager.Instance.DecreaseResource(ResourceType.Money, resourceData.GetResourceMoneyValue(ResourceType.Energy));
+            ResourceManager.Instance.IncreaseResource(ResourceType.Energy, 1);
         }
 
 #endregion
