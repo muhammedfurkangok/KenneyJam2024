@@ -200,7 +200,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7128540922784894265, guid: 3460cf85f127d7042ac10f6a6f618414,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3517668417095694653}
   m_SourcePrefab: {fileID: 100100000, guid: 3460cf85f127d7042ac10f6a6f618414, type: 3}
 --- !u!23 &987036882825744127 stripped
 MeshRenderer:
@@ -238,6 +242,31 @@ MeshRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 1235179852783903747}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8343366616167917882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7128540922784894265, guid: 3460cf85f127d7042ac10f6a6f618414,
+    type: 3}
+  m_PrefabInstance: {fileID: 1235179852783903747}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3517668417095694653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8343366616167917882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb03a5a17f5737429bb672d311c0086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 1
+  shakeStrength: 0.5
+  shakeVibrato: 10
+  launchHeight: 50
+  launchDuration: 3
+  backDuration: 3
+  launchEase: 7
 --- !u!1001 &1632273118977234502
 PrefabInstance:
   m_ObjectHideFlags: 0
