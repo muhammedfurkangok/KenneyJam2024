@@ -1,3 +1,4 @@
+using System;
 using Data.ScriptableObjects;
 using Managers;
 using UnityEngine;
@@ -16,6 +17,18 @@ namespace Entities.Buildings
         [SerializeField] private BuildingResourceInfo[] maintainCost;
         [SerializeField] private BuildingResourceInfo[] yield;
 
+        public BuildingType GetBuildingType() => type;
+
+        public override void Upgrade()
+        {
+            base.Upgrade();
+
+            maintainCost = buildingData.GetMaintainCost(type, tier);
+            yield = buildingData.GetYield(type, tier);
+
+            DecreaseUpdateCost();
+        }
+
         protected virtual void Start()
         {
             TimeManager.Instance.OnTimeCycleCompleted += OnTimeCycleCompleted;
@@ -27,6 +40,11 @@ namespace Entities.Buildings
         protected virtual void OnDisable()
         {
             TimeManager.Instance.OnTimeCycleCompleted -= OnTimeCycleCompleted;
+        }
+
+        private void OnMouseDown()
+        {
+            UIManager.Instance.OpenBuildingUI(this);
         }
 
         protected virtual void OnTimeCycleCompleted()
@@ -42,12 +60,12 @@ namespace Entities.Buildings
             }
         }
 
-        public override void Upgrade()
+        private void DecreaseUpdateCost()
         {
-            base.Upgrade();
-
-            maintainCost = buildingData.GetMaintainCost(type, tier);
-            yield = buildingData.GetYield(type, tier);
+            foreach (var resource in buildingData.GetBuildCost(type, tier))
+            {
+                ResourceManager.Instance.DecreaseResource(resource.resource, resource.amount);
+            }
         }
     }
 }

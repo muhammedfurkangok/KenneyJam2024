@@ -117,4 +117,11 @@ public struct SpeedInfo
     public float acceleration;
 }
 
+[Serializable]
+public struct ResourceMoneyData
+{
+    public ResourceType type;
+    public int moneyValue;
+}
+
 #endregion
