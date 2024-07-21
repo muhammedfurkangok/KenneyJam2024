@@ -53,9 +53,11 @@ MonoBehaviour:
     - renderer: {fileID: 8063594591448145316}
       materialIndex: 0
       color: {r: 1, g: 0.81568635, b: 0.48627454, a: 0}
+  - rendererMaterialIndicesAndColors:
     - renderer: {fileID: 8063594591448145316}
       materialIndex: 0
       color: {r: 1, g: 0.48627448, b: 0.48627448, a: 0}
+  - rendererMaterialIndicesAndColors:
     - renderer: {fileID: 8063594591448145316}
       materialIndex: 0
       color: {r: 0.48627448, g: 0.48949257, b: 1, a: 0}
@@ -187,10 +189,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6231023347082624160, guid: 7882c5b3f6e8cab40929d80277bf63a8, type: 3}
-  - {fileID: -6867524174320841699, guid: 7882c5b3f6e8cab40929d80277bf63a8, type: 3}
-  - {fileID: -3963241562183589234, guid: 7882c5b3f6e8cab40929d80277bf63a8, type: 3}
-  - {fileID: -4660651839558579860, guid: 7882c5b3f6e8cab40929d80277bf63a8, type: 3}
+  - {fileID: 2100000, guid: 72bf7229b9c3d6c43adec7a6cd460652, type: 2}
+  - {fileID: 2100000, guid: 4021b4ccc0a0c2242a8a66e7eeedea7d, type: 2}
+  - {fileID: 2100000, guid: 986c9cfdfe801264aad8c888a83d9131, type: 2}
+  - {fileID: 2100000, guid: e10a198503b8f6e44ac95d0f9385025c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
