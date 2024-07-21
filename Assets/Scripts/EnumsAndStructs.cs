@@ -42,6 +42,15 @@ public enum GameState
     Placement,
 }
 
+public enum CursorType
+{
+    Normal,
+    Selectable,
+    VehicleTarget,
+    Disabled,
+    Mine,
+}
+
 #endregion
 
 #region Structs

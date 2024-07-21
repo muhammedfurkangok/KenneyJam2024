@@ -16,6 +16,7 @@ namespace Entities.Vehicles
         [Header("Vehicle Base - Info - No Touch")]
         [SerializeField] private bool isSelected;
 
+        public VehicleType GetVehicleType() => vehicleType;
         public bool IsVehicleMoving() => navMeshAgent.velocity.magnitude > 0.1f;
 
         protected virtual void Start()

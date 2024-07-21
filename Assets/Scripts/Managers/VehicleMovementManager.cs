@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Managers
 {
-    public class VehicleSelectionManager : SingletonMonoBehaviour<VehicleSelectionManager>
+    public class VehicleMovementManager : SingletonMonoBehaviour<VehicleMovementManager>
     {
         [Header("Info - No Touch")]
         [SerializeField] private VehicleBase currentSelectedVehicle;
@@ -16,6 +16,8 @@ namespace Managers
         private const int BuildingLayerMask = 1 << 7;
         private const int GroundLayerMask = 1 << 3;
         private const int VehicleOrBuildingOrGroundLayerMask = VehicleLayerMask | BuildingLayerMask | GroundLayerMask;
+
+        public VehicleType GetSelectedVehicleType() => currentSelectedVehicle.GetVehicleType();
 
         private void Start()
         {
