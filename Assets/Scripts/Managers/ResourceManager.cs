@@ -1,23 +1,9 @@
 using System;
-using System.Collections.Generic;
 using Runtime.Extensions;
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Managers
 {
-    public enum ResourceType
-    {
-        Population,
-        Energy,
-        Food,
-        Money,
-        Metal,
-        MetalPremium,
-        Gem
-    }
-
     [Serializable]
     public struct Resource
     {

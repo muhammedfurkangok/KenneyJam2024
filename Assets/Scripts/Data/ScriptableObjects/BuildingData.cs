@@ -1,6 +1,4 @@
 using System;
-using Entities.Buildings;
-using Managers;
 using UnityEngine;
 
 namespace Data.ScriptableObjects

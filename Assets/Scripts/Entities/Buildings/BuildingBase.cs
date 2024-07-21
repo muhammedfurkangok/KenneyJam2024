@@ -1,19 +1,9 @@
-using System;
 using Data.ScriptableObjects;
 using Managers;
 using UnityEngine;
 
 namespace Entities.Buildings
 {
-    public enum BuildingType
-    {
-        HQ,
-        LivingSpace,
-        MinerBuilding,
-        ScoutBuilding,
-        RocketSite
-    }
-
     public abstract class BuildingBase : MonoBehaviour
     {
         [Header("Building Base - References")]

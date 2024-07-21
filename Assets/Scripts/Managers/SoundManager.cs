@@ -4,11 +4,6 @@ using UnityEngine;
 
 namespace Managers
 {
-    public enum SoundType
-    {
-        ButtonClick,
-    }
-
     [Serializable]
     public class GameSound
     {
