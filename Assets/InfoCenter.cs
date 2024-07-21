@@ -1,18 +1,24 @@
+using Managers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InfoCenter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private float cycleDuration;
+
+    private void Start()
     {
-        
+        cycleDuration = TimeManager.Instance.GetCycleDuration();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GetResourseDepletionTime(ResourceType type)
     {
-        
+
+    }
+
+    void CalculateResourceDepletionTime()
+    {
     }
 }

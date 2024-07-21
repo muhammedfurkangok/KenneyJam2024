@@ -19,6 +19,7 @@ namespace Managers
         public event Action OnTimeCycleCompleted;
 
         public float GetCurrentTimeScale() => currentTimeScale;
+        public float GetCycleDuration() => cycleDuration;
 
         private void Start()
         {

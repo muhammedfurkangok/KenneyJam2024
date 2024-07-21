@@ -49,5 +49,7 @@ namespace Entities.Buildings
             maintainCost = buildingData.GetMaintainCost(type, tier);
             yield = buildingData.GetYield(type, tier);
         }
+        public BuildingResourceInfo[] GetMaintainCost() => maintainCost;
+        public BuildingResourceInfo[] GetYield() => yield;
     }
 }
