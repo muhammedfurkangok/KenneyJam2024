@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6476308252466266338}
   - component: {fileID: 4271151595861666328}
   - component: {fileID: 8059020694234890327}
+  - component: {fileID: -7563094153207334258}
   m_Layer: 0
   m_Name: pipe_rampSmall
   m_TagString: Untagged
@@ -85,3 +86,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &-7563094153207334258
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7820350222878270842}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.693, y: 0.90000004, z: 2}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.90000004, z: -1}
+  m_TimeToStationary: 0.5

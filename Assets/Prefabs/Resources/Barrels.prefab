@@ -11,8 +11,11 @@ GameObject:
   - component: {fileID: 3287196730059910412}
   - component: {fileID: 2423373103965682143}
   - component: {fileID: 4799742322866322148}
-  m_Layer: 0
-  m_Name: barrels
+  - component: {fileID: 5326117031771346794}
+  - component: {fileID: 7849314627223976284}
+  - component: {fileID: 9069472508733271335}
+  m_Layer: 8
+  m_Name: Barrels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,6 +91,57 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5326117031771346794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038150607550650789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3da7c2e7efc14c47baaadcd40a745c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceType: 4
+  resourceAmount: 200
+--- !u!208 &7849314627223976284
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038150607550650789}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.55, y: 0.35, z: 0.49600002}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.35, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!65 &9069472508733271335
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038150607550650789}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0999999, y: 0.7, z: 0.9928203}
+  m_Center: {x: 0, y: 0.35, z: 0}
 --- !u!1 &4179027440455740312
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +153,7 @@ GameObject:
   - component: {fileID: 7938555576680299705}
   - component: {fileID: 6274403501606124652}
   - component: {fileID: 7493099779840598718}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: barrel 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +237,7 @@ GameObject:
   - component: {fileID: 1531656690682580019}
   - component: {fileID: 7289561964404339627}
   - component: {fileID: 4112167713270072442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +321,7 @@ GameObject:
   - component: {fileID: 7128178863068332059}
   - component: {fileID: 4610693834643877656}
   - component: {fileID: 3991000784141700862}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: barrel 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +405,7 @@ GameObject:
   - component: {fileID: 4016817056212810895}
   - component: {fileID: 4407928720562557877}
   - component: {fileID: 8317264863222790581}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: barrel 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

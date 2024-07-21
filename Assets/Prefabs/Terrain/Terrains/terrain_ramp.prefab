@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 9033599527829997776}
   - component: {fileID: 6170206118057036165}
   - component: {fileID: 7107480454550975580}
-  - component: {fileID: 6027933267124372949}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: terrain_ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,19 +84,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!208 &6027933267124372949
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6553736430723833185}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1, y: 0.5, z: 1}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
-  m_TimeToStationary: 0.5
