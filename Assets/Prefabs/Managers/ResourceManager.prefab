@@ -46,17 +46,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceStartAmounts:
   - resource: 0
-    amount: 50
+    amount: 3
   - resource: 1
-    amount: 50
+    amount: 350
   - resource: 2
-    amount: 50
+    amount: 48
   - resource: 3
     amount: 50
   - resource: 4
-    amount: 50
+    amount: 10
   - resource: 5
-    amount: 50
+    amount: 5
   - resource: 6
     amount: 50
   lethalResources: 0100000002000000
