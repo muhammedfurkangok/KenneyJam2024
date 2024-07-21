@@ -7,7 +7,7 @@ namespace Entities.Vehicles
 {
     public class MinerVehicle : VehicleBase
     {
-        [Header("Info - No Touch")]
+        [Header("Miner Vehicle - Info - No Touch")]
         [SerializeField] private Resource resource;
         [SerializeField] private bool isMining;
         [SerializeField] private int miningAmount;
