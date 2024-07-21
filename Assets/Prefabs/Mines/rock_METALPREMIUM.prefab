@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2622551510482042846}
   - component: {fileID: 6542012469617196341}
   - component: {fileID: 1889528303985271725}
+  - component: {fileID: 1193608375113613588}
   m_Layer: 0
   m_Name: rock_METALPREMIUM
   m_TagString: Untagged
@@ -85,3 +86,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &1193608375113613588
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6423837934291956464}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.93900007, y: 0.55, z: 0.93200004}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.021000002, y: 0.55, z: 0.016}
+  m_TimeToStationary: 0.5
