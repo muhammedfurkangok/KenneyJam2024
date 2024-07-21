@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6942462095523899666}
   - component: {fileID: 6052890415767317872}
   - component: {fileID: 6661665453725943690}
+  - component: {fileID: 4478772074065111199}
   m_Layer: 0
   m_Name: rocks_smallB
   m_TagString: Untagged
@@ -83,3 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &4478772074065111199
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7017025350304434666}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.72900003, y: 0.186, z: 0.69900006}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.003, y: 0.186, z: 0.057000004}
+  m_TimeToStationary: 0.5

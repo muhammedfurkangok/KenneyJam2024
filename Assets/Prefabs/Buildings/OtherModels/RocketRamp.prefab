@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2407804691191354539}
   - component: {fileID: 8941816451713169894}
   - component: {fileID: 1399844074205147022}
+  - component: {fileID: 7930483455947607898}
   m_Layer: 0
   m_Name: stairs (1)
   m_TagString: Untagged
@@ -85,6 +86,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &7930483455947607898
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116777634851951512}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.3, y: 0.5, z: 0.70000005}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.5, z: -0.3}
+  m_TimeToStationary: 0.5
 --- !u!1 &784750514765384730
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +113,7 @@ GameObject:
   - component: {fileID: 2595882931604144715}
   - component: {fileID: 4991763798204112788}
   - component: {fileID: 1000768095251086122}
+  - component: {fileID: 5218886521621167985}
   m_Layer: 0
   m_Name: structure_diagonal
   m_TagString: Untagged
@@ -170,6 +188,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &5218886521621167985
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784750514765384730}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 1, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1048663691259610732
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +215,7 @@ GameObject:
   - component: {fileID: 5512552707038806523}
   - component: {fileID: 1627427252330950318}
   - component: {fileID: 6924853554274362687}
+  - component: {fileID: 7386217915085328790}
   m_Layer: 0
   m_Name: stairs (2)
   m_TagString: Untagged
@@ -255,6 +290,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &7386217915085328790
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048663691259610732}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.3, y: 0.5, z: 0.70000005}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.5, z: -0.3}
+  m_TimeToStationary: 0.5
 --- !u!1 &2353986740734705129
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +317,7 @@ GameObject:
   - component: {fileID: 1538649460160157625}
   - component: {fileID: 5922541555391688816}
   - component: {fileID: 3318038888410287149}
+  - component: {fileID: 6881033776867162267}
   m_Layer: 0
   m_Name: platform_end (1)
   m_TagString: Untagged
@@ -340,6 +392,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &6881033776867162267
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353986740734705129}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 0.1, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.1, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3798942902946629517
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +419,7 @@ GameObject:
   - component: {fileID: 6511974195819735821}
   - component: {fileID: 640541875965778831}
   - component: {fileID: 7439922431072204257}
+  - component: {fileID: 8588128028849585458}
   m_Layer: 0
   m_Name: structure_diagonal (1)
   m_TagString: Untagged
@@ -425,6 +494,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &8588128028849585458
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3798942902946629517}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 1, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3878952693927544273
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +521,7 @@ GameObject:
   - component: {fileID: 3753766959254653616}
   - component: {fileID: 3227040295184297544}
   - component: {fileID: 8233082512081232222}
+  - component: {fileID: 3249803066325934379}
   m_Layer: 0
   m_Name: stairs_corner (1)
   m_TagString: Untagged
@@ -510,6 +596,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &3249803066325934379
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878952693927544273}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.6, y: 0.5, z: 0.6}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.3, y: 0.5, z: -0.2}
+  m_TimeToStationary: 0.5
 --- !u!1 &4709498301447828853
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +623,7 @@ GameObject:
   - component: {fileID: 3666544439868299021}
   - component: {fileID: 8194106847385694813}
   - component: {fileID: 5886606477068511394}
+  - component: {fileID: 218165243267376989}
   m_Layer: 0
   m_Name: stairs_corner
   m_TagString: Untagged
@@ -595,6 +698,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &218165243267376989
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709498301447828853}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.6, y: 0.5, z: 0.6}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.3, y: 0.5, z: -0.2}
+  m_TimeToStationary: 0.5
 --- !u!1 &5276379424534344234
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,6 +725,7 @@ GameObject:
   - component: {fileID: 863395877730624154}
   - component: {fileID: 8262209558534074956}
   - component: {fileID: 6108811358140370144}
+  - component: {fileID: 2073422847088383430}
   m_Layer: 0
   m_Name: structure_diagonal (2)
   m_TagString: Untagged
@@ -680,6 +800,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &2073422847088383430
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5276379424534344234}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 1, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6091740387404071050
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,6 +827,7 @@ GameObject:
   - component: {fileID: 1264046918342933505}
   - component: {fileID: 2225380884512615897}
   - component: {fileID: 8089430069576349236}
+  - component: {fileID: 4988224839167215448}
   m_Layer: 0
   m_Name: platform_end (2)
   m_TagString: Untagged
@@ -765,6 +902,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &4988224839167215448
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6091740387404071050}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 0.1, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.1, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7005156366691128409
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,6 +929,7 @@ GameObject:
   - component: {fileID: 4380421389622426397}
   - component: {fileID: 5016873379224585524}
   - component: {fileID: 7853826386919818413}
+  - component: {fileID: 1533641456063342652}
   m_Layer: 0
   m_Name: stairs_corner (2)
   m_TagString: Untagged
@@ -850,6 +1004,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &1533641456063342652
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7005156366691128409}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.6, y: 0.5, z: 0.6}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.3, y: 0.5, z: -0.2}
+  m_TimeToStationary: 0.5
 --- !u!1 &7595257866025091699
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +1074,7 @@ GameObject:
   - component: {fileID: 3944470603174850059}
   - component: {fileID: 5738023740687995032}
   - component: {fileID: 182419908700481244}
+  - component: {fileID: 4105815558667234098}
   m_Layer: 0
   m_Name: stairs
   m_TagString: Untagged
@@ -978,6 +1149,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &4105815558667234098
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8559670543731115722}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.3, y: 0.5, z: 0.70000005}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.5, z: -0.3}
+  m_TimeToStationary: 0.5
 --- !u!1 &8714820636487867932
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,6 +1176,7 @@ GameObject:
   - component: {fileID: 3394762580048588885}
   - component: {fileID: 7102064078577254741}
   - component: {fileID: 7244886669032227286}
+  - component: {fileID: 5600705747871680134}
   m_Layer: 0
   m_Name: stairs (3)
   m_TagString: Untagged
@@ -1063,3 +1251,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &5600705747871680134
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8714820636487867932}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.3, y: 0.5, z: 0.70000005}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.5, z: -0.3}
+  m_TimeToStationary: 0.5

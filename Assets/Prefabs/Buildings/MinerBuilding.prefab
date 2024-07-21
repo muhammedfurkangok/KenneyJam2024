@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2609639581959386278}
   - component: {fileID: 185284500536288004}
   - component: {fileID: 1916874784737989956}
+  - component: {fileID: 1626259122118832420}
   m_Layer: 0
   m_Name: gate 1
   m_TagString: Untagged
@@ -85,6 +86,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &1626259122118832420
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4279936386626657662}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.8000001, y: 0.90000004, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.90000004, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4990568073165233056
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +131,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.2489161, y: -0.010000229, z: 6.0124054}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.15}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.22500001}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2152225351190682091}
@@ -206,6 +223,7 @@ GameObject:
   - component: {fileID: 7349704088129628579}
   - component: {fileID: 7814743579086474340}
   - component: {fileID: 2085176263274697743}
+  - component: {fileID: 8371669765125407355}
   m_Layer: 0
   m_Name: Arms (2)
   m_TagString: Untagged
@@ -280,6 +298,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &8371669765125407355
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265982553573073274}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.6, y: 0.35000002, z: 0.6}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.35000002, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6186906074193717857
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +325,7 @@ GameObject:
   - component: {fileID: 2152225351190682091}
   - component: {fileID: 8779266644633752518}
   - component: {fileID: 4686806460803885231}
+  - component: {fileID: 3034829119334836192}
   m_Layer: 0
   m_Name: gate
   m_TagString: Untagged
@@ -365,6 +400,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &3034829119334836192
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6186906074193717857}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.8000001, y: 0.90000004, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.90000004, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6945273390477879512
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +427,7 @@ GameObject:
   - component: {fileID: 1541642057556197481}
   - component: {fileID: 9217777753457752522}
   - component: {fileID: 6348608083302185416}
+  - component: {fileID: 7201617650591755105}
   m_Layer: 0
   m_Name: Arms (1)
   m_TagString: Untagged
@@ -450,3 +502,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &7201617650591755105
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6945273390477879512}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.6, y: 0.35000002, z: 0.6}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.35000002, z: 0}
+  m_TimeToStationary: 0.5

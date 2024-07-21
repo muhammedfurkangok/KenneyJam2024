@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2945238051380273371}
   - component: {fileID: 6997307486653783740}
   - component: {fileID: 2492393509063640257}
+  - component: {fileID: 697100482133800167}
   m_Layer: 0
   m_Name: corridor_end
   m_TagString: Untagged
@@ -86,6 +87,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &697100482133800167
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863487541520662100}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: -0.5}
+  m_TimeToStationary: 0.5
 --- !u!1 &5686911177174997770
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +114,7 @@ GameObject:
   - component: {fileID: 6674620445533886711}
   - component: {fileID: 7772473458328188820}
   - component: {fileID: 4694853837655886979}
+  - component: {fileID: 7755374914779717160}
   m_Layer: 0
   m_Name: corridor_windowClosed
   m_TagString: Untagged
@@ -172,6 +190,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &7755374914779717160
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686911177174997770}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 1, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6227769902319050562
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +217,7 @@ GameObject:
   - component: {fileID: 1254928161278893052}
   - component: {fileID: 4189631988738583185}
   - component: {fileID: 6808415555649884072}
+  - component: {fileID: 3280464606089151509}
   m_Layer: 0
   m_Name: corridor_end (1)
   m_TagString: Untagged
@@ -258,6 +293,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &3280464606089151509
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227769902319050562}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: -0.5}
+  m_TimeToStationary: 0.5
 --- !u!1 &7031884144116072346
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +336,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -45.5, y: 0, z: 7.5}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1254928161278893052}
