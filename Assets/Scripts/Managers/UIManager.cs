@@ -1,5 +1,5 @@
 using DG.Tweening;
-using Runtime.Extensions;
+using Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

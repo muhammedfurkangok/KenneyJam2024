@@ -7,7 +7,6 @@ namespace Data.ScriptableObjects
     {
         [Header("Highlight Parameters")]
         public Color highlightColor;
-        public float jumpHeight;
-        public float jumpDuration;
+        public float colorChangeDuration;
     }
 }

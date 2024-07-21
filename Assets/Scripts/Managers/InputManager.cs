@@ -1,5 +1,5 @@
 using System;
-using Runtime.Extensions;
+using Extensions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,18 +13,17 @@ namespace Managers
         [SerializeField] private float cameraVerticalRotateInput;
         [SerializeField] private float mouseScrollInput;
 
+        public event Action OnGridClick, OnGridExit;
+
         public Vector2 GetCameraMovementInput() => cameraMovementInput;
         public float GetCameraHorizontalRotateInput() => cameraHorizontalRotateInput;
         public float GetCameraVerticalRotateInput() => cameraVerticalRotateInput;
         public float GetMouseScrollInput() => mouseScrollInput;
         public bool GetInputShift() => Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         public bool GetInputMouseLeftClick() => Input.GetMouseButtonDown(0);
+        public bool GetInputMouseRightClick() => Input.GetMouseButtonDown(1);
         public Vector3 GetMousePosition() => Input.mousePosition;
-        
-        public event Action OnGridClick, OnGridExit;
-        
         public bool IsPointerOverUI() => EventSystem.current.IsPointerOverGameObject();
-            
 
         private void Update()
         {

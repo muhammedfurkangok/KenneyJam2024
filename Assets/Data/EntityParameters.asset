@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: EntityParameters
   m_EditorClassIdentifier: 
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  jumpHeight: 0.3
-  jumpDuration: 0.2
+  colorChangeDuration: 0.1

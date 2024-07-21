@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Entities.Buildings
 {
-    public class BuildingHQ : BuildingBase
+    public class LivingSpace : BuildingBase
     {
 
     }

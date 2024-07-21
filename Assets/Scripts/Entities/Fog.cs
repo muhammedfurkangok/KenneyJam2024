@@ -3,7 +3,7 @@ using DG.Tweening;
 
 namespace Entities
 {
-    public class FogObject : MonoBehaviour
+    public class Fog : MonoBehaviour
     {
         private void Start()
         {
@@ -12,9 +12,7 @@ namespace Entities
 
         private void StartIdleAnimation()
         {
-            transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 1f)
-                .SetLoops(-1, LoopType.Yoyo)
-                .SetEase(Ease.InOutSine);
+            transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 1f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
         }
 
         public void RevealFog()
