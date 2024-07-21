@@ -72,48 +72,13 @@ namespace Managers
 
         public void RefreshResourceUI()
         {
-            UpdatePopulationText(ResourceManager.Instance.GetResourceAmount(ResourceType.Population));
-            UpdateEnergyText(ResourceManager.Instance.GetResourceAmount(ResourceType.Energy));
-            UpdateFoodText(ResourceManager.Instance.GetResourceAmount(ResourceType.Food));
-            UpdateMoneyText(ResourceManager.Instance.GetResourceAmount(ResourceType.Money));
-            UpdateMetalText(ResourceManager.Instance.GetResourceAmount(ResourceType.Metal));
-            UpdateMetalPremiumText(ResourceManager.Instance.GetResourceAmount(ResourceType.MetalPremium));
-            UpdateGemText(ResourceManager.Instance.GetResourceAmount(ResourceType.Gem));
-        }
-
-        public void UpdatePopulationText(int value)
-        {
-            populationText.text = value.ToString();
-        }
-
-        public void UpdateEnergyText(int value)
-        {
-            energyText.text = value.ToString();
-        }
-
-        public void UpdateFoodText(int value)
-        {
-            foodText.text = value.ToString();
-        }
-
-        public void UpdateMoneyText(int value)
-        {
-            moneyText.text = value.ToString();
-        }
-
-        public void UpdateMetalText(int value)
-        {
-            metalText.text = value.ToString();
-        }
-
-        public void UpdateMetalPremiumText(int value)
-        {
-            metalPremiumText.text = value.ToString();
-        }
-
-        public void UpdateGemText(int value)
-        {
-            gemText.text = value.ToString();
+            populationText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Population).ToString();
+            energyText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Energy).ToString();
+            foodText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Food).ToString();
+            moneyText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Money).ToString();
+            metalText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Metal).ToString();
+            metalPremiumText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.MetalPremium).ToString();
+            gemText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Gem).ToString();
         }
 
 #endregion

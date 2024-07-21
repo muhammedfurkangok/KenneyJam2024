@@ -4,24 +4,10 @@ using UnityEngine;
 
 namespace Managers
 {
-    [Serializable]
-    public struct Resource
-    {
-        public ResourceType type;
-        public int amount;
-    }
-
-    [Serializable]
-    public struct ResourceStartAmount
-    {
-        public ResourceType type;
-        public int amount;
-    }
-
     public class ResourceManager : SingletonMonoBehaviour<ResourceManager>
     {
         [Header("Parameters")]
-        [SerializeField] private ResourceStartAmount[] resourceStartAmounts;
+        [SerializeField] private BuildingResourceInfo[] resourceStartAmounts;
 
         [Header("Info - No Touch")]
         [SerializeField] private Resource[] resources;
@@ -59,9 +45,12 @@ namespace Managers
                 if (resources[i].type == type)
                 {
                     resources[i].amount += amount;
+                    //Debug.Log("Increased " + type + " by " + amount);
                     break;
                 }
             }
+
+            UIManager.Instance.RefreshResourceUI();
         }
 
         public void DecreaseResource(ResourceType type, int amount)
@@ -71,9 +60,12 @@ namespace Managers
                 if (resources[i].type == type)
                 {
                     resources[i].amount -= amount;
+                    //Debug.Log("Decreased " + type + " by " + amount);
                     break;
                 }
             }
+
+            UIManager.Instance.RefreshResourceUI();
         }
     }
 }

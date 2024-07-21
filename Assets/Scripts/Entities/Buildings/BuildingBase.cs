@@ -15,8 +15,8 @@ namespace Entities.Buildings
 
         [Header("Building Base - Info - No Touch")]
         [SerializeField] private int tier = 1;
-        [SerializeField] private BuildingMaintainCost maintainCost;
-        [SerializeField] private BuildingYield yield;
+        [SerializeField] private BuildingResourceInfo[] maintainCost;
+        [SerializeField] private BuildingResourceInfo[] yield;
 
         protected virtual void Start()
         {
@@ -33,14 +33,14 @@ namespace Entities.Buildings
 
         protected virtual void OnTimeCycleCompleted()
         {
-            for (var i = 0; i < maintainCost.resources.Length; i++)
+            foreach (var resource in maintainCost)
             {
-                ResourceManager.Instance.DecreaseResource(maintainCost.resources[i], maintainCost.amounts[i]);
+                ResourceManager.Instance.DecreaseResource(resource.resource, resource.amount);
             }
 
-            for (var i = 0; i < yield.resources.Length; i++)
+            foreach (var resource in yield)
             {
-                ResourceManager.Instance.IncreaseResource(yield.resources[i], yield.amounts[i]);
+                ResourceManager.Instance.IncreaseResource(resource.resource, resource.amount);
             }
         }
 

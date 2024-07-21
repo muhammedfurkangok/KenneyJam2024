@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2191fb9d0734a189647966853dd7238, type: 3}
+  m_Name: BuildingData
+  m_EditorClassIdentifier: 
+  buildingCostAndYieldDatas:
+  - type: 1
+    tier: 1
+    buildCost:
+    - resource: 4
+      amount: 2
+    maintainCost:
+    - resource: 1
+      amount: 1
+    - resource: 2
+      amount: 1
+    yield: []
+    singleTimeYield:
+    - resource: 0
+      amount: 2
+  - type: 0
+    tier: 1
+    buildCost: []
+    maintainCost: []
+    yield: []
+    singleTimeYield: []
+  - type: 2
+    tier: 1
+    buildCost:
+    - resource: 0
+      amount: 1
+    - resource: 4
+      amount: 2
+    maintainCost:
+    - resource: 1
+      amount: 2
+    yield: []
+    singleTimeYield: []
+  - type: 3
+    tier: 1
+    buildCost:
+    - resource: 4
+      amount: 2
+    - resource: 0
+      amount: 1
+    maintainCost:
+    - resource: 1
+      amount: 2
+    yield: []
+    singleTimeYield: []
+  - type: 4
+    tier: 1
+    buildCost:
+    - resource: 5
+      amount: 2
+    - resource: 0
+      amount: 2
+    maintainCost:
+    - resource: 1
+      amount: 5
+    yield: []
+    singleTimeYield: []
