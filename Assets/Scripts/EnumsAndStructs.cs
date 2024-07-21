@@ -34,6 +34,14 @@ public enum SoundType
     ButtonClick,
 }
 
+public enum GameState
+{
+    Free,
+    UI,
+    VehicleControl,
+    Placement,
+}
+
 #endregion
 
 #region Structs

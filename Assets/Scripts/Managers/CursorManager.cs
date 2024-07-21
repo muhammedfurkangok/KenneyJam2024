@@ -1,40 +1,68 @@
 using System;
+using Extensions;
 using UnityEngine;
 
 namespace Managers
 {
-    public class CursorManager : MonoBehaviour
+    public class CursorManager : SingletonMonoBehaviour<CursorManager>
     {
-        public Texture2D normalCursor;       
-        public Texture2D selectableCursor;   
+        [Header("References")]
+        [SerializeField] private Texture2D normalCursor;
+        [SerializeField] private Texture2D selectableCursor;
+        [SerializeField] private Texture2D vehicleTargetCursor;
+        [SerializeField] private Texture2D disabledCursor;
+
         private Camera mainCamera;
+
+        private const int VehicleLayerMask = 1 << 6;
+        private const int BuildingLayerMask = 1 << 7;
+        private const int GroundLayerMask = 1 << 3;
+        private const int VehicleOrBuildingOrGroundLayerMask = VehicleLayerMask | BuildingLayerMask | GroundLayerMask;
 
         private void Start()
         {
             mainCamera = Camera.main;
-            Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
+
+            SetNormalCursor();
         }
 
         private void Update()
         {
-            RaycastHit hit;
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (GameManager.Instance.GetCurrentGameState() == GameState.VehicleControl) DecideVehicleTargetOrDisableCursor();
+        }
 
-            if (Physics.Raycast(ray, out hit))
+        public void SetNormalCursor()
+        {
+            Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
+        }
+
+        public void SetSelectableCursor()
+        {
+            Cursor.SetCursor(selectableCursor, Vector2.zero, CursorMode.Auto);
+        }
+
+        public void SetVehicleTargetCursor()
+        {
+            Cursor.SetCursor(vehicleTargetCursor, Vector2.zero, CursorMode.Auto);
+        }
+
+        public void SetDisabledCursor()
+        {
+            Cursor.SetCursor(disabledCursor, Vector2.zero, CursorMode.Auto);
+        }
+
+        private void DecideVehicleTargetOrDisableCursor()
+        {
+            var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out var hit, 50f, VehicleOrBuildingOrGroundLayerMask))
             {
-                if (hit.collider.CompareTag("Selectable")) 
-                {
-                    Cursor.SetCursor(selectableCursor, Vector2.zero, CursorMode.Auto); 
-                }
-                else
-                {
-                    Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto); 
-                }
+                if (hit.collider.gameObject.layer == 3) SetVehicleTargetCursor();
+                else SetDisabledCursor();
             }
-            else
-            {
-                Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
-            }
+
+            else SetDisabledCursor();
+
         }
     }
 }

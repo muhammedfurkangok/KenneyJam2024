@@ -13,7 +13,9 @@ namespace Managers
         private Camera mainCamera;
 
         private const int VehicleLayerMask = 1 << 6;
+        private const int BuildingLayerMask = 1 << 7;
         private const int GroundLayerMask = 1 << 3;
+        private const int VehicleOrBuildingOrGroundLayerMask = VehicleLayerMask | BuildingLayerMask | GroundLayerMask;
 
         private void Start()
         {
@@ -34,14 +36,17 @@ namespace Managers
                         hasSelectedVehicle = true;
 
                         currentSelectedVehicle.Select();
+
+                        GameManager.Instance.ChangeGameState(GameState.VehicleControl);
+                        CursorManager.Instance.SetVehicleTargetCursor();
                     }
                 }
 
                 else
                 {
-                    if (Physics.Raycast(ray, out var hit, Mathf.Infinity, GroundLayerMask))
+                    if (Physics.Raycast(ray, out var hit, Mathf.Infinity, VehicleOrBuildingOrGroundLayerMask))
                     {
-                        currentSelectedVehicle.Move(hit.point);
+                        if (hit.collider.gameObject.layer == 3) currentSelectedVehicle.Move(hit.point);
                     }
                 }
             }
@@ -53,6 +58,9 @@ namespace Managers
 
                 currentSelectedVehicle = null;
                 hasSelectedVehicle = false;
+
+                GameManager.Instance.ChangeGameState(GameState.Free);
+                CursorManager.Instance.SetNormalCursor();
             }
         }
     }

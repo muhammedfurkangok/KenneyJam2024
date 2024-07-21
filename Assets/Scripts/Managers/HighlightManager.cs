@@ -23,7 +23,7 @@ namespace Managers
 
         private void Update()
         {
-            CheckForHighlight();
+            if (GameManager.Instance.GetCurrentGameState() == GameState.Free) CheckForHighlight();
         }
 
         private void CheckForHighlight()
@@ -40,6 +40,8 @@ namespace Managers
                 currentHighlightable.Highlight();
 
                 hasHighlightedObject = true;
+
+                CursorManager.Instance.SetSelectableCursor();
             }
 
             else ResetHighlightable();
@@ -52,6 +54,8 @@ namespace Managers
 
             hasHighlightedObject = false;
             currentHighlightable = null;
+
+            CursorManager.Instance.SetNormalCursor();
         }
     }
 }
