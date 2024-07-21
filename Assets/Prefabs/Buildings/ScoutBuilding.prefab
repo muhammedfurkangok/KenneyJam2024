@@ -47,12 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbd470d901e4d588c0b2fa253443977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderersMaterialIndicesAndColorArrays: []
+  highlightable: {fileID: 6659861063429195721}
+  tier: 1
   buildingData: {fileID: 11400000, guid: c804d7186cf8e244fbf9d55a94a06cb1, type: 2}
   type: 3
-  renderers: []
-  tier2Materials: []
-  tier3Materials: []
-  tier: 1
   maintainCost: []
   yield: []
 --- !u!114 &6659861063429195721

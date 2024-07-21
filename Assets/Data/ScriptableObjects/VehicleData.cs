@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Data.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "VehicleData", menuName = "VehicleData", order = 0)]
+    //[CreateAssetMenu(fileName = "VehicleData", menuName = "VehicleData", order = 0)]
     public class VehicleData : ScriptableObject
     {
         [Header("Vehicle Speeds")]

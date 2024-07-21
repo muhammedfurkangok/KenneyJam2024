@@ -37,11 +37,17 @@ namespace Entities.Vehicles
         public virtual void Deselect()
         {
             isSelected = false;
+            Stop();
         }
 
         public virtual void Move(Vector3 destination)
         {
             navMeshAgent.SetDestination(destination);
+        }
+
+        public virtual void Stop()
+        {
+            navMeshAgent.SetDestination(transform.position + 1f * transform.forward);
         }
 
         public override void Upgrade()

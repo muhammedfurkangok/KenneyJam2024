@@ -218,7 +218,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d44f6b92304d269c306696a899f60e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderersMaterialIndicesAndColorArrays: []
+  highlightable: {fileID: 3112204733140695525}
+  tier: 1
+  vehicleData: {fileID: 11400000, guid: cfff51e33fbe33a41adc7b95379bc645, type: 2}
   navMeshAgent: {fileID: 2062791643144898887}
+  vehicleType: 0
+  isSelected: 0
 --- !u!114 &3112204733140695525
 MonoBehaviour:
   m_ObjectHideFlags: 0
