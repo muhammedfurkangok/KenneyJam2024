@@ -39,7 +39,7 @@ namespace Managers
         public void IncreaseTimeScale()
         {
             if (currentTimeScale >= maxTimeScale) return;
-            currentTimeScale += 0.5f;
+            currentTimeScale += 0.25f;
 
             if (!isPaused) Time.timeScale = currentTimeScale;
         }
@@ -47,7 +47,7 @@ namespace Managers
         public void DecreaseTimeScale()
         {
             if (currentTimeScale <= minTimeScale) return;
-            currentTimeScale -= 0.5f;
+            currentTimeScale -= 0.25f;
 
             if (!isPaused) Time.timeScale = currentTimeScale;
         }

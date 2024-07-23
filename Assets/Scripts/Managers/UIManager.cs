@@ -24,10 +24,12 @@ namespace Managers
         [SerializeField] private Button backToMainMenuButton;
 
         [Header("Time UI References")]
-        [SerializeField] private Button pauseResumeButton;
+        [SerializeField] private TextMeshProUGUI gameSpeedText;
         [SerializeField] private Button increaseSpeedButton;
         [SerializeField] private Button decreaseSpeedButton;
-        [SerializeField] private TextMeshProUGUI pauseResumeButtonText;
+        [SerializeField] private Button pauseResumeButton;
+        [SerializeField] private Image pauseButtonImage;
+        [SerializeField] private Image resumeButtonImage;
 
         [Header("Resource UI References")]
         [SerializeField] private TextMeshProUGUI populationText;
@@ -81,9 +83,10 @@ namespace Managers
         private void Start()
         {
             //TimeUI
-            pauseResumeButton.onClick.AddListener(OnPauseResumeButton);
+            gameSpeedText.text = "Speed: " + Time.timeScale.ToString("0.00");
             increaseSpeedButton.onClick.AddListener(OnIncreaseTimeScaleButton);
             decreaseSpeedButton.onClick.AddListener(OnDecreaseTimeScaleButton);
+            pauseResumeButton.onClick.AddListener(OnPauseResumeButton);
 
             //GameOverUI
             backToMainMenuButton.onClick.AddListener(OnBackToMainMenuButton);
@@ -125,8 +128,6 @@ namespace Managers
 
 #endif
 #endregion
-
-
 
 #region GameOverUI
 
@@ -180,7 +181,10 @@ namespace Managers
             CommonButtonAction();
 
             TimeManager.Instance.PauseGame();
-            pauseResumeButtonText.text = "Paused";
+            gameSpeedText.text = "Paused";
+
+            resumeButtonImage.gameObject.SetActive(true);
+            pauseButtonImage.gameObject.SetActive(false);
         }
 
         private void ResumeGame()
@@ -188,7 +192,10 @@ namespace Managers
             CommonButtonAction();
 
             TimeManager.Instance.ResumeGame();
-            pauseResumeButtonText.text = "Speed: " + Time.timeScale.ToString("0.0");
+            gameSpeedText.text = "Speed: " + Time.timeScale.ToString("0.00");
+
+            resumeButtonImage.gameObject.SetActive(false);
+            pauseButtonImage.gameObject.SetActive(true);
         }
 
         private void OnIncreaseTimeScaleButton()
@@ -196,7 +203,7 @@ namespace Managers
             CommonButtonAction();
 
             TimeManager.Instance.IncreaseTimeScale();
-            pauseResumeButtonText.text = "Speed: " + Time.timeScale.ToString("0.0");
+            gameSpeedText.text = "Speed: " + Time.timeScale.ToString("0.00");
         }
 
         private void OnDecreaseTimeScaleButton()
@@ -204,7 +211,7 @@ namespace Managers
             CommonButtonAction();
 
             TimeManager.Instance.DecreaseTimeScale();
-            pauseResumeButtonText.text = "Speed: " + Time.timeScale.ToString("0.0");
+            gameSpeedText.text = "Speed: " + Time.timeScale.ToString("0.00");
         }
 
         #endregion
