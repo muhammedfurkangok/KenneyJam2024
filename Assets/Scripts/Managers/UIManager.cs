@@ -187,14 +187,28 @@ namespace Managers
             pauseResumeButtonText.text = "Speed: " + Time.timeScale.ToString("0.0");
         }
 
-#endregion
+        #endregion
 
-#region BuildingUIMethods
-
+        #region BuildingUIMethods
+            #region BuildingUIHQMethods
+        void UpdateHQResourceInfo()
+        {
+            hqEnergyRateText.text = $"Current Energy Rate: {ResourceManager.Instance.GetResourceConsumptionRate(ResourceType.Energy).ToString(): 0.0}";
+            hqFoodRateText.text = $"Current Food Rate: {ResourceManager.Instance.GetResourceConsumptionRate(ResourceType.Food).ToString():0.0}";
+            /* Opsiyonel :
+            hqFoodDeplationText.text = ResourceManager.Instance.GetResourceDepletionTime(ResourceType.Food).ToString();
+            hqEnergyDeplationText.text = ResourceManager.Instance.GetResourceDepletionTime(ResourceType.Energy).ToString();
+            */
+            //bu feature hazýr olunca eklersiniz xd - Agah.
+            //hqPopulationCapacityText.text = ResourceManager.Instance.GetPopulationCapacity().ToString(); 
+        }
+        #endregion
         public void OpenBuildingUI(BuildingBase building)
         {
             currentBuilding = building;
             currentBuildingType = currentBuilding.GetBuildingType();
+
+            if (currentBuildingType == BuildingType.HQ) UpdateHQResourceInfo();
 
             buildingUICanvas.gameObject.SetActive(true);
             BuildingTypeToPanel(currentBuildingType).SetActive(true);

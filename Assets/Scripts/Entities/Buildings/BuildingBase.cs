@@ -17,9 +17,12 @@ namespace Entities.Buildings
         [SerializeField] private BuildingResourceInfo[] maintainCost;
         [SerializeField] private BuildingResourceInfo[] yield;
 
-        public BuildingType GetBuildingType() => type;
-        public BuildingResourceInfo[] GetMaintainCost() => maintainCost;
-        public BuildingResourceInfo[] GetYield() => yield;
+        //Agah
+        public BuildingResourceInfo[] MaintainCost { get => maintainCost; }
+        public BuildingResourceInfo[] Yield { get => yield; }
+        //Agah
+
+        public BuildingType GetBuildingType() { return type;}   
         public override void Upgrade()
         {
             base.Upgrade();
