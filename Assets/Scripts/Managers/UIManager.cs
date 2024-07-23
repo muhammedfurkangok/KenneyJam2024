@@ -2,6 +2,7 @@ using Data.ScriptableObjects;
 using DG.Tweening;
 using Entities.Buildings;
 using Extensions;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -107,6 +108,25 @@ namespace Managers
             SoundManager.Instance.PlaySound(SoundType.ButtonClick);
         }
 
+#region EditorMethods
+#if UNITY_EDITOR
+
+        [Button]
+        public void ArrangeResourceIcons(float leftStart, float height, float interval)
+        {
+            populationText.rectTransform.parent.localPosition = new Vector3(leftStart, height, 0);
+            energyText.rectTransform.parent.localPosition = new Vector3(leftStart + interval, height, 0);
+            foodText.rectTransform.parent.localPosition = new Vector3(leftStart + interval * 2, height, 0);
+            moneyText.rectTransform.parent.localPosition = new Vector3(leftStart + interval * 3, height, 0);
+            metalText.rectTransform.parent.localPosition = new Vector3(leftStart + interval * 4, height, 0);
+            metalPremiumText.rectTransform.parent.localPosition = new Vector3(leftStart + interval * 5, height, 0);
+            gemText.rectTransform.parent.localPosition = new Vector3(leftStart + interval * 6, height, 0);
+        }
+
+#endif
+#endregion
+
+
 
 #region GameOverUI
 
@@ -134,13 +154,13 @@ namespace Managers
 
         public void RefreshResourceUI()
         {
-            populationText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Population).ToString();
-            energyText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Energy).ToString();
-            foodText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Food).ToString();
-            moneyText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Money).ToString();
-            metalText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Metal).ToString();
-            metalPremiumText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.MetalPremium).ToString();
-            gemText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Gem).ToString();
+            populationText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Population).ToString("000");
+            energyText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Energy).ToString("000");
+            foodText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Food).ToString("000");
+            moneyText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Money).ToString("000");
+            metalText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Metal).ToString("000");
+            metalPremiumText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.MetalPremium).ToString("000");
+            gemText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Gem).ToString("000");
         }
 
 #endregion
