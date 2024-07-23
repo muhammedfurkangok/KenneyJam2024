@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1656683765729913308}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UpgradePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2085413512938752719}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TimeControlPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8305604381706079780}
   - component: {fileID: 6235310745328177266}
   - component: {fileID: 6855731721138561923}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 1144660047734446868}
   - component: {fileID: 8912873706269752456}
   - component: {fileID: 5505979494823856655}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PauseButtonImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 6148450259191871209}
   - component: {fileID: 8094153280797368404}
   - component: {fileID: 8904060678767053031}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameSpeedTextImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7759219703250155831}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LivingSpacePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 443599544736801660}
   - component: {fileID: 1766752897872742619}
   - component: {fileID: 6511566539717617520}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: IncreaseSpeedButtonImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 1234790055126540631}
   - component: {fileID: 77210196296561272}
   - component: {fileID: 3762297692578465817}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BuildingUIBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 1439687899663627014}
   - component: {fileID: 6293414733728660151}
   - component: {fileID: 8773099331359734689}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ResumeButtonIMage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 6101564885999468840}
   - component: {fileID: 4829378196967351015}
   - component: {fileID: 3510360080317230427}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DecreaseSpeedButtonImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 2659493748287945781}
   - component: {fileID: 4001653918693731223}
   - component: {fileID: 8547314724658757894}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ResourceBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: 1472778043575966923}
   - component: {fileID: 2353403683180759475}
   - component: {fileID: 4876745291425666043}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BuildingUICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,8 +775,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 7
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -793,11 +793,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -817,7 +817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_BlockingObjects: 3
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 511
@@ -830,7 +830,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 803456900008603124}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DefaultPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,7 +870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1279835493586299384}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ResourcePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 3609307685173290739}
   - component: {fileID: 4888985996330235597}
   - component: {fileID: 6033897125951873293}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BlackImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -988,7 +988,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2318342146219283605}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Rocket Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1030,7 +1030,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1735726156294244130}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HQPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 4468409310554720725}
   - component: {fileID: 7926863519953172790}
   - component: {fileID: 2895882567020047912}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameOverCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1118,8 +1118,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 7
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1136,11 +1136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_BlockingObjects: 3
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 511
@@ -1174,7 +1174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4828786034899098108}
   - component: {fileID: 5163680133592521809}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1271,7 +1271,7 @@ GameObject:
   - component: {fileID: 123490181533083199}
   - component: {fileID: 5905821545596360612}
   - component: {fileID: 8093282323827354511}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MainCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1316,8 +1316,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 31
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1358,10 +1358,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_BlockingObjects: 3
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 0
 --- !u!1001 &9708290514575053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1505,6 +1505,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverText
       objectReference: {fileID: 0}
+    - target: {fileID: 8954341262920629402, guid: 2fffc43eb3b450340bda0f5a9fc839f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1541,10 +1546,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: CloseButtonText
       objectReference: {fileID: 0}
+    - target: {fileID: 156317955793959739, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
       propertyPath: m_Name
       value: CloseButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4996999887507485036, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
@@ -1817,6 +1832,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingSpaceText
       objectReference: {fileID: 0}
+    - target: {fileID: 8954341262920629402, guid: 2fffc43eb3b450340bda0f5a9fc839f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1841,10 +1861,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeButtonText
       objectReference: {fileID: 0}
+    - target: {fileID: 156317955793959739, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
       propertyPath: m_Name
       value: UpgradeButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4996999887507485036, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
@@ -1986,6 +2016,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MoneyIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518886765123261800, guid: 207428a43c0a76844898ec89b96ced7a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827675346004629390, guid: 207428a43c0a76844898ec89b96ced7a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5230392505508976771, guid: 207428a43c0a76844898ec89b96ced7a,
         type: 3}
@@ -2218,10 +2258,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4757387405189529537, guid: 10ae21e5dcffe1741ba6a8022b15485f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6192417584542367015, guid: 10ae21e5dcffe1741ba6a8022b15485f,
         type: 3}
       propertyPath: m_Name
       value: FoodIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192417584542367015, guid: 10ae21e5dcffe1741ba6a8022b15485f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2388,6 +2438,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LivingSpaceText
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954341262920629402, guid: 2fffc43eb3b450340bda0f5a9fc839f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2579,6 +2634,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MetalPremiumIcon
       objectReference: {fileID: 0}
+    - target: {fileID: 5711559537618552680, guid: 63ba681e21ad7484dab8cfc0ae656421,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388859077518493070, guid: 63ba681e21ad7484dab8cfc0ae656421,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7139935063290803391, guid: 63ba681e21ad7484dab8cfc0ae656421,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2727,6 +2792,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MetalPremiumIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023473046004673620, guid: fe34079a3b1ac434aa81a894a2754302,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697394682180480690, guid: fe34079a3b1ac434aa81a894a2754302,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2930,6 +3005,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: NextFoodIcon
       objectReference: {fileID: 0}
+    - target: {fileID: 5711559537618552680, guid: 63ba681e21ad7484dab8cfc0ae656421,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388859077518493070, guid: 63ba681e21ad7484dab8cfc0ae656421,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7139935063290803391, guid: 63ba681e21ad7484dab8cfc0ae656421,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3094,6 +3179,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameSpeedText
       objectReference: {fileID: 0}
+    - target: {fileID: 8954341262920629402, guid: 2fffc43eb3b450340bda0f5a9fc839f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3129,6 +3219,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PopulationIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735888931568627592, guid: 870aa5ee18ecf04489b855c801fcd9bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611205361608469870, guid: 870aa5ee18ecf04489b855c801fcd9bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5734524969341330019, guid: 870aa5ee18ecf04489b855c801fcd9bb,
         type: 3}
@@ -3361,10 +3461,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6946552755555200609, guid: dfc7b9d6e5de0284ea8525f222ae9cb5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8614643595004767367, guid: dfc7b9d6e5de0284ea8525f222ae9cb5,
         type: 3}
       propertyPath: m_Name
       value: MetalIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8614643595004767367, guid: dfc7b9d6e5de0284ea8525f222ae9cb5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3542,6 +3652,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoodInfoText
       objectReference: {fileID: 0}
+    - target: {fileID: 8954341262920629402, guid: 2fffc43eb3b450340bda0f5a9fc839f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3712,6 +3827,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UpgradeCostText
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954341262920629402, guid: 2fffc43eb3b450340bda0f5a9fc839f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3903,6 +4023,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: NextEnergyIcon
       objectReference: {fileID: 0}
+    - target: {fileID: 5711559537618552680, guid: 63ba681e21ad7484dab8cfc0ae656421,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388859077518493070, guid: 63ba681e21ad7484dab8cfc0ae656421,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7139935063290803391, guid: 63ba681e21ad7484dab8cfc0ae656421,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3956,6 +4086,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DecreaseSpeedButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4996999887507485036, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
@@ -4118,10 +4253,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: SellPremiumMetalButtonText
       objectReference: {fileID: 0}
+    - target: {fileID: 156317955793959739, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
       propertyPath: m_Name
       value: SellPremiumMetalButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4996999887507485036, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
@@ -4274,10 +4419,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyEnergyButtonText
       objectReference: {fileID: 0}
+    - target: {fileID: 156317955793959739, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
       propertyPath: m_Name
       value: BuyEnergyButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4996999887507485036, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
@@ -4430,10 +4585,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackButtonText
       objectReference: {fileID: 0}
+    - target: {fileID: 156317955793959739, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
       propertyPath: m_Name
       value: BackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4996999887507485036, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
@@ -4576,10 +4741,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: SellMetalButtonText
       objectReference: {fileID: 0}
+    - target: {fileID: 156317955793959739, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
       propertyPath: m_Name
       value: SellMetalButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4996999887507485036, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
@@ -4898,6 +5073,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: CurrentFoodIcon
       objectReference: {fileID: 0}
+    - target: {fileID: 5711559537618552680, guid: 63ba681e21ad7484dab8cfc0ae656421,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388859077518493070, guid: 63ba681e21ad7484dab8cfc0ae656421,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7139935063290803391, guid: 63ba681e21ad7484dab8cfc0ae656421,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -5082,6 +5267,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaintainCostText
       objectReference: {fileID: 0}
+    - target: {fileID: 8954341262920629402, guid: 2fffc43eb3b450340bda0f5a9fc839f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5106,10 +5296,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyFoodButtonText
       objectReference: {fileID: 0}
+    - target: {fileID: 156317955793959739, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
       propertyPath: m_Name
       value: BuyFoodButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4996999887507485036, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
@@ -5428,6 +5628,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MetalIcon
       objectReference: {fileID: 0}
+    - target: {fileID: 5711559537618552680, guid: 63ba681e21ad7484dab8cfc0ae656421,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388859077518493070, guid: 63ba681e21ad7484dab8cfc0ae656421,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7139935063290803391, guid: 63ba681e21ad7484dab8cfc0ae656421,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -5576,6 +5786,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GemIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541703374678038910, guid: 82e114693c344a442b2d56b276b63359,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557898032711343000, guid: 82e114693c344a442b2d56b276b63359,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5749,6 +5969,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CurrentTierText
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954341262920629402, guid: 2fffc43eb3b450340bda0f5a9fc839f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8954341262920629402, guid: 2fffc43eb3b450340bda0f5a9fc839f3,
         type: 3}
@@ -5957,6 +6182,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: CurrentEnergyIcon
       objectReference: {fileID: 0}
+    - target: {fileID: 5711559537618552680, guid: 63ba681e21ad7484dab8cfc0ae656421,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388859077518493070, guid: 63ba681e21ad7484dab8cfc0ae656421,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7139935063290803391, guid: 63ba681e21ad7484dab8cfc0ae656421,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -6106,6 +6341,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnergyIcon
       objectReference: {fileID: 0}
+    - target: {fileID: 6946662819467123099, guid: 21a767d4aa7720845950deb850b10223,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8614754279526947709, guid: 21a767d4aa7720845950deb850b10223,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6142,10 +6387,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackToMainMenuButtonText
       objectReference: {fileID: 0}
+    - target: {fileID: 156317955793959739, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
       propertyPath: m_Name
       value: BackToMainMenuButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4996999887507485036, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
@@ -6448,6 +6703,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnergyInfoText
       objectReference: {fileID: 0}
+    - target: {fileID: 8954341262920629402, guid: 2fffc43eb3b450340bda0f5a9fc839f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6488,6 +6748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PauseResumeButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4996999887507485036, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
@@ -6810,6 +7075,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HQText
       objectReference: {fileID: 0}
+    - target: {fileID: 8954341262920629402, guid: 2fffc43eb3b450340bda0f5a9fc839f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6838,6 +7108,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: IncreaseSpeedButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4996999887507485036, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
@@ -7140,6 +7415,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopulationInfoText
       objectReference: {fileID: 0}
+    - target: {fileID: 8954341262920629402, guid: 2fffc43eb3b450340bda0f5a9fc839f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7176,10 +7456,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeButtonText
       objectReference: {fileID: 0}
+    - target: {fileID: 156317955793959739, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
       propertyPath: m_Name
       value: UpgradeButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4996999887507485036, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
@@ -7462,6 +7752,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopulationText
       objectReference: {fileID: 0}
+    - target: {fileID: 8954341262920629402, guid: 2fffc43eb3b450340bda0f5a9fc839f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7498,10 +7793,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: SellGemButtonText
       objectReference: {fileID: 0}
+    - target: {fileID: 156317955793959739, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
       propertyPath: m_Name
       value: SellGemButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4996999887507485036, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
@@ -7654,10 +7959,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyPopulationButtonText
       objectReference: {fileID: 0}
+    - target: {fileID: 156317955793959739, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
       propertyPath: m_Name
       value: BuyPopulationButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120794191824853157, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4996999887507485036, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
@@ -7949,6 +8264,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PopulationIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711559537618552680, guid: 63ba681e21ad7484dab8cfc0ae656421,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388859077518493070, guid: 63ba681e21ad7484dab8cfc0ae656421,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7139935063290803391, guid: 63ba681e21ad7484dab8cfc0ae656421,
         type: 3}
