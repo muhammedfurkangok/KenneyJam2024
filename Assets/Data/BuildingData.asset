@@ -13,68 +13,12 @@ MonoBehaviour:
   m_Name: BuildingData
   m_EditorClassIdentifier: 
   buildingCostAndYieldDatas:
-  - type: 1
-    tier: 1
-    buildCost:
-    - resource: 4
-      amount: 4
-    maintainCost:
-    - resource: 1
-      amount: 1
-    - resource: 2
-      amount: 1
-    yield: []
-    singleTimeYield:
-    - resource: 0
-      amount: 2
   - type: 0
     tier: 1
     buildCost: []
     maintainCost:
     - resource: 1
       amount: 1
-    yield: []
-    singleTimeYield: []
-  - type: 2
-    tier: 1
-    buildCost:
-    - resource: 5
-      amount: 2
-    - resource: 4
-      amount: 5
-    - resource: 0
-      amount: 1
-    maintainCost:
-    - resource: 1
-      amount: 2
-    yield: []
-    singleTimeYield: []
-  - type: 3
-    tier: 1
-    buildCost:
-    - resource: 5
-      amount: 2
-    - resource: 4
-      amount: 5
-    - resource: 0
-      amount: 1
-    maintainCost:
-    - resource: 1
-      amount: 2
-    yield: []
-    singleTimeYield: []
-  - type: 4
-    tier: 1
-    buildCost:
-    - resource: 5
-      amount: 10
-    - resource: 4
-      amount: 20
-    - resource: 0
-      amount: 4
-    maintainCost:
-    - resource: 1
-      amount: 5
     yield: []
     singleTimeYield: []
   - type: 0
@@ -93,6 +37,20 @@ MonoBehaviour:
       amount: 1
     yield: []
     singleTimeYield: []
+  - type: 1
+    tier: 1
+    buildCost:
+    - resource: 4
+      amount: 4
+    maintainCost:
+    - resource: 1
+      amount: 1
+    - resource: 2
+      amount: 1
+    yield: []
+    singleTimeYield:
+    - resource: 0
+      amount: 2
   - type: 1
     tier: 2
     buildCost:
@@ -121,6 +79,20 @@ MonoBehaviour:
     singleTimeYield:
     - resource: 0
       amount: 6
+  - type: 2
+    tier: 1
+    buildCost:
+    - resource: 5
+      amount: 2
+    - resource: 4
+      amount: 5
+    - resource: 0
+      amount: 1
+    maintainCost:
+    - resource: 1
+      amount: 2
+    yield: []
+    singleTimeYield: []
   - type: 2
     tier: 2
     buildCost:
@@ -147,6 +119,20 @@ MonoBehaviour:
     maintainCost:
     - resource: 1
       amount: 8
+    yield: []
+    singleTimeYield: []
+  - type: 3
+    tier: 1
+    buildCost:
+    - resource: 5
+      amount: 2
+    - resource: 4
+      amount: 5
+    - resource: 0
+      amount: 1
+    maintainCost:
+    - resource: 1
+      amount: 2
     yield: []
     singleTimeYield: []
   - type: 3
@@ -173,5 +159,19 @@ MonoBehaviour:
     - resource: 0
       amount: 4
     maintainCost: []
+    yield: []
+    singleTimeYield: []
+  - type: 4
+    tier: 1
+    buildCost:
+    - resource: 5
+      amount: 10
+    - resource: 4
+      amount: 20
+    - resource: 0
+      amount: 4
+    maintainCost:
+    - resource: 1
+      amount: 5
     yield: []
     singleTimeYield: []
