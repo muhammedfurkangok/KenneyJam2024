@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Fog
-  - Selectable
   - Building
+  - Vehicle
+  - Resource
   layers:
   - Default
   - TransparentFX

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 44327355432342603}
   - component: {fileID: 2835682714864567376}
   - component: {fileID: 6384450348138764887}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: barrel 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2217736911251072725}
   - component: {fileID: 945633611005083354}
   - component: {fileID: 7390571836966241572}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: barrel 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,9 +182,9 @@ GameObject:
   - component: {fileID: 8520958382909753516}
   - component: {fileID: 5394299820556244768}
   - component: {fileID: 4229913731251875762}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BarrelsRail
-  m_TagString: Untagged
+  m_TagString: Resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 498343218265085271}
   - component: {fileID: 2139120705347141967}
   - component: {fileID: 8691140445160050822}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: barrel 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 6399788588924966359}
   - component: {fileID: 2565979357778654426}
   - component: {fileID: 2667142785810392929}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

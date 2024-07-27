@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9069472508733271335}
   m_Layer: 8
   m_Name: Barrels
-  m_TagString: Untagged
+  m_TagString: Resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
