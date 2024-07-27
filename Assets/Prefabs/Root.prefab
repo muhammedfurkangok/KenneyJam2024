@@ -2249,6 +2249,8 @@ MonoBehaviour:
     amount: 5
   - resource: 6
     amount: 50
+  - resource: 7
+    amount: 3
   lethalResources: 0100000002000000
   resources: []
 --- !u!1 &8361145607459724717

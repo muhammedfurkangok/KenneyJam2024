@@ -11,7 +11,8 @@ public enum ResourceType
     Money,
     Metal,
     MetalPremium,
-    Gem
+    Gem,
+    PopulationCapacity,
 }
 
 public enum BuildingType

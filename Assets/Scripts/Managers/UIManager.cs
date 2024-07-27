@@ -312,6 +312,9 @@ namespace Managers
         {
             CommonButtonAction();
 
+            if (ResourceManager.Instance.GetResourceAmount(ResourceType.Population) == ResourceManager.Instance.GetResourceAmount(ResourceType.PopulationCapacity))
+                return;
+
             ResourceManager.Instance.DecreaseResource(ResourceType.Money, resourceData.GetResourceMoneyValue(ResourceType.Population));
             ResourceManager.Instance.IncreaseResource(ResourceType.Population, 1);
         }

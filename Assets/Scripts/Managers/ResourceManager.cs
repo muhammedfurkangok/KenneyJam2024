@@ -64,7 +64,7 @@ namespace Managers
                     resources[i].amount -= amount;
                     //Debug.Log("Decreased " + type + " by " + amount);
 
-                    if (lethalResources.Contains(resources[i].type) && resources[i].amount <= 0)
+                    if (resources[i].amount <= 0 && lethalResources.Contains(resources[i].type))
                     {
                         GameManager.Instance.FailGame(resources[i].type.ToString());
                     }
