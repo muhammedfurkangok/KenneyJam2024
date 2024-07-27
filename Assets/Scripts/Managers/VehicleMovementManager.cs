@@ -10,8 +10,6 @@ namespace Managers
         [SerializeField] private VehicleBase currentSelectedVehicle;
         [SerializeField] private bool hasSelectedVehicle;
 
-        private Camera mainCamera;
-
         private const int GroundLayerMask = 1 << 3;
         private const int VehicleLayerMask = 1 << 6;
         private const int BuildingLayerMask = 1 << 7;
@@ -20,20 +18,13 @@ namespace Managers
 
         public VehicleType GetSelectedVehicleType() => currentSelectedVehicle.GetVehicleType();
 
-        private void Start()
-        {
-            mainCamera = Camera.main;
-        }
-
         private void Update()
         {
             if (InputManager.Instance.GetInputMouseLeftClick())
             {
-                var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
                 if (!hasSelectedVehicle)
                 {
-                    if (Physics.Raycast(ray, out var hit, 50f, VehicleLayerMask))
+                    if (RaycastManager.Instance.RaycastFromMousePosition(VehicleLayerMask, out var hit))
                     {
                         currentSelectedVehicle = hit.collider.GetComponent<VehicleBase>();
                         hasSelectedVehicle = true;
@@ -47,7 +38,7 @@ namespace Managers
 
                 else
                 {
-                    if (Physics.Raycast(ray, out var hit, 50f, GroundOrVehicleOrBuildingOrResourceLayerMask))
+                    if (RaycastManager.Instance.RaycastFromMousePosition(GroundOrVehicleOrBuildingOrResourceLayerMask, out var hit))
                     {
                         if (hit.collider.gameObject.layer == 3) currentSelectedVehicle.Move(hit.point);
                     }

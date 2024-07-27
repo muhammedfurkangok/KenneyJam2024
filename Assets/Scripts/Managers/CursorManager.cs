@@ -67,7 +67,7 @@ namespace Managers
 
         private void DecideVehicleStateCursor()
         {
-            if (RaycastManager.Instance.RaycastFromScreenPoint(Input.mousePosition, 50f, Physics.AllLayers, out var hit))
+            if (RaycastManager.Instance.RaycastFromMousePosition(Physics.AllLayers, out var hit))
             {
                 if (hit.collider.gameObject.layer == 3) SetVehicleTargetCursor();
                 else if (hit.collider.gameObject.layer == 8 && VehicleMovementManager.Instance.GetSelectedVehicleType() == VehicleType.Miner) SetMineCursor();

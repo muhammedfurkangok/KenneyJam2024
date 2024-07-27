@@ -10,16 +10,9 @@ namespace Managers
         private Highlightable currentHighlightable;
         private bool hasHighlightedObject;
 
-        private Camera mainCamera;
-
         private const int VehicleLayerMask = 1 << 6;
         private const int BuildingLayerMask = 1 << 7;
         private const int VehicleOrBuildingLayerMask = VehicleLayerMask | BuildingLayerMask;
-
-        private void Start()
-        {
-            mainCamera = Camera.main;
-        }
 
         private void Update()
         {
@@ -28,9 +21,7 @@ namespace Managers
 
         private void CheckForHighlight()
         {
-            var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out var hit, 50f, VehicleOrBuildingLayerMask))
+            if (RaycastManager.Instance.RaycastFromMousePosition(VehicleOrBuildingLayerMask, out var hit))
             {
                 var hitHighlightable = hit.collider.GetComponent<Highlightable>();
                 if (currentHighlightable == hitHighlightable) return;

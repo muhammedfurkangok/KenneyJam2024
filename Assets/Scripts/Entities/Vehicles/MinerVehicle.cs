@@ -43,7 +43,7 @@ namespace Entities.Vehicles
 
         private void CheckForMine()
         {
-            if (!RaycastManager.Instance.RaycastFromScreenPoint(Input.mousePosition, 50f, ResourceLayerMask, out var hit)) return;
+            if (!RaycastManager.Instance.RaycastFromMousePosition(ResourceLayerMask, out var hit)) return;
             if (hit.collider.gameObject.layer != 8) return;
 
             isMining = false;

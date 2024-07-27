@@ -48,7 +48,7 @@ namespace Entities.Buildings
 
         private void OnMouseDown()
         {
-            UIManager.Instance.OpenBuildingUI(this);
+            if (GameManager.Instance.GetCurrentGameState() == GameState.Free) UIManager.Instance.OpenBuildingUI(this);
         }
 
         protected virtual void OnTimeCycleCompleted()
