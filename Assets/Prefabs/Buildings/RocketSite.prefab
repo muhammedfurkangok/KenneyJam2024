@@ -410,13 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb03a5a17f5737429bb672d311c0086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeDuration: 1
-  shakeStrength: 0.5
-  shakeVibrato: 10
-  launchHeight: 50
-  launchDuration: 3
-  backDuration: 3
-  launchEase: 7
+  entityParameters: {fileID: 11400000, guid: 079c72d747089564fb2dfe0a8f589f47, type: 2}
 --- !u!1001 &1632273118977234502
 PrefabInstance:
   m_ObjectHideFlags: 0

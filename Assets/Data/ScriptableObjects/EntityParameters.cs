@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace Data.ScriptableObjects
@@ -7,5 +8,14 @@ namespace Data.ScriptableObjects
     {
         [Header("Highlight Parameters")]
         public Color highlightColor;
+
+        [Header("Rocket Parameters")]
+        public float rocketShakeDuration;
+        public float rocketShakeStrength;
+        public int rocketShakeVibrato;
+        public float rocketLaunchHeight;
+        public float rocketLaunchDuration;
+        public float rocketBackDuration;
+        public Ease rocketLaunchEase;
     }
 }

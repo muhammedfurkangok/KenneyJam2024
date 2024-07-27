@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: EntityParameters
   m_EditorClassIdentifier: 
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  colorChangeDuration: 0.1
+  rocketShakeDuration: 1
+  rocketShakeStrength: 0.5
+  rocketShakeVibrato: 10
+  rocketLaunchHeight: 50
+  rocketLaunchDuration: 5
+  rocketBackDuration: 5
+  rocketLaunchEase: 7
