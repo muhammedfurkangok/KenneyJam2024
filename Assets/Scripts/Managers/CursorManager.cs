@@ -1,4 +1,3 @@
-using System;
 using Extensions;
 using UnityEngine;
 
@@ -7,23 +6,17 @@ namespace Managers
     public class CursorManager : SingletonMonoBehaviour<CursorManager>
     {
         [Header("References")]
-        [SerializeField] private Texture2D normalCursor;
-        [SerializeField] private Texture2D selectableCursor;
-        [SerializeField] private Texture2D vehicleTargetCursor;
-        [SerializeField] private Texture2D disabledCursor;
-        [SerializeField] private Texture2D mineCursor;
+        [SerializeField] CursorTextureAndHotspot normalCursor;
+        [SerializeField] CursorTextureAndHotspot selectableCursor;
+        [SerializeField] CursorTextureAndHotspot vehicleTargetCursor;
+        [SerializeField] CursorTextureAndHotspot disabledCursor;
+        [SerializeField] CursorTextureAndHotspot mineCursor;
 
         [Header("Info - No Touch")]
         [SerializeField] private CursorType currentCursorType;
 
-        public CursorType GetCurrentCursorType() => currentCursorType;
-
-        private Camera mainCamera;
-
         private void Start()
         {
-            mainCamera = Camera.main;
-
             SetNormalCursor();
         }
 
@@ -36,7 +29,7 @@ namespace Managers
         {
             if (currentCursorType == CursorType.Normal) return;
 
-            Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
+            Cursor.SetCursor(normalCursor.texture, normalCursor.hotspot, CursorMode.Auto);
             currentCursorType = CursorType.Normal;
         }
 
@@ -44,7 +37,7 @@ namespace Managers
         {
             if (currentCursorType == CursorType.Selectable) return;
 
-            Cursor.SetCursor(selectableCursor, Vector2.zero, CursorMode.Auto);
+            Cursor.SetCursor(selectableCursor.texture, selectableCursor.hotspot, CursorMode.Auto);
             currentCursorType = CursorType.Selectable;
         }
 
@@ -52,7 +45,7 @@ namespace Managers
         {
             if (currentCursorType == CursorType.VehicleTarget) return;
 
-            Cursor.SetCursor(vehicleTargetCursor, Vector2.zero, CursorMode.Auto);
+            Cursor.SetCursor(vehicleTargetCursor.texture, vehicleTargetCursor.hotspot, CursorMode.Auto);
             currentCursorType = CursorType.VehicleTarget;
         }
 
@@ -60,7 +53,7 @@ namespace Managers
         {
             if (currentCursorType == CursorType.Disabled) return;
 
-            Cursor.SetCursor(disabledCursor, Vector2.zero, CursorMode.Auto);
+            Cursor.SetCursor(disabledCursor.texture, disabledCursor.hotspot, CursorMode.Auto);
             currentCursorType = CursorType.Disabled;
         }
 
@@ -68,15 +61,13 @@ namespace Managers
         {
             if (currentCursorType == CursorType.Mine) return;
 
-            Cursor.SetCursor(mineCursor, Vector2.zero, CursorMode.Auto);
+            Cursor.SetCursor(mineCursor.texture, mineCursor.hotspot, CursorMode.Auto);
             currentCursorType = CursorType.Mine;
         }
 
         private void DecideVehicleStateCursor()
         {
-            var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out var hit, 50f))
+            if (RaycastManager.Instance.RaycastFromScreenPoint(Input.mousePosition, 50f, Physics.AllLayers, out var hit))
             {
                 if (hit.collider.gameObject.layer == 3) SetVehicleTargetCursor();
                 else if (hit.collider.gameObject.layer == 8 && VehicleMovementManager.Instance.GetSelectedVehicleType() == VehicleType.Miner) SetMineCursor();

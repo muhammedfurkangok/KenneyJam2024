@@ -17,7 +17,7 @@ public class SunController : MonoBehaviour
 
     void Update()
     {
-        sun.Rotate(Vector3.right * Time.deltaTime * timeScale);
+        sun.Rotate(Vector3.right * (Time.deltaTime * timeScale));
     }
 
     public void SetTimeScale(float scale)

@@ -12,7 +12,6 @@ namespace Entities.Vehicles
         [SerializeField] private bool isMining;
         [SerializeField] private int miningAmount;
 
-        private Camera mainCamera;
         private CancellationTokenSource goAndMineCancellationTokenSource;
 
         private const int ResourceLayerMask = 1<<8;
@@ -28,7 +27,6 @@ namespace Entities.Vehicles
         {
             base.Start();
 
-            mainCamera = Camera.main;
             miningAmount = vehicleData.GetMinerMiningAmount(tier);
             TimeManager.Instance.OnTimeCycleCompleted += MineResource;
         }
@@ -45,21 +43,16 @@ namespace Entities.Vehicles
 
         private void CheckForMine()
         {
-            var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (!RaycastManager.Instance.RaycastFromScreenPoint(Input.mousePosition, 50f, ResourceLayerMask, out var hit)) return;
+            if (hit.collider.gameObject.layer != 8) return;
 
-            if (Physics.Raycast(ray, out var hit, 50f, ResourceLayerMask))
-            {
-                if (hit.collider.gameObject.layer == 8)
-                {
-                    isMining = false;
+            isMining = false;
 
-                    goAndMineCancellationTokenSource?.Cancel();
-                    goAndMineCancellationTokenSource = new CancellationTokenSource();
+            goAndMineCancellationTokenSource?.Cancel();
+            goAndMineCancellationTokenSource = new CancellationTokenSource();
 
-                    resource = hit.collider.GetComponent<Resource>();
-                    GoAndMine(goAndMineCancellationTokenSource.Token);
-                }
-            }
+            resource = hit.collider.GetComponent<Resource>();
+            GoAndMine(goAndMineCancellationTokenSource.Token);
         }
 
         public override void StopInstantly()

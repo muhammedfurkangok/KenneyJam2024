@@ -124,4 +124,11 @@ public struct ResourceMoneyData
     public int moneyValue;
 }
 
+[Serializable]
+public struct CursorTextureAndHotspot
+{
+    public Texture2D texture;
+    public Vector2 hotspot;
+}
+
 #endregion
