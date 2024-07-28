@@ -68,14 +68,14 @@ public struct BuildingCostAndYieldData
 {
     public BuildingType type;
     public int tier;
-    public BuildingResourceInfo[] buildCost;
-    public BuildingResourceInfo[] maintainCost;
-    public BuildingResourceInfo[] yield;
-    public BuildingResourceInfo[] singleTimeYield;
+    public ResourceAndAmount[] buildCost;
+    public ResourceAndAmount[] maintainCost;
+    public ResourceAndAmount[] yield;
+    public ResourceAndAmount[] singleTimeYield;
 }
 
 [Serializable]
-public struct BuildingResourceInfo
+public struct ResourceAndAmount
 {
     public ResourceType resource;
     public int amount;

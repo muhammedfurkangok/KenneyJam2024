@@ -9,7 +9,7 @@ namespace Data.ScriptableObjects
         [Header("Building Costs")]
         [SerializeField] private BuildingCostAndYieldData[] buildingCostAndYieldDatas;
 
-        public BuildingResourceInfo[] GetBuildCost(BuildingType buildingType, int buildingTier)
+        public ResourceAndAmount[] GetBuildCost(BuildingType buildingType, int buildingTier)
         {
             foreach (var buildingCostAndYieldData in buildingCostAndYieldDatas)
             {
@@ -22,7 +22,7 @@ namespace Data.ScriptableObjects
             throw new Exception("Building cost not found for: " + buildingType + " " + buildingTier);
         }
 
-        public BuildingResourceInfo[] GetMaintainCost(BuildingType buildingType, int buildingTier)
+        public ResourceAndAmount[] GetMaintainCost(BuildingType buildingType, int buildingTier)
         {
             foreach (var buildingCostData in buildingCostAndYieldDatas)
             {
@@ -35,7 +35,7 @@ namespace Data.ScriptableObjects
             throw new Exception("Building maintain cost not found for: " + buildingType + " " + buildingTier);
         }
 
-        public BuildingResourceInfo[] GetYield(BuildingType buildingType, int buildingTier)
+        public ResourceAndAmount[] GetYield(BuildingType buildingType, int buildingTier)
         {
             foreach (var buildingCostData in buildingCostAndYieldDatas)
             {
@@ -48,7 +48,7 @@ namespace Data.ScriptableObjects
             throw new Exception("Building yield not found for: " + buildingType + " " + buildingTier);
         }
 
-        public BuildingResourceInfo[] GetSingleTimeYield(BuildingType buildingType, int buildingTier)
+        public ResourceAndAmount[] GetSingleTimeYield(BuildingType buildingType, int buildingTier)
         {
             foreach (var buildingCostData in buildingCostAndYieldDatas)
             {

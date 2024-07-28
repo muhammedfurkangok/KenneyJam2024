@@ -67,6 +67,8 @@ MonoBehaviour:
   metalText: {fileID: 4371094813522876898}
   metalPremiumText: {fileID: 3163892919844501652}
   gemText: {fileID: 9216390834478898468}
+  criticalResourceColor: {r: 0.5254902, g: 0, b: 0, a: 1}
+  fullResourceColor: {r: 0.32999486, g: 0.92941177, b: 0.13333334, a: 1}
   buildingUICanvas: {fileID: 7205200041501141254}
   buildingDefaultPanel: {fileID: 1521296927820542178}
   buildingUpgradePanel: {fileID: 8361145607459724717}
@@ -154,7 +156,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 7
+  m_AdditionalShaderChannelsFlag: 31
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -2252,7 +2254,9 @@ MonoBehaviour:
   - resource: 7
     amount: 3
   lethalResources: 0100000002000000
+  criticalResourceCycleThreshold: 5
   resources: []
+  currentMaintainCosts: []
 --- !u!1 &8361145607459724717
 GameObject:
   m_ObjectHideFlags: 0
@@ -3893,7 +3897,7 @@ PrefabInstance:
     - target: {fileID: 5914456881613802101, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 250
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5914456881613802101, guid: ff7236fcfe1cc6f4cbe5a3c3940ebaaf,
         type: 3}

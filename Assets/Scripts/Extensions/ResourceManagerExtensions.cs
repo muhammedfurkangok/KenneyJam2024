@@ -63,7 +63,7 @@ namespace Extensions
             {
                 if (building.GetMaintainCost() != null)
                 {
-                    foreach (BuildingResourceInfo resource in building.GetMaintainCost())
+                    foreach (ResourceAndAmount resource in building.GetMaintainCost())
                     {
                         if (resource.resource == type)
                         {
@@ -73,7 +73,7 @@ namespace Extensions
                 }
                 if (building.GetYield() != null)
                 {
-                    foreach (BuildingResourceInfo resource in building.GetYield())
+                    foreach (ResourceAndAmount resource in building.GetYield())
                     {
                         if (resource.resource == type)
                         {

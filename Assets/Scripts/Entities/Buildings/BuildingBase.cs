@@ -13,21 +13,25 @@ namespace Entities.Buildings
         [SerializeField] private BuildingType type;
 
         [Header("Building Base - Info - No Touch")]
-        [SerializeField] private BuildingResourceInfo[] maintainCost;
-        [SerializeField] private BuildingResourceInfo[] yield;
+        [SerializeField] private ResourceAndAmount[] maintainCost;
+        [SerializeField] private ResourceAndAmount[] yield;
 
-        public BuildingResourceInfo[] GetMaintainCost() => maintainCost;
-        public BuildingResourceInfo[] GetYield() => yield;
+        public ResourceAndAmount[] GetMaintainCost() => maintainCost;
+        public ResourceAndAmount[] GetYield() => yield;
         public BuildingType GetBuildingType() => type;
 
         public override void Upgrade()
         {
             base.Upgrade();
 
+            ResourceManager.Instance.DecreaseMaintainCost(maintainCost);
+
             maintainCost = buildingData.GetMaintainCost(type, tier);
             yield = buildingData.GetYield(type, tier);
 
-            DecreaseUpdateCost();
+            ResourceManager.Instance.IncreaseMaintainCost(maintainCost);
+
+            foreach (var resource in buildingData.GetBuildCost(type, tier)) ResourceManager.Instance.DecreaseResource(resource.resource, resource.amount);
         }
 
         protected virtual void Start()
@@ -36,6 +40,8 @@ namespace Entities.Buildings
 
             maintainCost = buildingData.GetMaintainCost(type, tier);
             yield = buildingData.GetYield(type, tier);
+
+            ResourceManager.Instance.IncreaseMaintainCost(maintainCost);
         }
 
         protected virtual void OnDisable()
@@ -58,14 +64,6 @@ namespace Entities.Buildings
             foreach (var resource in yield)
             {
                 ResourceManager.Instance.IncreaseResource(resource.resource, resource.amount);
-            }
-        }
-
-        private void DecreaseUpdateCost()
-        {
-            foreach (var resource in buildingData.GetBuildCost(type, tier))
-            {
-                ResourceManager.Instance.DecreaseResource(resource.resource, resource.amount);
             }
         }
         
