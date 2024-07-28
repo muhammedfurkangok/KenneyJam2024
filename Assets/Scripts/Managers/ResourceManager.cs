@@ -15,6 +15,7 @@ namespace Managers
         [Header("Info - No Touch")]
         [SerializeField] private Resource[] resources;
         [SerializeField] private ResourceAndAmount[] currentMaintainCosts;
+        [SerializeField] private ResourceAndAmount[] currentYields;
 
         protected override void Awake()
         {
@@ -26,6 +27,14 @@ namespace Managers
             {
                 currentMaintainCosts[i].resource = (ResourceType)i;
                 currentMaintainCosts[i].amount = 0;
+            }
+
+            //Init currentYields
+            currentYields = new ResourceAndAmount[Enum.GetNames(typeof(ResourceType)).Length];
+            for (var i = 0; i < currentYields.Length; i++)
+            {
+                currentYields[i].resource = (ResourceType)i;
+                currentYields[i].amount = 0;
             }
         }
 
@@ -44,15 +53,7 @@ namespace Managers
 
         public int GetResourceAmount(ResourceType type)
         {
-            foreach (var resource in resources)
-            {
-                if (resource.type == type)
-                {
-                    return resource.amount;
-                }
-            }
-
-            return 0;
+            return (from resource in resources where resource.type == type select resource.amount).FirstOrDefault();
         }
 
         public void IncreaseResource(ResourceType type, int amount)
@@ -121,20 +122,51 @@ namespace Managers
             }
         }
 
+        public void IncreaseYield(ResourceAndAmount[] yield)
+        {
+            foreach (var resource in yield)
+            {
+                for (var i = 0; i < currentYields.Length; i++)
+                {
+                    if (currentYields[i].resource == resource.resource)
+                    {
+                        currentYields[i].amount += resource.amount;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public void DecreaseYield(ResourceAndAmount[] yield)
+        {
+            foreach (var resource in yield)
+            {
+                for (var i = 0; i < currentYields.Length; i++)
+                {
+                    if (currentYields[i].resource == resource.resource)
+                    {
+                        currentYields[i].amount -= resource.amount;
+                        break;
+                    }
+                }
+            }
+        }
+
         public int GetMaintainCost(ResourceType type)
         {
-            foreach (var resource in currentMaintainCosts)
-            {
-                if (resource.resource == type) return resource.amount;
-            }
+            return (from resource in currentMaintainCosts where resource.resource == type select resource.amount).FirstOrDefault();
+        }
 
-            return 0;
+        public int GetYield(ResourceType type)
+        {
+            return (from resource in currentYields where resource.resource == type select resource.amount).FirstOrDefault();
         }
 
         public bool IsResourceCritical(ResourceType type)
         {
             if (GetMaintainCost(type) == 0) return false; //If the resource is not consumed, it can't be critical, also prevents division by zero
-            var remainingCycles = GetResourceAmount(type) / GetMaintainCost(type);
+            var remainingCycles = GetResourceAmount(type) / GetMaintainCost(type) - GetYield(type);
+            if (remainingCycles < 0) return false; //If the resource is produced more than consumed, it can't be critical
             return remainingCycles <= criticalResourceCycleThreshold;
         }
     }

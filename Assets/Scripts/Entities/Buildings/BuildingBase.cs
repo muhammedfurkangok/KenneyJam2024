@@ -25,11 +25,13 @@ namespace Entities.Buildings
             base.Upgrade();
 
             ResourceManager.Instance.DecreaseMaintainCost(maintainCost);
+            ResourceManager.Instance.DecreaseYield(yield);
 
             maintainCost = buildingData.GetMaintainCost(type, tier);
             yield = buildingData.GetYield(type, tier);
 
             ResourceManager.Instance.IncreaseMaintainCost(maintainCost);
+            ResourceManager.Instance.IncreaseYield(yield);
 
             foreach (var resource in buildingData.GetBuildCost(type, tier)) ResourceManager.Instance.DecreaseResource(resource.resource, resource.amount);
         }
@@ -42,6 +44,7 @@ namespace Entities.Buildings
             yield = buildingData.GetYield(type, tier);
 
             ResourceManager.Instance.IncreaseMaintainCost(maintainCost);
+            ResourceManager.Instance.IncreaseYield(yield);
         }
 
         protected virtual void OnDisable()
