@@ -235,9 +235,11 @@ namespace Managers
             gameSpeedText.text = "Speed: " + Time.timeScale.ToString("0.00");
         }
 
-#endregion
+#endregion TimeUIMethods
 
 #region BuildingUIMethods
+
+#region BuildingUICommonMethods
 
         private GameObject BuildingTypeToPanel(BuildingType buildingType)
         {
@@ -250,24 +252,30 @@ namespace Managers
             throw new Exception("Building type panel not found: " + buildingType);
         }
 
+        private void RefreshBuildingTypeUI(BuildingType buildingType)
+        {
+            if (buildingType == BuildingType.HQ) RefreshHQPanel();
+
+            //Add new building types here
+        }
+
         private void RefreshBuildingDefaultUI(BuildingBase building)
         {
-            currentTierValueText.text = building.GetTier().ToString();
-
-            currentEnergyText.text = buildingData.GetMaintainCost(building.GetBuildingType(), building.GetTier(), ResourceType.Energy).ToString();
-            currentFoodText.text = buildingData.GetMaintainCost(building.GetBuildingType(), building.GetTier(), ResourceType.Food).ToString();
+            currentTierValueText.text = building.GetTier().ToString("000");
+            currentEnergyText.text = buildingData.GetMaintainCost(building.GetBuildingType(), building.GetTier(), ResourceType.Energy).ToString("000");
+            currentFoodText.text = buildingData.GetMaintainCost(building.GetBuildingType(), building.GetTier(), ResourceType.Food).ToString("000");
         }
 
         private void RefreshBuildingUpgradeUI(BuildingBase building)
         {
             var nextTier = building.GetTier() + 1;
 
-            upgradePopulationText.text = buildingData.GetBuildCost(building.GetBuildingType(), nextTier, ResourceType.Population).ToString();
-            upgradeMetalText.text = buildingData.GetBuildCost(building.GetBuildingType(), nextTier, ResourceType.Metal).ToString();
-            upgradeMetalPremiumText.text = buildingData.GetBuildCost(building.GetBuildingType(), nextTier, ResourceType.MetalPremium).ToString();
+            upgradePopulationText.text = buildingData.GetBuildCost(building.GetBuildingType(), nextTier, ResourceType.Population).ToString("000");
+            upgradeMetalText.text = buildingData.GetBuildCost(building.GetBuildingType(), nextTier, ResourceType.Metal).ToString("000");
+            upgradeMetalPremiumText.text = buildingData.GetBuildCost(building.GetBuildingType(), nextTier, ResourceType.MetalPremium).ToString("000");
 
-            nextEnergyText.text = buildingData.GetMaintainCost(building.GetBuildingType(), nextTier, ResourceType.Energy).ToString();
-            nextFoodText.text = buildingData.GetMaintainCost(building.GetBuildingType(), nextTier, ResourceType.Food).ToString();
+            nextEnergyText.text = buildingData.GetMaintainCost(building.GetBuildingType(), nextTier, ResourceType.Energy).ToString("000");
+            nextFoodText.text = buildingData.GetMaintainCost(building.GetBuildingType(), nextTier, ResourceType.Food).ToString("000");
         }
 
         private void ResetBuildingUI()
@@ -294,6 +302,7 @@ namespace Managers
             currentBuildingPanel.SetActive(true);
 
             RefreshBuildingDefaultUI(building);
+            RefreshBuildingTypeUI(currentBuildingType);
         }
 
         private void OnCloseBuildingUIButton()
@@ -335,6 +344,19 @@ namespace Managers
             currentBuilding.Upgrade();
             RefreshBuildingDefaultUI(currentBuilding);
         }
+
+#endregion BuildingUICommonMethods
+
+#region BuildingUIHQMethods
+
+        private void RefreshHQPanel()
+        {
+            hqPopulationCapacityText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.PopulationCapacity).ToString("000");
+            hqEnergyRateText.text = ResourceManager.Instance.GetResourceConsumeAmount(ResourceType.Energy).ToString("000");
+            hqFoodRateText.text = ResourceManager.Instance.GetResourceConsumeAmount(ResourceType.Food).ToString("000");
+        }
+
+#endregion BuildingUIHQMethods
 
         private void OnSellMetalButton()
         {
@@ -381,7 +403,7 @@ namespace Managers
             ResourceManager.Instance.TryBuyResource(ResourceType.Energy, 1);
         }
 
-#endregion
+#endregion BuildingUIMethods
 
     }
 }

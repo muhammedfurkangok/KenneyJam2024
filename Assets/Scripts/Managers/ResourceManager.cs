@@ -203,6 +203,11 @@ namespace Managers
             return (from resource in currentYields where resource.resource == type select resource.amount).FirstOrDefault();
         }
 
+        public int GetResourceConsumeAmount(ResourceType type)
+        {
+            return GetMaintainCost(type) - GetYield(type);
+        }
+
         public bool IsResourceCritical(ResourceType type)
         {
             if (GetMaintainCost(type) == 0) return false; //If the resource is not consumed, it can't be critical, also prevents division by zero
