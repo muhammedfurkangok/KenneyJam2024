@@ -61,9 +61,9 @@ namespace Extensions
 
             foreach (BuildingBase building in buildings)
             {
-                if (building.MaintainCost != null)
+                if (building.GetMaintainCost() != null)
                 {
-                    foreach (BuildingResourceInfo resource in building.MaintainCost)
+                    foreach (BuildingResourceInfo resource in building.GetMaintainCost())
                     {
                         if (resource.resource == type)
                         {
@@ -71,9 +71,9 @@ namespace Extensions
                         }
                     }
                 }
-                if (building.Yield != null)
+                if (building.GetYield() != null)
                 {
-                    foreach (BuildingResourceInfo resource in building.Yield)
+                    foreach (BuildingResourceInfo resource in building.GetYield())
                     {
                         if (resource.resource == type)
                         {

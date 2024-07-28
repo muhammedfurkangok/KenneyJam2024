@@ -40,6 +40,10 @@ namespace Managers
         [SerializeField] private TextMeshProUGUI metalPremiumText;
         [SerializeField] private TextMeshProUGUI gemText;
 
+        [Header("Resource UI Parameters")]
+        [SerializeField] private Color criticalResourceColor;
+        [SerializeField] private Color fullResourceColor;
+
         [Header("Building UI Common References")]
         [SerializeField] private Canvas buildingUICanvas;
         [SerializeField] private GameObject buildingDefaultPanel;
@@ -80,6 +84,8 @@ namespace Managers
         private BuildingType currentBuildingType;
         private BuildingBase currentBuilding;
 
+        private Color defaultResourceAmountColor;
+
         private void Start()
         {
             //TimeUI
@@ -104,6 +110,9 @@ namespace Managers
             buyPopulationButton.onClick.AddListener(OnBuyPopulationButton);
             buyFoodBuFood.onClick.AddListener(OnBuyFoodButton);
             buyEnergyButton.onClick.AddListener(OnBuyEnergyButton);
+
+            //ResourceUI
+            defaultResourceAmountColor = populationText.color;
         }
 
         private void CommonButtonAction()
@@ -164,6 +173,13 @@ namespace Managers
             metalText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Metal).ToString("000");
             metalPremiumText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.MetalPremium).ToString("000");
             gemText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Gem).ToString("000");
+
+            var currentPopulation = ResourceManager.Instance.GetResourceAmount(ResourceType.Population);
+            var currentPopulationCapacity = ResourceManager.Instance.GetResourceAmount(ResourceType.PopulationCapacity);
+
+            populationText.color = currentPopulation == currentPopulationCapacity ? fullResourceColor : defaultResourceAmountColor;
+            energyText.color = ResourceManager.Instance.IsResourceCritical(ResourceType.Energy) ? criticalResourceColor : defaultResourceAmountColor;
+            foodText.color = ResourceManager.Instance.IsResourceCritical(ResourceType.Food) ? criticalResourceColor : defaultResourceAmountColor;
         }
 
 #endregion

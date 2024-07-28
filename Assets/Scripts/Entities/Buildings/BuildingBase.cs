@@ -1,4 +1,3 @@
-using System;
 using Data.ScriptableObjects;
 using Managers;
 using UnityEngine;
@@ -17,12 +16,10 @@ namespace Entities.Buildings
         [SerializeField] private BuildingResourceInfo[] maintainCost;
         [SerializeField] private BuildingResourceInfo[] yield;
 
-        //Agah
-        public BuildingResourceInfo[] MaintainCost { get => maintainCost; }
-        public BuildingResourceInfo[] Yield { get => yield; }
-        //Agah
+        public BuildingResourceInfo[] GetMaintainCost() => maintainCost;
+        public BuildingResourceInfo[] GetYield() => yield;
+        public BuildingType GetBuildingType() => type;
 
-        public BuildingType GetBuildingType() { return type;}   
         public override void Upgrade()
         {
             base.Upgrade();

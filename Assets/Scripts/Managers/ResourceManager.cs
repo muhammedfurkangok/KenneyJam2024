@@ -75,5 +75,10 @@ namespace Managers
 
             UIManager.Instance.RefreshResourceUI();
         }
+
+        public bool IsResourceCritical(ResourceType type)
+        {
+            return true;
+        }
     }
 }
