@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Data.ScriptableObjects;
 using Extensions;
 using UnityEngine;
 
@@ -7,6 +8,9 @@ namespace Managers
 {
     public class ResourceManager : SingletonMonoBehaviour<ResourceManager>
     {
+        [Header("References")]
+        [SerializeField] private ResourceData resourceData;
+
         [Header("Parameters")]
         [SerializeField] private ResourceAndAmount[] resourceStartAmounts;
         [SerializeField] private ResourceType[] lethalResources;
@@ -150,6 +154,43 @@ namespace Managers
                     }
                 }
             }
+        }
+
+        public bool TryBuyResource(ResourceType type, int amount)
+        {
+            var money = GetResourceAmount(ResourceType.Money);
+            var cost = resourceData.GetResourceMoneyValue(type) * amount;
+
+            if (type == ResourceType.Population)
+            {
+                var currentPopulation = GetResourceAmount(ResourceType.Population);
+                var currentCapacity = GetResourceAmount(ResourceType.PopulationCapacity);
+                var remainingCapacity = currentCapacity - currentPopulation;
+                if (remainingCapacity < amount) return false;
+            }
+
+            if (money >= cost)
+            {
+                DecreaseResource(ResourceType.Money, cost);
+                IncreaseResource(type, amount);
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool TrySellResource(ResourceType type, int amount)
+        {
+            var cost = resourceData.GetResourceMoneyValue(type) * amount;
+
+            if (GetResourceAmount(type) >= amount)
+            {
+                IncreaseResource(ResourceType.Money, cost);
+                DecreaseResource(type, amount);
+                return true;
+            }
+
+            return false;
         }
 
         public int GetMaintainCost(ResourceType type)

@@ -304,24 +304,21 @@ namespace Managers
         {
             CommonButtonAction();
 
-            ResourceManager.Instance.DecreaseResource(ResourceType.Metal, 1);
-            ResourceManager.Instance.IncreaseResource(ResourceType.Money, resourceData.GetResourceMoneyValue(ResourceType.Metal));
+            ResourceManager.Instance.TrySellResource(ResourceType.Metal, 1);
         }
 
         private void OnSellMetalPremiumButton()
         {
             CommonButtonAction();
 
-            ResourceManager.Instance.DecreaseResource(ResourceType.MetalPremium, 1);
-            ResourceManager.Instance.IncreaseResource(ResourceType.Money, resourceData.GetResourceMoneyValue(ResourceType.MetalPremium));
+            ResourceManager.Instance.TrySellResource(ResourceType.MetalPremium, 1);
         }
 
         private void OnSellGemButton()
         {
             CommonButtonAction();
 
-            ResourceManager.Instance.DecreaseResource(ResourceType.Gem, 1);
-            ResourceManager.Instance.IncreaseResource(ResourceType.Money, resourceData.GetResourceMoneyValue(ResourceType.Gem));
+            ResourceManager.Instance.TrySellResource(ResourceType.Gem, 1);
         }
 
         private void OnBuyPopulationButton()
@@ -331,24 +328,21 @@ namespace Managers
             if (ResourceManager.Instance.GetResourceAmount(ResourceType.Population) == ResourceManager.Instance.GetResourceAmount(ResourceType.PopulationCapacity))
                 return;
 
-            ResourceManager.Instance.DecreaseResource(ResourceType.Money, resourceData.GetResourceMoneyValue(ResourceType.Population));
-            ResourceManager.Instance.IncreaseResource(ResourceType.Population, 1);
+            ResourceManager.Instance.TryBuyResource(ResourceType.Population, 1);
         }
 
         private void OnBuyFoodButton()
         {
             CommonButtonAction();
 
-            ResourceManager.Instance.DecreaseResource(ResourceType.Money, resourceData.GetResourceMoneyValue(ResourceType.Food));
-            ResourceManager.Instance.IncreaseResource(ResourceType.Food, 1);
+            ResourceManager.Instance.TryBuyResource(ResourceType.Food, 1);
         }
 
         private void OnBuyEnergyButton()
         {
             CommonButtonAction();
 
-            ResourceManager.Instance.DecreaseResource(ResourceType.Money, resourceData.GetResourceMoneyValue(ResourceType.Energy));
-            ResourceManager.Instance.IncreaseResource(ResourceType.Energy, 1);
+            ResourceManager.Instance.TryBuyResource(ResourceType.Energy, 1);
         }
 
 #endregion
