@@ -22,6 +22,8 @@ namespace Managers
         {
             if (InputManager.Instance.GetInputMouseLeftClick())
             {
+                if (GameManager.Instance.GetCurrentGameState() is not GameState.Free) return;
+
                 if (!hasSelectedVehicle)
                 {
                     if (RaycastManager.Instance.RaycastFromMousePosition(VehicleLayerMask, out var hit))
@@ -32,7 +34,7 @@ namespace Managers
                         currentSelectedVehicle.Select();
 
                         GameManager.Instance.ChangeGameState(GameState.VehicleControl);
-                        CursorManager.Instance.SetVehicleTargetCursor();
+                        CursorManager.Instance.SetCursor(CursorType.VehicleControl);
                     }
                 }
 
@@ -47,6 +49,8 @@ namespace Managers
 
             else if (InputManager.Instance.GetInputMouseRightClick())
             {
+                if (GameManager.Instance.GetCurrentGameState() is not GameState.VehicleControl) return;
+
                 if (!hasSelectedVehicle) return;
                 currentSelectedVehicle.Deselect();
 
@@ -54,7 +58,7 @@ namespace Managers
                 hasSelectedVehicle = false;
 
                 GameManager.Instance.ChangeGameState(GameState.Free);
-                CursorManager.Instance.SetNormalCursor();
+                CursorManager.Instance.SetCursor(CursorType.Default);
             }
         }
     }

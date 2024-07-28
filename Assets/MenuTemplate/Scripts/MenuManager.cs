@@ -146,6 +146,9 @@ namespace MenuTemplate.Scripts
             canvas.SetActive(true);
             Time.timeScale = 0;
 
+            CursorManager.Instance.SetCursor(CursorType.Default);
+            GameManager.Instance.ChangeGameState(GameState.UI);
+
             //Add more pause menu logic here
         }
 
@@ -153,6 +156,9 @@ namespace MenuTemplate.Scripts
         {
             canvas.SetActive(false);
             Time.timeScale = TimeManager.Instance.GetCurrentTimeScale();
+
+            CursorManager.Instance.SetCursor(CursorManager.Instance.GetPreviousCursorType());
+            GameManager.Instance.ChangeGameState(GameManager.Instance.GetPreviousGameState());
 
             ResetMenu();
 

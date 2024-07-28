@@ -1,3 +1,4 @@
+using System;
 using Extensions;
 using UnityEngine;
 
@@ -6,18 +7,18 @@ namespace Managers
     public class CursorManager : SingletonMonoBehaviour<CursorManager>
     {
         [Header("References")]
-        [SerializeField] CursorTextureAndHotspot normalCursor;
-        [SerializeField] CursorTextureAndHotspot selectableCursor;
-        [SerializeField] CursorTextureAndHotspot vehicleTargetCursor;
-        [SerializeField] CursorTextureAndHotspot disabledCursor;
-        [SerializeField] CursorTextureAndHotspot mineCursor;
+        [SerializeField] private CursorInfo[] cursorInfos;
 
         [Header("Info - No Touch")]
         [SerializeField] private CursorType currentCursorType;
+        [SerializeField] private CursorType previousCursorType;
+
+        public CursorType GetCurrentCursorType() => currentCursorType;
+        public CursorType GetPreviousCursorType() => previousCursorType;
 
         private void Start()
         {
-            SetNormalCursor();
+            SetCursor(CursorType.Default);
         }
 
         private void Update()
@@ -25,56 +26,37 @@ namespace Managers
             if (GameManager.Instance.GetCurrentGameState() == GameState.VehicleControl) DecideVehicleStateCursor();
         }
 
-        public void SetNormalCursor()
+        public void SetCursor(CursorType type)
         {
-            if (currentCursorType == CursorType.Normal) return;
+            var cursorInfo = GetCursor(type);
+            if (currentCursorType == type) return;
 
-            Cursor.SetCursor(normalCursor.texture, normalCursor.hotspot, CursorMode.Auto);
-            currentCursorType = CursorType.Normal;
+            Cursor.SetCursor(cursorInfo.texture, cursorInfo.hotspot, CursorMode.Auto);
+
+            previousCursorType = currentCursorType;
+            currentCursorType = type;
         }
 
-        public void SetSelectableCursor()
+        public CursorInfo GetCursor(CursorType type)
         {
-            if (currentCursorType == CursorType.Selectable) return;
+            foreach (var cursorInfo in cursorInfos)
+            {
+                if (cursorInfo.type == type) return cursorInfo;
+            }
 
-            Cursor.SetCursor(selectableCursor.texture, selectableCursor.hotspot, CursorMode.Auto);
-            currentCursorType = CursorType.Selectable;
-        }
-
-        public void SetVehicleTargetCursor()
-        {
-            if (currentCursorType == CursorType.VehicleTarget) return;
-
-            Cursor.SetCursor(vehicleTargetCursor.texture, vehicleTargetCursor.hotspot, CursorMode.Auto);
-            currentCursorType = CursorType.VehicleTarget;
-        }
-
-        public void SetDisabledCursor()
-        {
-            if (currentCursorType == CursorType.Disabled) return;
-
-            Cursor.SetCursor(disabledCursor.texture, disabledCursor.hotspot, CursorMode.Auto);
-            currentCursorType = CursorType.Disabled;
-        }
-
-        public void SetMineCursor()
-        {
-            if (currentCursorType == CursorType.Mine) return;
-
-            Cursor.SetCursor(mineCursor.texture, mineCursor.hotspot, CursorMode.Auto);
-            currentCursorType = CursorType.Mine;
+            throw new Exception("Cursor type not found: " + type);
         }
 
         private void DecideVehicleStateCursor()
         {
             if (RaycastManager.Instance.RaycastFromMousePosition(Physics.AllLayers, out var hit))
             {
-                if (hit.collider.gameObject.layer == 3) SetVehicleTargetCursor();
-                else if (hit.collider.gameObject.layer == 8 && VehicleMovementManager.Instance.GetSelectedVehicleType() == VehicleType.Miner) SetMineCursor();
-                else SetDisabledCursor();
+                if (hit.collider.gameObject.layer == 3) SetCursor(CursorType.VehicleControl);
+                else if (hit.collider.gameObject.layer == 8 && VehicleMovementManager.Instance.GetSelectedVehicleType() == VehicleType.Miner) SetCursor(CursorType.Mine);
+                else SetCursor(CursorType.Disabled);
             }
 
-            else SetDisabledCursor();
+            else SetCursor(CursorType.Disabled);
 
         }
     }

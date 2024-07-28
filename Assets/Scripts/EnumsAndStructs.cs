@@ -45,9 +45,9 @@ public enum GameState
 
 public enum CursorType
 {
-    Normal,
+    Default,
     Selectable,
-    VehicleTarget,
+    VehicleControl,
     Disabled,
     Mine,
 }
@@ -126,8 +126,9 @@ public struct ResourceMoneyData
 }
 
 [Serializable]
-public struct CursorTextureAndHotspot
+public struct CursorInfo
 {
+    public CursorType type;
     public Texture2D texture;
     public Vector2 hotspot;
 }

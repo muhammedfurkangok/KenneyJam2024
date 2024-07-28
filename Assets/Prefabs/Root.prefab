@@ -284,22 +284,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c1e14d36d44c3a963fb451c6a70b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalCursor:
+  cursorInfos:
+  - type: 0
     texture: {fileID: 2800000, guid: dc9e2f6c8154a264bb632b2c7efd3518, type: 3}
     hotspot: {x: 0, y: 0}
-  selectableCursor:
+  - type: 1
     texture: {fileID: 2800000, guid: 4ef9959c02194114aa982ab7265cf990, type: 3}
     hotspot: {x: 0, y: 0}
-  vehicleTargetCursor:
+  - type: 2
     texture: {fileID: 2800000, guid: 84ca18b6a7128744196909c6a17cf7bc, type: 3}
     hotspot: {x: 32, y: 32}
-  disabledCursor:
+  - type: 3
     texture: {fileID: 2800000, guid: ab1bf539cc7660b4e9f6f46d841eb016, type: 3}
     hotspot: {x: 32, y: 32}
-  mineCursor:
+  - type: 4
     texture: {fileID: 2800000, guid: 2ecc19b3d8689fa4d9c7e324e7fe0173, type: 3}
     hotspot: {x: 16, y: 16}
   currentCursorType: 0
+  previousCursorType: 0
 --- !u!1 &520023464162828200
 GameObject:
   m_ObjectHideFlags: 0
@@ -2257,6 +2259,7 @@ MonoBehaviour:
   criticalResourceCycleThreshold: 5
   resources: []
   currentMaintainCosts: []
+  currentYields: []
 --- !u!1 &8361145607459724717
 GameObject:
   m_ObjectHideFlags: 0

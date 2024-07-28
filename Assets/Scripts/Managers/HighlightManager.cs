@@ -32,7 +32,7 @@ namespace Managers
 
                 hasHighlightedObject = true;
 
-                CursorManager.Instance.SetSelectableCursor();
+                CursorManager.Instance.SetCursor(CursorType.Selectable);
             }
 
             else ResetHighlightable();
@@ -46,7 +46,7 @@ namespace Managers
             hasHighlightedObject = false;
             currentHighlightable = null;
 
-            CursorManager.Instance.SetNormalCursor();
+            CursorManager.Instance.SetCursor(CursorType.Default);
         }
     }
 }
