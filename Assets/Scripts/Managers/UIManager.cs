@@ -255,6 +255,8 @@ namespace Managers
         private void RefreshBuildingTypeUI(BuildingType buildingType)
         {
             if (buildingType == BuildingType.HQ) RefreshHQPanel();
+            else if (buildingType == BuildingType.LivingSpace) RefreshLivingSpacePanel();
+            else if (buildingType == BuildingType.RocketSite) return;
 
             //Add new building types here
         }
@@ -335,6 +337,7 @@ namespace Managers
 
             currentBuildingPanel.SetActive(true);
             RefreshBuildingDefaultUI(currentBuilding);
+            RefreshBuildingTypeUI(currentBuildingType);
         }
 
         private void OnUpgradeButton()
@@ -357,6 +360,17 @@ namespace Managers
         }
 
 #endregion BuildingUIHQMethods
+
+#region BuildingUILivingSpaceMethods
+
+        private void RefreshLivingSpacePanel()
+        {
+            livingSpacePopulationText.text = ResourceManager.Instance.GetResourceAmount(ResourceType.Population).ToString("000");
+        }
+
+#endregion
+
+#region BuildingUIRocketSiteMethods
 
         private void OnSellMetalButton()
         {
@@ -402,6 +416,8 @@ namespace Managers
 
             ResourceManager.Instance.TryBuyResource(ResourceType.Energy, 1);
         }
+
+#endregion BuildingUIRocketSiteMethods
 
 #endregion BuildingUIMethods
 
