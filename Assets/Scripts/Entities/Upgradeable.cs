@@ -11,6 +11,8 @@ namespace Entities
         [Header("Upgradeable - Info - No Touch")]
         [SerializeField] protected int tier;
 
+        public int GetTier() => tier;
+
         public virtual void Upgrade()
         {
             tier++;

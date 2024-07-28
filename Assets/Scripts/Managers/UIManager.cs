@@ -1,3 +1,4 @@
+using System;
 using Data.ScriptableObjects;
 using DG.Tweening;
 using Entities.Buildings;
@@ -12,7 +13,9 @@ namespace Managers
 {
     public class UIManager : SingletonMonoBehaviour<UIManager>
     {
-        [Header("Resource Data")] [SerializeField] private ResourceData resourceData;
+        [Header("Data References")]
+        [SerializeField] private BuildingData buildingData;
+        [SerializeField] private ResourceData resourceData;
 
         [Header("Canvas References")]
         [SerializeField] private Canvas mainCanvas;
@@ -236,6 +239,49 @@ namespace Managers
 
 #region BuildingUIMethods
 
+        private GameObject BuildingTypeToPanel(BuildingType buildingType)
+        {
+            if (buildingType == BuildingType.HQ) return hqPanel;
+            else if (buildingType == BuildingType.LivingSpace) return livingSpacePanel;
+            else if (buildingType == BuildingType.RocketSite) return rocketSitePanel;
+
+            //Add new building types here
+
+            throw new Exception("Building type panel not found: " + buildingType);
+        }
+
+        private void RefreshBuildingDefaultUI(BuildingBase building)
+        {
+            currentTierValueText.text = building.GetTier().ToString();
+
+            currentEnergyText.text = buildingData.GetMaintainCost(building.GetBuildingType(), building.GetTier(), ResourceType.Energy).ToString();
+            currentFoodText.text = buildingData.GetMaintainCost(building.GetBuildingType(), building.GetTier(), ResourceType.Food).ToString();
+        }
+
+        private void RefreshBuildingUpgradeUI(BuildingBase building)
+        {
+            var nextTier = building.GetTier() + 1;
+
+            upgradePopulationText.text = buildingData.GetBuildCost(building.GetBuildingType(), nextTier, ResourceType.Population).ToString();
+            upgradeMetalText.text = buildingData.GetBuildCost(building.GetBuildingType(), nextTier, ResourceType.Metal).ToString();
+            upgradeMetalPremiumText.text = buildingData.GetBuildCost(building.GetBuildingType(), nextTier, ResourceType.MetalPremium).ToString();
+
+            nextEnergyText.text = buildingData.GetMaintainCost(building.GetBuildingType(), nextTier, ResourceType.Energy).ToString();
+            nextFoodText.text = buildingData.GetMaintainCost(building.GetBuildingType(), nextTier, ResourceType.Food).ToString();
+        }
+
+        private void ResetBuildingUI()
+        {
+            buildingDefaultPanel.SetActive(true);
+
+            buildingUpgradePanel.SetActive(false);
+            hqPanel.SetActive(false);
+            livingSpacePanel.SetActive(false);
+            rocketSitePanel.SetActive(false);
+
+            //Add new building panels here
+        }
+
         public void OpenBuildingUI(BuildingBase building)
         {
             GameManager.Instance.ChangeGameState(GameState.UI);
@@ -246,39 +292,8 @@ namespace Managers
 
             buildingUICanvas.gameObject.SetActive(true);
             currentBuildingPanel.SetActive(true);
-        }
 
-        private GameObject BuildingTypeToPanel(BuildingType buildingType)
-        {
-            if (buildingType == BuildingType.HQ) return hqPanel;
-            else if (buildingType == BuildingType.LivingSpace) return livingSpacePanel;
-            else if (buildingType == BuildingType.RocketSite) return rocketSitePanel;
-            else return buildingDefaultPanel;
-        }
-
-        private void OnUpgradePanelButton()
-        {
-            CommonButtonAction();
-
-            buildingDefaultPanel.SetActive(false);
-            buildingUpgradePanel.SetActive(true);
-            currentBuildingPanel.SetActive(false);
-        }
-
-        private void OnBackFromUpgradePanelButton()
-        {
-            CommonButtonAction();
-
-            buildingDefaultPanel.SetActive(true);
-            buildingUpgradePanel.SetActive(false);
-            currentBuildingPanel.SetActive(true);
-        }
-
-        private void OnUpgradeButton()
-        {
-            CommonButtonAction();
-
-            currentBuilding.Upgrade();
+            RefreshBuildingDefaultUI(building);
         }
 
         private void OnCloseBuildingUIButton()
@@ -291,14 +306,34 @@ namespace Managers
             buildingUICanvas.gameObject.SetActive(false);
         }
 
-        private void ResetBuildingUI()
+        private void OnUpgradePanelButton()
         {
-            buildingDefaultPanel.SetActive(true);
+            CommonButtonAction();
 
+            buildingDefaultPanel.SetActive(false);
+            buildingUpgradePanel.SetActive(true);
+
+            currentBuildingPanel.SetActive(false);
+            RefreshBuildingUpgradeUI(currentBuilding);
+        }
+
+        private void OnBackFromUpgradePanelButton()
+        {
+            CommonButtonAction();
+
+            buildingDefaultPanel.SetActive(true);
             buildingUpgradePanel.SetActive(false);
-            hqPanel.SetActive(false);
-            livingSpacePanel.SetActive(false);
-            rocketSitePanel.SetActive(false);
+
+            currentBuildingPanel.SetActive(true);
+            RefreshBuildingDefaultUI(currentBuilding);
+        }
+
+        private void OnUpgradeButton()
+        {
+            CommonButtonAction();
+
+            currentBuilding.Upgrade();
+            RefreshBuildingDefaultUI(currentBuilding);
         }
 
         private void OnSellMetalButton()

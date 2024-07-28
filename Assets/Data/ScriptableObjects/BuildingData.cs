@@ -9,7 +9,7 @@ namespace Data.ScriptableObjects
         [Header("Building Costs")]
         [SerializeField] private BuildingCostAndYieldData[] buildingCostAndYieldDatas;
 
-        public ResourceAndAmount[] GetBuildCost(BuildingType buildingType, int buildingTier)
+        public ResourceAndAmount[] GetBuildCostArray(BuildingType buildingType, int buildingTier)
         {
             foreach (var buildingCostAndYieldData in buildingCostAndYieldDatas)
             {
@@ -22,7 +22,26 @@ namespace Data.ScriptableObjects
             throw new Exception("Building cost not found for: " + buildingType + " " + buildingTier);
         }
 
-        public ResourceAndAmount[] GetMaintainCost(BuildingType buildingType, int buildingTier)
+        public int GetBuildCost(BuildingType buildingType, int buildingTier, ResourceType resourceType)
+        {
+            foreach (var buildingCostAndYieldData in buildingCostAndYieldDatas)
+            {
+                if (buildingCostAndYieldData.type == buildingType && buildingCostAndYieldData.tier == buildingTier)
+                {
+                    foreach (var resourceAndAmount in buildingCostAndYieldData.buildCost)
+                    {
+                        if (resourceAndAmount.resource == resourceType)
+                        {
+                            return resourceAndAmount.amount;
+                        }
+                    }
+                }
+            }
+
+            return 0;
+        }
+
+        public ResourceAndAmount[] GetMaintainCostArray(BuildingType buildingType, int buildingTier)
         {
             foreach (var buildingCostData in buildingCostAndYieldDatas)
             {
@@ -33,6 +52,25 @@ namespace Data.ScriptableObjects
             }
 
             throw new Exception("Building maintain cost not found for: " + buildingType + " " + buildingTier);
+        }
+
+        public int GetMaintainCost(BuildingType buildingType, int buildingTier, ResourceType resourceType)
+        {
+            foreach (var buildingCostAndYieldData in buildingCostAndYieldDatas)
+            {
+                if (buildingCostAndYieldData.type == buildingType && buildingCostAndYieldData.tier == buildingTier)
+                {
+                    foreach (var resourceAndAmount in buildingCostAndYieldData.maintainCost)
+                    {
+                        if (resourceAndAmount.resource == resourceType)
+                        {
+                            return resourceAndAmount.amount;
+                        }
+                    }
+                }
+            }
+
+            return 0;
         }
 
         public ResourceAndAmount[] GetYield(BuildingType buildingType, int buildingTier)

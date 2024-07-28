@@ -27,20 +27,20 @@ namespace Entities.Buildings
             ResourceManager.Instance.DecreaseMaintainCost(maintainCost);
             ResourceManager.Instance.DecreaseYield(yield);
 
-            maintainCost = buildingData.GetMaintainCost(type, tier);
+            maintainCost = buildingData.GetMaintainCostArray(type, tier);
             yield = buildingData.GetYield(type, tier);
 
             ResourceManager.Instance.IncreaseMaintainCost(maintainCost);
             ResourceManager.Instance.IncreaseYield(yield);
 
-            foreach (var resource in buildingData.GetBuildCost(type, tier)) ResourceManager.Instance.DecreaseResource(resource.resource, resource.amount);
+            foreach (var resource in buildingData.GetBuildCostArray(type, tier)) ResourceManager.Instance.DecreaseResource(resource.resource, resource.amount);
         }
 
         protected virtual void Start()
         {
             TimeManager.Instance.OnTimeCycleCompleted += OnTimeCycleCompleted;
 
-            maintainCost = buildingData.GetMaintainCost(type, tier);
+            maintainCost = buildingData.GetMaintainCostArray(type, tier);
             yield = buildingData.GetYield(type, tier);
 
             ResourceManager.Instance.IncreaseMaintainCost(maintainCost);
