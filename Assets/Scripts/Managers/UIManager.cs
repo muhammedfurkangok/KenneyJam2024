@@ -52,14 +52,14 @@ namespace Managers
         [SerializeField] private Button backFromUpgradePanelButton;
         [SerializeField] private Button upgradeButton;
         [SerializeField] private Button closeBuildingUIButton;
-        [SerializeField] private TextMeshProUGUI currentTierText;
-        [SerializeField] private TextMeshProUGUI currentFoodText;
+        [SerializeField] private TextMeshProUGUI currentTierValueText;
         [SerializeField] private TextMeshProUGUI currentEnergyText;
-        [SerializeField] private TextMeshProUGUI nextFoodText;
+        [SerializeField] private TextMeshProUGUI currentFoodText;
+        [SerializeField] private TextMeshProUGUI upgradePopulationText;
+        [SerializeField] private TextMeshProUGUI upgradeMetalText;
+        [SerializeField] private TextMeshProUGUI upgradeMetalPremiumText;
         [SerializeField] private TextMeshProUGUI nextEnergyText;
-        [SerializeField] private TextMeshProUGUI bPopulationText;
-        [SerializeField] private TextMeshProUGUI bMetalText;
-        [SerializeField] private TextMeshProUGUI bMetalPremiumText;
+        [SerializeField] private TextMeshProUGUI nextFoodText;
 
         [Header("Building UI HQ References")]
         [SerializeField] private GameObject hqPanel;
@@ -80,9 +80,9 @@ namespace Managers
         [SerializeField] private Button buyFoodBuFood;
         [SerializeField] private Button buyEnergyButton;
 
-        private GameObject currentBuildingPanel;
-        private BuildingType currentBuildingType;
         private BuildingBase currentBuilding;
+        private BuildingType currentBuildingType;
+        private GameObject currentBuildingPanel;
 
         private Color defaultResourceAmountColor;
 
@@ -242,9 +242,10 @@ namespace Managers
 
             currentBuilding = building;
             currentBuildingType = currentBuilding.GetBuildingType();
+            currentBuildingPanel = BuildingTypeToPanel(currentBuildingType);
 
             buildingUICanvas.gameObject.SetActive(true);
-            BuildingTypeToPanel(currentBuildingType).SetActive(true);
+            currentBuildingPanel.SetActive(true);
         }
 
         private GameObject BuildingTypeToPanel(BuildingType buildingType)
