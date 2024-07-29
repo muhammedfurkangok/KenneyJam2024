@@ -130,6 +130,7 @@ MonoBehaviour:
   type: 4
   maintainCost: []
   yield: []
+  capacity: 5
 --- !u!114 &2696733880337751652
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -80,17 +80,35 @@ namespace Managers
         [SerializeField] private Button sellMetalPremiumButton;
         [SerializeField] private Button sellGemButton;
         [SerializeField] private Button buyPopulationButton;
-        [SerializeField] private Button buyFoodBuFood;
         [SerializeField] private Button buyEnergyButton;
+        [SerializeField] private Button buyFoodButton;
+        [SerializeField] private TextMeshProUGUI metalMoneyAmountText;
+        [SerializeField] private TextMeshProUGUI metalPremiumMoneyAmountText;
+        [SerializeField] private TextMeshProUGUI gemMoneyAmountText;
+        [SerializeField] private TextMeshProUGUI populationMoneyAmountText;
+        [SerializeField] private TextMeshProUGUI energyMoneyAmountText;
+        [SerializeField] private TextMeshProUGUI foodMoneyAmountText;
+        [SerializeField] private TextMeshProUGUI metalOnCartText;
+        [SerializeField] private TextMeshProUGUI metalPremiumOnCartText;
+        [SerializeField] private TextMeshProUGUI gemOnCartText;
+        [SerializeField] private TextMeshProUGUI populationOnCartText;
+        [SerializeField] private TextMeshProUGUI energyOnCartText;
+        [SerializeField] private TextMeshProUGUI foodOnCartText;
+        [SerializeField] private TextMeshProUGUI moneyBalanceText;
+        [SerializeField] private TextMeshProUGUI goCapacityText;
+        [SerializeField] private TextMeshProUGUI returnCapacityText;
 
-        private BuildingBase currentBuilding;
-        private BuildingType currentBuildingType;
-        private GameObject currentBuildingPanel;
-
-        private Color defaultResourceAmountColor;
+        [Header("General Info - No Touch")]
+        [SerializeField] private BuildingBase currentBuilding;
+        [SerializeField] private BuildingType currentBuildingType;
+        [SerializeField] private GameObject currentBuildingPanel;
+        [SerializeField] private Color defaultResourceAmountColor;
 
         private void Start()
         {
+            //ResourceUI
+            defaultResourceAmountColor = populationText.color;
+
             //TimeUI
             gameSpeedText.text = "Speed: " + Time.timeScale.ToString("0.00");
             increaseSpeedButton.onClick.AddListener(OnIncreaseTimeScaleButton);
@@ -111,11 +129,16 @@ namespace Managers
             sellMetalPremiumButton.onClick.AddListener(OnSellMetalPremiumButton);
             sellGemButton.onClick.AddListener(OnSellGemButton);
             buyPopulationButton.onClick.AddListener(OnBuyPopulationButton);
-            buyFoodBuFood.onClick.AddListener(OnBuyFoodButton);
             buyEnergyButton.onClick.AddListener(OnBuyEnergyButton);
+            buyFoodButton.onClick.AddListener(OnBuyFoodButton);
 
-            //ResourceUI
-            defaultResourceAmountColor = populationText.color;
+            //BuildingUI - RocketSiteUI
+            metalMoneyAmountText.text = resourceData.GetResourceMoneyValue(ResourceType.Metal).ToString("000");
+            metalPremiumMoneyAmountText.text = resourceData.GetResourceMoneyValue(ResourceType.MetalPremium).ToString("000");
+            gemMoneyAmountText.text = resourceData.GetResourceMoneyValue(ResourceType.Gem).ToString("000");
+            populationMoneyAmountText.text = resourceData.GetResourceMoneyValue(ResourceType.Population).ToString("000");
+            foodMoneyAmountText.text = resourceData.GetResourceMoneyValue(ResourceType.Food).ToString("000");
+            energyMoneyAmountText.text = resourceData.GetResourceMoneyValue(ResourceType.Energy).ToString("000");
         }
 
         private void CommonButtonAction()
@@ -256,7 +279,8 @@ namespace Managers
         {
             if (buildingType == BuildingType.HQ) RefreshHQPanel();
             else if (buildingType == BuildingType.LivingSpace) RefreshLivingSpacePanel();
-            else if (buildingType == BuildingType.RocketSite) return;
+
+            else if (buildingType == BuildingType.RocketSite) RefreshRocketSitePanel();
 
             //Add new building types here
         }
@@ -287,7 +311,9 @@ namespace Managers
             buildingUpgradePanel.SetActive(false);
             hqPanel.SetActive(false);
             livingSpacePanel.SetActive(false);
+
             rocketSitePanel.SetActive(false);
+            TradeManager.Instance.ClearTradeData();
 
             //Add new building panels here
         }
@@ -372,49 +398,70 @@ namespace Managers
 
 #region BuildingUIRocketSiteMethods
 
+        private void RefreshRocketSitePanel()
+        {
+            TradeManager.Instance.currentRocketSite = currentBuilding as RocketSite;
+
+            metalOnCartText.text = TradeManager.Instance.GetResourceAmountOnCart(ResourceType.Metal, false).ToString("000");
+            metalPremiumOnCartText.text = TradeManager.Instance.GetResourceAmountOnCart(ResourceType.MetalPremium, false).ToString("000");
+            gemOnCartText.text = TradeManager.Instance.GetResourceAmountOnCart(ResourceType.Gem, false).ToString("000");
+            populationOnCartText.text = TradeManager.Instance.GetResourceAmountOnCart(ResourceType.Population, true).ToString("000");
+            energyOnCartText.text = TradeManager.Instance.GetResourceAmountOnCart(ResourceType.Energy, true).ToString("000");
+            foodOnCartText.text = TradeManager.Instance.GetResourceAmountOnCart(ResourceType.Food, true).ToString("000");
+
+            moneyBalanceText.text = "Money Balance: " + TradeManager.Instance.GetMoneyInCart().ToString("000");
+            moneyBalanceText.color = TradeManager.Instance.GetMoneyInCart() < 0 ? criticalResourceColor : fullResourceColor;
+
+            goCapacityText.text = "GO Capacity: " + TradeManager.Instance.GetSellCartSize().ToString("000");
+            returnCapacityText.text = "Return Capacity: " + TradeManager.Instance.GetBuyCartSize().ToString("000");
+        }
+
         private void OnSellMetalButton()
         {
             CommonButtonAction();
 
-            ResourceManager.Instance.TrySellResource(ResourceType.Metal, 1);
+            TradeManager.Instance.TryAddToCart(ResourceType.Metal, 1, false);
+            RefreshRocketSitePanel();
         }
 
         private void OnSellMetalPremiumButton()
         {
             CommonButtonAction();
 
-            ResourceManager.Instance.TrySellResource(ResourceType.MetalPremium, 1);
+            TradeManager.Instance.TryAddToCart(ResourceType.MetalPremium, 1, false);
+            RefreshRocketSitePanel();
         }
 
         private void OnSellGemButton()
         {
             CommonButtonAction();
 
-            ResourceManager.Instance.TrySellResource(ResourceType.Gem, 1);
+            TradeManager.Instance.TryAddToCart(ResourceType.Gem, 1, false);
+            RefreshRocketSitePanel();
         }
 
         private void OnBuyPopulationButton()
         {
             CommonButtonAction();
 
-            if (ResourceManager.Instance.GetResourceAmount(ResourceType.Population) == ResourceManager.Instance.GetResourceAmount(ResourceType.PopulationCapacity))
-                return;
-
-            ResourceManager.Instance.TryBuyResource(ResourceType.Population, 1);
+            TradeManager.Instance.TryAddToCart(ResourceType.Population, 1, true);
+            RefreshRocketSitePanel();
         }
 
         private void OnBuyFoodButton()
         {
             CommonButtonAction();
 
-            ResourceManager.Instance.TryBuyResource(ResourceType.Food, 1);
+            TradeManager.Instance.TryAddToCart(ResourceType.Food, 1, true);
+            RefreshRocketSitePanel();
         }
 
         private void OnBuyEnergyButton()
         {
             CommonButtonAction();
 
-            ResourceManager.Instance.TryBuyResource(ResourceType.Energy, 1);
+            TradeManager.Instance.TryAddToCart(ResourceType.Energy, 1, true);
+            RefreshRocketSitePanel();
         }
 
 #endregion BuildingUIRocketSiteMethods
